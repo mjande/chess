@@ -54,4 +54,32 @@ class Board
     position_array[0][4] = King.new('black')
     position_array[7][4] = King.new('white')
   end
+
+  def display
+    horizontal_line = '  --------------------------------- '
+    column_labels = '    a   b   c   d   e   f   g   h   '
+
+    printable_board = clean_rows.join("#{horizontal_line}\n")
+
+    puts horizontal_line
+    puts printable_board
+    puts horizontal_line
+    puts column_labels
+  end
+
+  def clean_rows
+    row_number = 8
+    clean_rows = position_array.each do |row|
+      row.map! { |position| position.nil? ? ' ' : position }
+      row.unshift(row_number)
+      row.push("\n")
+      row_number -= 1
+    end
+
+    clean_rows.map { |row| row.join(' | ') }
+  end
 end
+
+board = Board.new
+board.set_up
+board.display
