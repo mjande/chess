@@ -15,4 +15,3 @@ Board Class
 Player Class
 
 -Ask player for next move
--Send message to Board

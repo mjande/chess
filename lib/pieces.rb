@@ -1,15 +1,22 @@
 class Piece
-  def initialize(color)
+  def initialize(color, row, column)
     @color = color
+    @row = row
+    @column = column
   end
 end
 
-class Pawn < Piece
+class WhitePawn < Piece
   attr_reader :color
 
   def to_s
-    return '♙' if color == 'white'
-    '♟' if color == 'black'
+    '♙'
+  end
+end
+
+class BlackPawn < Piece
+  def to_s
+    '♟'
   end
 end
 
@@ -18,6 +25,7 @@ class Rook < Piece
 
   def to_s
     return '♖' if color == 'white'
+
     '♜' if color == 'black'
   end
 end
@@ -27,6 +35,7 @@ class Knight < Piece
 
   def to_s
     return '♘' if color == 'white'
+
     '♞' if color == 'black'
   end
 end
@@ -36,6 +45,7 @@ class Bishop < Piece
 
   def to_s
     return '♗' if color == 'white'
+
     '♝' if color == 'black'
   end
 end
@@ -45,6 +55,7 @@ class Queen < Piece
 
   def to_s
     return '♕' if color == 'white'
+
     '♛' if color == 'black'
   end
 end
@@ -54,6 +65,7 @@ class King < Piece
 
   def to_s
     return '♔' if color == 'white'
+
     '♚' if color == 'black'
   end
 end

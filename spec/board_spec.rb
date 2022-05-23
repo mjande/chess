@@ -9,13 +9,13 @@ describe Board do
       new_board.set_up
       correct_board = 
         [[Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook],
-        [Pawn, Pawn, Pawn, Pawn, Pawn, Pawn, Pawn, Pawn],
-        [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-        [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-        [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-        [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-        [Pawn, Pawn, Pawn, Pawn, Pawn, Pawn, Pawn, Pawn],
-        [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]]
+         [BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn],
+         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
+         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
+         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
+         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
+         [WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn],
+         [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]]
 
       correct_board.each_with_index do |row, row_index|
         row.each_with_index do |type, column_index|
