@@ -3,15 +3,22 @@ class Player
     puts 'Input the coordinates of your next move.'
     loop do
       input = gets.chomp.chars
-      next unless valid_input?(input)
-      
-      return convert_to_indices(input)
+      column = input[0]
+      row = input[1].to_i
+      next unless valid_input?(column, row)
+
+      return convert_to_numbered_coordinates(column, row)
     end
   end
 
-  def valid_input?(_)
+  def valid_input?(column, row)
+    ('a'..'h').include?(column) && (1..8).include?(row)
   end
 
-  def convert_to_indices(_)
+  def convert_to_numbered_coordinates(column, row)
+    letters_array = ('a'..'h').to_a
+    clean_column = letters_array.find_index(column)
+    clean_row = 8 - row
+    [clean_row, clean_column]
   end
 end
