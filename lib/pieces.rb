@@ -88,32 +88,51 @@ class Knight < Piece
 end
 
 class Bishop < Piece
-  attr_reader :color
+  WHITE_START = [[7, 2], [7, 5]]
+  BLACK_START = [[0, 2], [0, 5]]
 
-  def to_s
-    return '♗' if color == 'white'
+  def self.create_pieces(color, board)
+    bishops = []
+    if color == 'white'
+      starting_positions = WHITE_START
+      symbol = '♗'
+    else
+      starting_positions = BLACK_START
+      symbol = '♝'
+    end
 
-    '♝' if color == 'black'
+    starting_positions.each do |position|
+      row = position[0]
+      column = position[1]
+      bishop = new(row, column)
+      bishops << bishop
+      board.position_array[row][column] = symbol
+    end
+    bishops
   end
 end
 
 class Queen < Piece
-  attr_reader :color
-
-  def to_s
-    return '♕' if color == 'white'
-
-    '♛' if color == 'black'
+  def self.create_pieces(color, board)
+    if color == 'white'
+      board.position_array[7][3] = '♕'
+      new(7, 3)
+    else
+      board.position_array[0][3] = '♛'
+      new(0, 3)
+    end
   end
 end
 
 class King < Piece
-  attr_reader :color
-
-  def to_s
-    return '♔' if color == 'white'
-
-    '♚' if color == 'black'
+  def self.create_pieces(color, board)
+    if color == 'white'
+      board.position_array[7][4] = '♔'
+      new(7, 4)
+    else
+      board.position_array[0][4] = '♚'
+      new(0, 4)
+    end
   end
 end
   

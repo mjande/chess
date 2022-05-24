@@ -15,10 +15,16 @@ class Player
       @pieces << WhitePawn.create_pieces(board)
       @pieces << Rook.create_pieces('white', board)
       @pieces << Knight.create_pieces('white', board)
+      @pieces << Bishop.create_pieces('white', board)
+      @pieces << Queen.create_pieces('white', board)
+      @pieces << King.create_pieces('white', board)
     when 'black'
       @pieces << BlackPawn.create_pieces(board)
       @pieces << Rook.create_pieces('black', board)
       @pieces << Knight.create_pieces('black', board)
+      @pieces << Bishop.create_pieces('black', board)
+      @pieces << Queen.create_pieces('black', board)
+      @pieces << King.create_pieces('black', board)
     end
   end
 
