@@ -5,7 +5,6 @@ class Board
 
   def initialize
     @position_array = Array.new(8) { Array.new(8, nil) }
-    # 8.times { |row_number| data_array[row_number].prepend(row_number) }
   end
 
   def set_up
@@ -68,9 +67,12 @@ class Board
   end
 
   def clean_rows
+    clean_rows = position_array.map do |row|
+      row.map { |position| position.nil? ? ' ' : position }
+    end
+
     row_number = 8
-    clean_rows = position_array.each do |row|
-      row.map! { |position| position.nil? ? ' ' : position }
+    clean_rows.each do |row|
       row.unshift(row_number)
       row.push("\n")
       row_number -= 1
@@ -79,7 +81,3 @@ class Board
     clean_rows.map { |row| row.join(' | ') }
   end
 end
-
-board = Board.new
-board.set_up
-board.display

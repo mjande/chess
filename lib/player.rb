@@ -1,4 +1,27 @@
+require_relative 'pieces'
+
 class Player
+  attr_reader :color, :board
+
+  def initialize(color, board)
+    @color = color
+    @board = board
+  end
+
+  def create_pieces
+    @pieces = []
+    case color
+    when 'white'
+      @pieces << WhitePawn.create_pieces(board)
+      @pieces << Rook.create_pieces('white', board)
+      @pieces << Knight.create_pieces('white', board)
+    when 'black'
+      @pieces << BlackPawn.create_pieces(board)
+      @pieces << Rook.create_pieces('black', board)
+      @pieces << Knight.create_pieces('black', board)
+    end
+  end
+
   def input_move
     puts 'Input the coordinates of your next move.'
     loop do
