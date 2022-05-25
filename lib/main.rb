@@ -4,7 +4,7 @@ require_relative 'player'
 board = Board.new
 board.display
 white = Player.new('white', board)
-white.create_pieces
+white.add_pieces_to_board
 black = Player.new('black', board)
-black.create_pieces
+black.add_pieces_to_board
 board.display

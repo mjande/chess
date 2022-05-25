@@ -1,34 +1,16 @@
 require './lib/board'
 
 describe Board do
-  
-  describe '#set_up' do
-    subject(:new_board) { described_class.new }
-
-    it 'adds the pieces to their correct starting position' do
-      new_board.set_up
-      correct_board = 
-        [[Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook],
-         [BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn, BlackPawn],
-         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-         [NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass, NilClass],
-         [WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn, WhitePawn],
-         [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]]
-
-      correct_board.each_with_index do |row, row_index|
-        row.each_with_index do |type, column_index|
-          expect(new_board.position_array[row_index][column_index]).to be_instance_of(type)
-        end
-      end
-    end
-  end
-
   describe '#display' do
+    # No way to initialize pieces on the board without using Player class, so I
+    # can't think of a way to test display without an integration test, so I'm
+    # just going to leave it alone for now. Going to comment this previous test
+    # out just in case I want to test that massive string sometime down the road.
+
+=begin
     context 'at the start of the game' do
       subject(:new_board) { described_class.new }
-      
+
       it 'prints the starting board' do
         starting_board_display =
         "  --------------------------------- \n" +
@@ -49,9 +31,10 @@ describe Board do
         "1 | ♖ | ♘ | ♗ | ♕ | ♔ | ♗ | ♘ | ♖ | \n" +
         "  --------------------------------- \n" +
         "    a   b   c   d   e   f   g   h   \n"
-        new_board.set_up
-        expect{ new_board.display }.to output(starting_board_display).to_stdout
+
+        expect { new_board.display }.to output(starting_board_display).to_stdout
       end
     end
   end
+=end
 end

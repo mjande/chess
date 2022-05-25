@@ -2,7 +2,8 @@ require_relative '../lib/player'
 
 describe Player do
   describe '#input_move' do
-    subject(:player) { described_class.new }
+    let(:board) { double('board') }
+    subject(:player) { described_class.new('white', board) }
 
     before do
       allow(player).to receive(:puts)
@@ -23,7 +24,8 @@ describe Player do
   end
 
   describe '#valid_input?' do
-    subject(:input) { described_class.new }
+    let(:board) { double('board') }
+    subject(:input) { described_class.new('white', board) }
 
     it 'returns true if both coordinates are valid' do
       expect(input.valid_input?('a', 1)).to be_truthy
@@ -39,7 +41,8 @@ describe Player do
   end
 
   describe '#convert_to_numbered_coordinates' do
-    subject(:coordinates) { described_class.new }
+    let(:board) { double('board') }
+    subject(:coordinates) { described_class.new('white', board) }
 
     it 'returns [7, 0] for a1' do
       expect(coordinates.convert_to_numbered_coordinates('a', 1)).to eq([7, 0])

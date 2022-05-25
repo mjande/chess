@@ -8,23 +8,23 @@ class Player
     @board = board
   end
 
-  def create_pieces
+  def add_pieces_to_board
     @pieces = []
     case color
     when 'white'
-      @pieces << WhitePawn.create_pieces(board)
-      @pieces << Rook.create_pieces('white', board)
-      @pieces << Knight.create_pieces('white', board)
-      @pieces << Bishop.create_pieces('white', board)
-      @pieces << Queen.create_pieces('white', board)
-      @pieces << King.create_pieces('white', board)
+      @pieces << WhitePawn.add_to_board('white', board)
+      @pieces << Rook.add_to_board('white', board)
+      @pieces << Knight.add_to_board('white', board)
+      @pieces << Bishop.add_to_board('white', board)
+      @pieces << Queen.add_to_board('white', board)
+      @pieces << King.add_to_board('white', board)
     when 'black'
-      @pieces << BlackPawn.create_pieces(board)
-      @pieces << Rook.create_pieces('black', board)
-      @pieces << Knight.create_pieces('black', board)
-      @pieces << Bishop.create_pieces('black', board)
-      @pieces << Queen.create_pieces('black', board)
-      @pieces << King.create_pieces('black', board)
+      @pieces << BlackPawn.add_to_board('black', board)
+      @pieces << Rook.add_to_board('black', board)
+      @pieces << Knight.add_to_board('black', board)
+      @pieces << Bishop.add_to_board('black', board)
+      @pieces << Queen.add_to_board('black', board)
+      @pieces << King.add_to_board('black', board)
     end
   end
 
