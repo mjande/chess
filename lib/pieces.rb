@@ -69,14 +69,4 @@ class King < Piece
   WHITE_SYMBOL = '♔'.freeze
   BLACK_STARTING_POSITIONS = [[0, 4]].freeze
   BLACK_SYMBOL = '♚'.freeze
-  
-  def self.create_pieces(color, board)
-    if color == 'white'
-      board.position_array[7][4] = '♔'
-      new(7, 4)
-    else
-      board.position_array[0][4] = '♚'
-      new(0, 4)
-    end
-  end
 end

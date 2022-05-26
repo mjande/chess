@@ -35,6 +35,6 @@ describe Board do
         expect { new_board.display }.to output(starting_board_display).to_stdout
       end
     end
-  end
 =end
+  end
 end
