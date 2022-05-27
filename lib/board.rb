@@ -13,7 +13,7 @@ class Board
       row.map.with_index do |position, column_index|
         if row_index.even?
           if column_index.even?
-            position.colorize(background: :light_white)
+            position.colorize(background: :light_cyan)
           else
             position.colorize(background: :light_blue)
           end
@@ -21,7 +21,7 @@ class Board
           if column_index.even?
             position.colorize(background: :light_blue)
           else
-            position.colorize(background: :light_white)
+            position.colorize(background: :light_cyan)
           end
         end
       end
@@ -29,7 +29,7 @@ class Board
   end
 
   def display
-    column_labels = '  a  b  c  d  e  f  g  h   '
+    column_labels = '   a  b  c  d  e  f  g  h   '
     
     printable_board = clean_rows
 
