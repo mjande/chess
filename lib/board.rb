@@ -29,14 +29,11 @@ class Board
   end
 
   def display
-    horizontal_line = '  --------------------------------- '
-    column_labels = '    a   b   c   d   e   f   g   h   '
+    column_labels = '  a  b  c  d  e  f  g  h   '
     
-    printable_board = clean_rows.join("#{horizontal_line}\n")
+    printable_board = clean_rows
 
-    puts horizontal_line
     puts printable_board
-    puts horizontal_line
     puts column_labels
   end
 
@@ -49,11 +46,11 @@ class Board
 
     row_number = 8
     clean_rows.each do |row|
-      row.unshift(row_number)
+      row.unshift("#{row_number} ")
       row.push("\n")
       row_number -= 1
     end
 
-    clean_rows.map { |row| row.join('|') }
+    clean_rows.join
   end
 end
