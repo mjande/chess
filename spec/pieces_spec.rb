@@ -2,13 +2,14 @@ require_relative '../lib/pieces'
 
 describe Piece do
   describe '#Piece.add_to_board' do
-    let(:position_array) { Array.new(8) { Array.new(7, nil)} }
-    let(:board) { double('board', position_array: position_array) }
+    let(:positions) { Array.new(8) { Array.new(7, nil)} }
+    let(:board) { double('board', positions: positions) }
 
     it 'assigns pieces to starting position' do
       Rook.add_to_board('white', board)
-      expect(board.position_array[7][0]).to eq('♖')
-      expect(board.position_array[7][7]).to eq('♖')
+      expect(board.positions[7][0]).to eq(' ♜ '.colorize(:white))
+      Bishop.add_to_board('black', board)
+      expect(board.positions[0][2]).to eq(' ♝ '.colorize(:black))
     end
 
     it 'returns array of created piece objects' do

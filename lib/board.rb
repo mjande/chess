@@ -2,10 +2,10 @@ require_relative 'pieces'
 require 'colorize'
 
 class Board
-  attr_reader :position_array
+  attr_reader :positions
 
   def initialize
-    @position_array = Array.new(8) { Array.new(8, nil) }
+    @positions = Array.new(8) { Array.new(8, nil) }
   end
 
   def add_background_color(array)
@@ -13,15 +13,15 @@ class Board
       row.map.with_index do |position, column_index|
         if row_index.even?
           if column_index.even?
-            position.colorize(background: :light_cyan)
+            position.to_s.colorize(background: :light_cyan)
           else
-            position.colorize(background: :light_blue)
+            position.to_s.colorize(background: :light_blue)
           end
         elsif row_index.odd?
           if column_index.even?
-            position.colorize(background: :light_blue)
+            position.to_s.colorize(background: :light_blue)
           else
-            position.colorize(background: :light_cyan)
+            position.to_s.colorize(background: :light_cyan)
           end
         end
       end
@@ -38,7 +38,7 @@ class Board
   end
 
   def clean_rows
-    clean_rows = position_array.map do |row|
+    clean_rows = positions.map do |row|
       row.map { |position| position.nil? ? '   ' : position }
     end
 
