@@ -13,15 +13,15 @@ class Board
       row.map.with_index do |position, column_index|
         if row_index.even?
           if column_index.even?
-            position.to_s.colorize(background: :light_cyan)
+            position.to_s.colorize(background: :white)
           else
-            position.to_s.colorize(background: :light_blue)
+            position.to_s.colorize(background: :light_black)
           end
         elsif row_index.odd?
           if column_index.even?
-            position.to_s.colorize(background: :light_blue)
+            position.to_s.colorize(background: :light_black)
           else
-            position.to_s.colorize(background: :light_cyan)
+            position.to_s.colorize(background: :white)
           end
         end
       end

@@ -6,6 +6,7 @@ class Piece
   def initialize(row, column, color)
     @row = row
     @column = column
+    @color = color
   end
 
   def self.add_to_board(color, board)
@@ -32,7 +33,7 @@ class WhitePawn < Piece
   WHITE_STARTING_POSITIONS = [[6, 0], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7]].freeze
 
   def to_s
-    ' ♟ '.colorize(:white)
+    ' ♟ '.colorize(:light_white)
   end
 end
 
@@ -49,21 +50,39 @@ class Rook < Piece
   BLACK_STARTING_POSITIONS = [[0, 0], [0, 7]].freeze
 
   def to_s
-    color == 'white' ? ' ♜ '.colorize(:white) : ' ♜ '.colorize(:black)
+    color == 'white' ? ' ♜ '.colorize(:light_white) : ' ♜ '.colorize(:black)
   end
   
   def possible_moves(board)
-    row = @row
-    column = @column
-    possible_moves = []
-    while board.positions[row + 1][column].nil?
-      possible_moves << [row + 1, column]
-      row += 1
-    end
-    possible_moves << [row, column] if board.positions[row][column]
-
+    next_row = @row
+    next_column = @column
+    possible_moves_array = []
+    check_up(board).each { |position| possible_moves_array << position }
+    check_right(board).each { |position| possible_moves_array << position }
+    possible_moves_array
   end
-    
+
+  private
+
+  def check_up(board)
+    moves_up = []
+    next_row = @row - 1
+    while board.positions[next_row][@column].nil? && next_row.between?(0, 7)
+      moves_up << [next_row, @column]
+      next_row -= 1
+    end
+    moves_up
+  end
+
+  def check_right(board)
+    moves_right = []
+    next_column = @column + 1
+    while board.positions[@row][next_column].nil? && next_column.between?(0, 7)
+      moves_right << [@row, next_column]
+      next_column += 1
+    end
+    moves_right
+  end
 end
 
 class Knight < Piece
@@ -71,7 +90,7 @@ class Knight < Piece
   BLACK_STARTING_POSITIONS = [[0, 1], [0, 6]].freeze
 
   def to_s 
-    color == 'white' ? ' ♞ '.colorize(:white) : ' ♞ '.colorize(:black)
+    color == 'white' ? ' ♞ '.colorize(:light_white) : ' ♞ '.colorize(:black)
   end
 end
 
@@ -80,7 +99,7 @@ class Bishop < Piece
   BLACK_STARTING_POSITIONS = [[0, 2], [0, 5]].freeze
 
   def to_s 
-    color == 'white' ? ' ♝ '.colorize(:white) : ' ♝ '.colorize(:black)
+    color == 'white' ? ' ♝ '.colorize(:light_white) : ' ♝ '.colorize(:black)
   end
 end
 
@@ -89,7 +108,7 @@ class Queen < Piece
   BLACK_STARTING_POSITIONS = [[0, 3]].freeze
 
   def to_s 
-    color == 'white' ? ' ♛ '.colorize(:white) : ' ♛ '.colorize(:black)
+    color == 'white' ? ' ♛ '.colorize(:light_white) : ' ♛ '.colorize(:black)
   end
 end
 
@@ -99,6 +118,6 @@ class King < Piece
   SYMBOL = ' ♚ '.freeze
 
   def to_s 
-    color == 'white' ? ' ♚ '.colorize(:white) : ' ♚ '.colorize(:black)
+    color == 'white' ? ' ♚ '.colorize(:light_white) : ' ♚ '.colorize(:black)
   end
 end
