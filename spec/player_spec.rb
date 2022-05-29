@@ -17,7 +17,7 @@ describe Player do
     end
 
     it 'loops until the player inputs a valid input' do
-      allow(player).to receive(:gets).and_return('11', 'rook', 'a1')
+      allow(player).to receive(:gets).and_return('11', 'rook', 'Na1')
       allow(player).to receive(:valid_input?).and_return(false, false, true)
       expect(player.input_move).to eq([7, 0])
     end
@@ -28,15 +28,19 @@ describe Player do
     subject(:input) { described_class.new('white', board) }
 
     it 'returns true if both coordinates are valid' do
-      expect(input.valid_input?('a', 1)).to be_truthy
+      expect(input.valid_input?('P', 'a', 1)).to be_truthy
+    end
+
+    it 'returns false if the piece input is not valid' do
+      expect(input.valid_input?('pawn', 'a', 1)).to be_falsey
     end
 
     it 'returns false if the column coordinate is not valid' do
-      expect(input.valid_input?('17', 1)).to be_falsey
+      expect(input.valid_input?('N', '17', 1)).to be_falsey
     end
 
     it 'returns false if the row coordinate is not valid' do
-      expect(input.valid_input?('a', 17)).to be_falsey
+      expect(input.valid_input?('B', 'a', 17)).to be_falsey
     end
   end
 

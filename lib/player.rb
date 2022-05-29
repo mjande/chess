@@ -10,38 +10,36 @@ class Player
 
   def add_pieces_to_board
     @pieces = []
-    case color
-    when 'white'
-      @pieces << WhitePawn.add_to_board('white', board)
-      @pieces << Rook.add_to_board('white', board)
-      @pieces << Knight.add_to_board('white', board)
-      @pieces << Bishop.add_to_board('white', board)
-      @pieces << Queen.add_to_board('white', board)
-      @pieces << King.add_to_board('white', board)
-    when 'black'
-      @pieces << BlackPawn.add_to_board('black', board)
-      @pieces << Rook.add_to_board('black', board)
-      @pieces << Knight.add_to_board('black', board)
-      @pieces << Bishop.add_to_board('black', board)
-      @pieces << Queen.add_to_board('black', board)
-      @pieces << King.add_to_board('black', board)
-    end
+    @pieces << WhitePawn.add_to_board(color, board) if color == 'white'
+    @pieces << BlackPawn.add_to_board(color, board) if color == 'black'
+    @pieces << Rook.add_to_board(color, board)
+    @pieces << Knight.add_to_board(color, board)
+    @pieces << Bishop.add_to_board(color, board)
+    @pieces << Queen.add_to_board(color, board)
+    @pieces << King.add_to_board(color, board)
   end
 
+  def turn
+    desired_move = input_move
+  end
+  
   def input_move
     puts 'Input the coordinates of your next move.'
     loop do
       input = gets.chomp.chars
-      column = input[0]
-      row = input[1].to_i
-      next unless valid_input?(column, row)
+      input.push('P') if input[0].match(/A-Z/)
+      piece = input[0]
+      column = input[1]
+      row = input[2].to_i
+      next unless valid_input?(piece, column, row)
 
       return convert_to_numbered_coordinates(column, row)
     end
   end
 
-  def valid_input?(column, row)
-    ('a'..'h').include?(column) && (1..8).include?(row)
+  def valid_input?(piece, column, row)
+    possible_pieces = %w[P R N B Q K]
+    possible_pieces.include?(piece) && ('a'..'h').include?(column) && (1..8).include?(row)
   end
 
   def convert_to_numbered_coordinates(column, row)
@@ -49,5 +47,13 @@ class Player
     clean_column = letters_array.find_index(column)
     clean_row = 8 - row
     [clean_row, clean_column]
+  end
+
+  def search_for_move(coordinates)
+    @pieces.select do |piece|
+      piece.possible_moves.find(proc { false }) do |possible_move|
+        possible_move == coordinates
+      end
+    end
   end
 end
