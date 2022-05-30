@@ -1,26 +1,28 @@
 require_relative '../lib/player'
+require_relative '../lib/board'
 
 describe Player do
   describe '#input_move' do
     let(:board) { double('board') }
     subject(:player) { described_class.new('white', board) }
+    let(:whitepawn) { double('WhitePawn') }
 
     before do
       allow(player).to receive(:puts)
       allow(player).to receive(:convert_to_numbered_coordinates).and_return([7, 0])
-      allow(player).to receive(:convert_to_class).and_return(WhitePawn)
+      allow(player).to receive(:convert_to_class).and_return(whitepawn)
     end
 
     it 'returns an array of coordinates for a valid input' do
       allow(player).to receive(:gets).and_return('a1')
       allow(player).to receive(:valid_input?).and_return(true)
-      expect(player.input_move).to eq([WhitePawn, 7, 0])
+      expect(player.input_move).to eq([whitepawn, 7, 0])
     end
 
     it 'loops until the player inputs a valid input' do
       allow(player).to receive(:gets).and_return('11', 'rook', 'Na1')
       allow(player).to receive(:valid_input?).and_return(false, false, true)
-      expect(player.input_move).to eq([WhitePawn, 7, 0])
+      expect(player.input_move).to eq([whitepawn, 7, 0])
     end
   end
 
@@ -70,7 +72,7 @@ describe Player do
       player.add_pieces_to_board
     end
 
-    it 'returns the piece that can make that move' do
+    xit 'returns the piece that can make that move' do
     end
   end
 end

@@ -1,4 +1,6 @@
-require_relative '../lib/pieces'
+require_relative '../../lib/pieces/piece'
+require_relative '../../lib/pieces/rook'
+require_relative '../../lib/board'
 
 describe Piece do
   describe '#Piece.add_to_board' do
@@ -18,10 +20,19 @@ describe Piece do
       expect(result.length).to eq(2)
     end
   end
-end
 
-describe WhitePawn do
-end
+  describe '#move' do
+    let(:board) { Board.new }
+    subject(:piece) { described_class.new(6, 0, 'white', board) }
 
-describe BlackPawn do
+    it 'removes self from previous position' do
+      piece.move(5, 0)
+      expect(board.positions[6][0]).to be_nil
+    end
+
+    it 'adds self to new position' do
+      piece.move(5, 0)
+      expect(board.positions[5][0]).to be(piece)
+    end
+  end
 end

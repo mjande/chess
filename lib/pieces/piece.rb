@@ -34,7 +34,14 @@ class Piece
   end
 
   def different_color?(row, column, color)
-    !@board.positions[row][column].nil? && @board.positions[row][column].color == color
+    !@board.positions[row][column].nil? && @board.positions[row][column].color != color
+  end
+
+  def move(new_row, new_column)
+    @board.positions[@row][@column] = nil
+    @row = new_row
+    @column = new_column
+    @board.positions[@row][@column] = self
   end
 end
 
@@ -44,15 +51,6 @@ class Knight < Piece
 
   def to_s
     color == 'white' ? ' ♞ '.colorize(:light_white) : ' ♞ '.colorize(:black)
-  end
-end
-
-class Bishop < Piece
-  WHITE_STARTING_POSITIONS = [[7, 2], [7, 5]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 2], [0, 5]].freeze
-
-  def to_s 
-    color == 'white' ? ' ♝ '.colorize(:light_white) : ' ♝ '.colorize(:black)
   end
 end
 

@@ -1,4 +1,4 @@
-require_relative 'pieces'
+require_relative 'pieces/piece'
 
 class Player
   attr_reader :color, :board
@@ -9,14 +9,15 @@ class Player
   end
 
   def add_pieces_to_board
-    @pieces = []
-    @pieces << WhitePawn.add_to_board(color, board) if color == 'white'
-    @pieces << BlackPawn.add_to_board(color, board) if color == 'black'
-    @pieces << Rook.add_to_board(color, board)
-    @pieces << Knight.add_to_board(color, board)
-    @pieces << Bishop.add_to_board(color, board)
-    @pieces << Queen.add_to_board(color, board)
-    @pieces << King.add_to_board(color, board)
+    @pieces = [
+      color == 'white' ? WhitePawn.add_to_board(color, board) : nil,
+      color == 'black' ? BlackPawn.add_to_board(color, board) : nil,
+      Rook.add_to_board(color, board),
+      Knight.add_to_board(color, board),
+      Bishop.add_to_board(color, board),
+      Queen.add_to_board(color, board),
+      King.add_to_board(color, board)
+    ].compact
   end
 
   def turn

@@ -29,7 +29,7 @@ class Board
 
   def display
     column_labels = '   a  b  c  d  e  f  g  h   '
-    
+
     printable_board = clean_rows
 
     puts printable_board

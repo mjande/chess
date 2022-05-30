@@ -10,7 +10,7 @@ class WhitePawn < Piece
   def possible_moves
     Array[
       valid_move?(@row - 1, @column, color) ? [@row - 1, @column] : nil,
-      valid_move?(@row - 2, @column, color) && @row == 6 ? [@row - 2, @column] : nil,  
+      valid_move?(@row - 2, @column, color) && @row == 6 ? [@row - 2, @column] : nil,
       different_color?(@row - 1, @column - 1, color) ? [@row - 1, @column - 1] : nil,
       different_color?(@row - 1, @column + 1, color) ? [@row - 1, @column + 1] : nil
     ].compact
@@ -22,5 +22,14 @@ class BlackPawn < Piece
 
   def to_s
     ' ♟ '.colorize(:black)
+  end
+
+  def possible_moves
+    Array[
+      valid_move?(@row + 1, @column, color) ? [@row + 1, @column] : nil,
+      valid_move?(@row + 2, @column, color) && @row == 1 ? [@row + 2, @column] : nil,
+      different_color?(@row + 1, @column - 1, color) ? [@row + 1, @column - 1] : nil,
+      different_color?(@row + 1, @column + 1, color) ? [@row + 1, @column + 1] : nil
+    ].compact
   end
 end

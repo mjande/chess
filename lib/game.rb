@@ -17,8 +17,6 @@ def play_game
   Player 2 inputs their move 
     Similar script
 =end
-
-
 end
 
 def end_game
