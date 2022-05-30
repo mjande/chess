@@ -21,6 +21,7 @@ class Player
 
   def turn
     desired_move = input_move
+    @pieces.select
   end
   
   def input_move
@@ -33,7 +34,8 @@ class Player
       row = input[2].to_i
       next unless valid_input?(piece, column, row)
 
-      return convert_to_numbered_coordinates(column, row)
+      coordinates = convert_to_numbered_coordinates(column, row)
+      return coordinates.unshift(convert_to_class(piece))
     end
   end
 
@@ -49,9 +51,28 @@ class Player
     [clean_row, clean_column]
   end
 
-  def search_for_move(coordinates)
-    @pieces.select do |piece|
-      piece.possible_moves.find(proc { false }) do |possible_move|
+  def convert_to_class(piece)
+    case piece
+    when 'P'
+      color == 'white' ? WhitePawn : BlackPawn
+    when 'R'
+      Rook
+    when 'N'
+      Knight
+    when 'B'
+      Bishop
+    when 'Q'
+      Queen
+    when 'K'
+      King
+    end
+  end
+
+  def search_for_move(piece, coordinates)
+    @pieces.select do |possible_piece|
+      next unless possible_piece.instance_of(piece[0])
+
+      possible_piece.possible_moves.find(proc { false }) do |possible_move|
         possible_move == coordinates
       end
     end

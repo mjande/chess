@@ -1,4 +1,3 @@
-require_relative 'pieces'
 require 'colorize'
 
 class Board

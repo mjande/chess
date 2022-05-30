@@ -8,18 +8,19 @@ describe Player do
     before do
       allow(player).to receive(:puts)
       allow(player).to receive(:convert_to_numbered_coordinates).and_return([7, 0])
+      allow(player).to receive(:convert_to_class).and_return(WhitePawn)
     end
 
     it 'returns an array of coordinates for a valid input' do
       allow(player).to receive(:gets).and_return('a1')
       allow(player).to receive(:valid_input?).and_return(true)
-      expect(player.input_move).to eq([7, 0])
+      expect(player.input_move).to eq([WhitePawn, 7, 0])
     end
 
     it 'loops until the player inputs a valid input' do
       allow(player).to receive(:gets).and_return('11', 'rook', 'Na1')
       allow(player).to receive(:valid_input?).and_return(false, false, true)
-      expect(player.input_move).to eq([7, 0])
+      expect(player.input_move).to eq([WhitePawn, 7, 0])
     end
   end
 
@@ -58,6 +59,18 @@ describe Player do
 
     it 'returns [4, 3] for d4' do
       expect(coordinates.convert_to_numbered_coordinates('d', 4)).to eq([4, 3])
+    end
+  end
+
+  describe '#search_for_move' do
+    let(:board) { Board.new }
+    subject(:player) { described_class.new('white', board) }
+
+    before do
+      player.add_pieces_to_board
+    end
+
+    it 'returns the piece that can make that move' do
     end
   end
 end
