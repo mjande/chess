@@ -1,4 +1,4 @@
-require_relative 'piece'
+require_relative '../library'
 
 class WhitePawn < Piece
   WHITE_STARTING_POSITIONS = [[6, 0], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7]].freeze

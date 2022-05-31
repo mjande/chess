@@ -1,4 +1,4 @@
-require_relative 'piece'
+require_relative '../library'
 
 class Rook < Piece
   WHITE_STARTING_POSITIONS = [[7, 0], [7, 7]].freeze
@@ -23,9 +23,7 @@ class Rook < Piece
     moves_up = []
     next_row = @row - 1
     while next_row >= 0
-      if @board.positions[next_row][@column].nil? || @board.positions[next_row][@column].color != color
-        moves_up << [next_row, @column]
-      end
+      moves_up << [next_row, @column] if valid_move?(next_row, @column, color)
       break unless @board.positions[next_row][@column].nil?
 
       next_row -= 1
@@ -37,9 +35,7 @@ class Rook < Piece
     moves_right = []
     next_column = @column + 1
     while next_column <= 7
-      if @board.positions[@row][next_column].nil? || @board.positions[@row][next_column].color != color
-        moves_right << [@row, next_column]
-      end
+      moves_right << [@row, next_column] if valid_move?(@row, next_column, color)
       break unless @board.positions[@row][next_column].nil?
 
       next_column += 1
@@ -51,9 +47,7 @@ class Rook < Piece
     moves_down = []
     next_row = @row + 1
     while next_row <= 7
-      if @board.positions[next_row][@column].nil? || @board.positions[next_row][@column].color != color
-        moves_down << [next_row, @column]
-      end
+      moves_down << [next_row, @column] if valid_move?(next_row, @column, color)
       break unless @board.positions[next_row][@column].nil?
 
       next_row += 1
@@ -65,9 +59,7 @@ class Rook < Piece
     moves_left = []
     next_column = @column - 1
     while next_column >= 0
-      if @board.positions[@row][next_column].nil? || @board.positions[@row][next_column].color != color
-        moves_left << [@row, next_column]
-      end
+      moves_left << [@row, next_column] if valid_move?(@row, next_column, color)
       break unless @board.positions[@row][next_column].nil?
 
       next_column -= 1

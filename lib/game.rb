@@ -1,6 +1,4 @@
-require_relative 'board'
-require_relative 'player'
-require_relative 'pieces'
+require_relative 'library'
 
 def start_game
   board = Board.new

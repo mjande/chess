@@ -1,5 +1,4 @@
-require_relative '../../lib/board'
-require_relative '../../lib/pieces/pawn'
+require_relative '../../lib/library'
 
 describe WhitePawn do
   describe '#possible_moves' do

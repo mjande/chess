@@ -1,6 +1,4 @@
-require_relative '../../lib/pieces/piece'
-require_relative '../../lib/pieces/rook'
-require_relative '../../lib/board'
+require_relative '../../lib/library'
 
 describe Piece do
   describe '#Piece.add_to_board' do

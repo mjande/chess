@@ -1,4 +1,4 @@
-require_relative 'pieces/piece'
+require_relative 'library'
 
 class Player
   attr_reader :color, :board

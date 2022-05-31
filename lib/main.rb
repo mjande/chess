@@ -1,5 +1,4 @@
-require_relative 'board'
-require_relative 'player'
+require_relative 'library
 
 board = Board.new
 board.display

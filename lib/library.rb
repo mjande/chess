@@ -1,0 +1,7 @@
+require_relative 'game'
+require_relative 'player'
+require_relative 'board'
+require_relative 'pieces/piece'
+require_relative 'pieces/pawn'
+require_relative 'pieces/rook'
+require_relative 'pieces/bishop'
