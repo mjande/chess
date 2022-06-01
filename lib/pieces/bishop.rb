@@ -10,68 +10,30 @@ class Bishop < Piece
 
   def possible_moves
     possible_moves = []
-    check_up_right.each { |position| possible_moves << position }
-    check_up_left.each { |position| possible_moves << position }
-    check_down_right.each { |position| possible_moves << position }
-    check_down_left.each { |position| possible_moves << position }
+    check_diagonal(-1, 1).each { |position| possible_moves << position }
+    check_diagonal(-1, -1).each { |position| possible_moves << position }
+    check_diagonal(1, 1).each { |position| possible_moves << position }
+    check_diagonal(1, -1).each { |position| possible_moves << position }
     possible_moves
   end
 
   private
 
-  def check_up_right
-    moves_up_right = []
-    next_row = @row - 1
-    next_column = @column + 1
-    while next_row >= 0 && next_column <= 7
-      moves_up_right << [next_row, next_column] if valid_move?(next_row, next_column, color)
+  def check_diagonal(row_shift, column_shift)
+    diagonal_moves = []
+    next_row = @row + row_shift
+    next_column = @column + column_shift
+    while next_row.between?(0, 7) && next_column.between?(0, 7)
+      diagonal_moves << valid_move?(next_row, next_column, color)
       break unless @board.positions[next_row][next_column].nil?
 
-      next_row -= 1
-      next_column += 1
+      next_row += row_shift
+      next_column += column_shift
     end
-    moves_up_right
-  end
-
-  def check_up_left
-    moves_up_left = []
-    next_row = @row - 1
-    next_column = @column - 1
-    while next_row >= 0 && next_column >= 0
-      moves_up_left << [next_row, next_column] if valid_move?(next_row, next_column, color)
-      break unless @board.positions[next_row][next_column].nil?
-
-      next_row -= 1
-      next_column -= 1
-    end
-    moves_up_left
-  end
-
-  def check_down_right
-    moves_down_right = []
-    next_row = @row + 1
-    next_column = @column + 1
-    while next_row <= 7 && next_column <= 7
-      moves_down_right << [next_row, next_column] if valid_move?(next_row, next_column, color)
-      break unless @board.positions[next_row][next_column].nil?
-
-      next_row += 1
-      next_column += 1
-    end
-    moves_down_right
-  end
-
-  def check_down_left
-    moves_down_left = []
-    next_row = @row + 1
-    next_column = @column - 1
-    while next_row <= 7 && next_column >= 0
-      moves_down_left << [next_row, next_column] if valid_move?(next_row, next_column, color)
-      break unless @board.positions[next_row][next_column].nil?
-
-      next_row += 1
-      next_column -= 1
-    end
-    moves_down_left
+    diagonal_moves.compact
   end
 end
+
+board = Board.new
+c_bishop = Bishop.new(7, 2, 'white', board)
+c_bishop.possible_moves
