@@ -16,7 +16,7 @@ describe Bishop do
       end
     end
 
-    context 'there are other pieces on the board' do
+    context 'when there are other pieces on the board' do
       subject(:bishop) { described_class.new(1, 4, 'black', board) }
 
       before do

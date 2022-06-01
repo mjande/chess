@@ -69,15 +69,6 @@ class Piece
   end
 end
 
-class Queen < Piece
-  WHITE_STARTING_POSITIONS = [[7, 3]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 3]].freeze
-
-  def to_s 
-    color == 'white' ? ' ♛ '.colorize(:light_white) : ' ♛ '.colorize(:black)
-  end
-end
-
 class King < Piece
   WHITE_STARTING_POSITIONS = [[7, 4]].freeze
   BLACK_STARTING_POSITIONS = [[0, 4]].freeze
