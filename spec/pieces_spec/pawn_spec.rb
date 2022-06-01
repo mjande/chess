@@ -21,7 +21,7 @@ describe WhitePawn do
   end
 end
 
-describe BlackPawn do 
+describe BlackPawn do
   describe '#possible_moves' do
     let(:board) { Board.new }
     subject(:pawn) { described_class.new(1, 0, 'black', board) }

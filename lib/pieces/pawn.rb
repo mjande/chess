@@ -9,10 +9,10 @@ class WhitePawn < Piece
 
   def possible_moves
     Array[
-      valid_move?(@row - 1, @column, color) ? [@row - 1, @column] : nil,
-      valid_move?(@row - 2, @column, color) && @row == 6 ? [@row - 2, @column] : nil,
-      different_color?(@row - 1, @column - 1, color) ? [@row - 1, @column - 1] : nil,
-      different_color?(@row - 1, @column + 1, color) ? [@row - 1, @column + 1] : nil
+      valid_move?(@row - 1, @column, color),
+      different_color?(@row - 1, @column - 1, color),
+      different_color?(@row - 1, @column + 1, color),
+      @row == 6 ? valid_move?(@row - 2, @column, color) : nil
     ].compact
   end
 end
@@ -26,10 +26,10 @@ class BlackPawn < Piece
 
   def possible_moves
     Array[
-      valid_move?(@row + 1, @column, color) ? [@row + 1, @column] : nil,
-      valid_move?(@row + 2, @column, color) && @row == 1 ? [@row + 2, @column] : nil,
-      different_color?(@row + 1, @column - 1, color) ? [@row + 1, @column - 1] : nil,
-      different_color?(@row + 1, @column + 1, color) ? [@row + 1, @column + 1] : nil
+      valid_move?(@row + 1, @column, color),
+      different_color?(@row + 1, @column - 1, color),
+      different_color?(@row + 1, @column + 1, color),
+      @row == 1 ? valid_move?(@row + 2, @column, color) : nil
     ].compact
   end
 end

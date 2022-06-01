@@ -38,9 +38,9 @@ class Piece
   end
 
   def different_color?(row, column, color)
-    return false if @board.positions[row][column].nil?
+    return nil if @board.positions[row][column].nil?
 
-    @board.positions[row][column].color != color
+    [row, column] if @board.positions[row][column].color != color
   end
 
   def on_the_board?(row, column)
