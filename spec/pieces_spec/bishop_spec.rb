@@ -17,19 +17,23 @@ describe Bishop do
     end
 
     context 'there are other pieces on the board' do
-      subject(:bishop) { described_class.new(0, 5, 'black', board) }
+      subject(:bishop) { described_class.new(1, 4, 'black', board) }
 
       before do
-        Rook.new(2, 7, 'white', board)
-        Knight.new(2, 3, 'black', board)
+        Rook.new(3, 6, 'white', board)
+        Knight.new(3, 2, 'black', board)
       end
 
-      it 'returns moves including different colored pieces' do
-        expect(bishop.possible_moves).to include([2, 7])
+      it 'returns moves to capture different colored pieces' do
+        expect(bishop.possible_moves).to include([3, 6])
       end
 
-      it 'does not return moves for same-colored pieces' do
-        expect(bishop.possible_moves).not_to include([2, 3])
+      it 'does not return moves occupied by same-colored pieces' do
+        expect(bishop.possible_moves).not_to include([3, 2])
+      end
+
+      it 'does not return moves past other pieces' do
+        expect(bishop.possible_moves).not_to include([4, 1], [4, 7])
       end
     end
   end
