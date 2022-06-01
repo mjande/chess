@@ -31,8 +31,7 @@ class Piece
 
   def valid_move?(row, column, color)
     if on_the_board?(row, column) &&
-       @board.positions[row][column].nil? ||
-       different_color?(row, column, color)
+       (@board.positions[row][column].nil? || different_color?(row, column, color))
       [row, column]
     end
   end
@@ -66,15 +65,5 @@ class Piece
     @row = new_row
     @column = new_column
     @board.positions[@row][@column] = self
-  end
-end
-
-class King < Piece
-  WHITE_STARTING_POSITIONS = [[7, 4]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 4]].freeze
-  SYMBOL = ' ♚ '.freeze
-
-  def to_s 
-    color == 'white' ? ' ♚ '.colorize(:light_white) : ' ♚ '.colorize(:black)
   end
 end
