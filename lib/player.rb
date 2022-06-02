@@ -7,23 +7,6 @@ class Player
     @color = color
     @board = board
   end
-
-  def add_pieces_to_board
-    @pieces = [
-      color == 'white' ? WhitePawn.add_to_board(color, board) : nil,
-      color == 'black' ? BlackPawn.add_to_board(color, board) : nil,
-      Rook.add_to_board(color, board),
-      Knight.add_to_board(color, board),
-      Bishop.add_to_board(color, board),
-      Queen.add_to_board(color, board),
-      King.add_to_board(color, board)
-    ].compact
-  end
-
-  def turn
-    desired_move = input_move
-    @pieces.select
-  end
   
   def input_move
     puts 'Input the coordinates of your next move.'

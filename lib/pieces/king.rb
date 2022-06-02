@@ -5,7 +5,7 @@ class King < Piece
   BLACK_STARTING_POSITIONS = [[0, 4]].freeze
   SYMBOL = ' ♚ '.freeze
 
-  def to_s 
+  def to_s
     color == 'white' ? ' ♚ '.colorize(:light_white) : ' ♚ '.colorize(:black)
   end
 

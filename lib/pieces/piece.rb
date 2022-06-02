@@ -1,13 +1,14 @@
 require 'colorize'
 
 class Piece
-  attr_reader :color
+  attr_reader :row, :column, :color
 
   def initialize(row, column, color, board)
     @row = row
     @column = column
     @color = color
     @board = board
+    @previous_moves = nil
     board.positions[row][column] = self
   end
 
@@ -61,9 +62,18 @@ class Piece
   end
 
   def move(new_row, new_column)
+    @previous_moves << [@row, @column]
     @board.positions[@row][@column] = nil
     @row = new_row
     @column = new_column
     @board.positions[@row][@column] = self
+  end
+
+  def undo_move
+    @board.positions[@row][@column] = nil
+    @row = @previous_moves[-1][0]
+    @column = @previous_moves[-1][1]
+    @board.positions[@row][@column] = self
+    @previous_moves.pop
   end
 end
