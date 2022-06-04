@@ -30,6 +30,7 @@ describe King do
         queen = Queen.new(7, 3, 'white', board)
         board.instance_variable_set(:@white_pieces, queen)
         allow(king).to receive(:check?).and_return(false)
+        allow(king).to receive(:check?).with(7, 5).and_return(true)
         king.update_possible_moves
       end
 
@@ -41,7 +42,7 @@ describe King do
         expect(king.possible_moves).not_to include([7, 3])
       end
 
-      xit 'does not return moves that place the king in check' do
+      it 'does not return moves that place the king in check' do
         expect(king.possible_moves).not_to include([7, 5])
       end
     end
@@ -98,20 +99,34 @@ describe King do
   end
 
   describe '#checkmate?' do
-    context 'when there is checkmate' do
-      subject(:king) { described_class.new(7, 4, 'white', board) }
-      let(:board) { Board.new }
+    subject(:king) { described_class.new(7, 4, 'white', board) }
+    let(:board) { Board.new }
 
+    context 'when there is checkmate' do
       before do
         board.instance_variable_set(:@white_pieces, [king])
         rook1 = Rook.new(0, 3, 'black', board)
         rook2 = Rook.new(0, 5, 'black', board)
         rook3 = Rook.new(6, 0, 'black', board)
         board.instance_variable_set(:@black_pieces, [rook1, rook2, rook3])
+        board.assign_all_possible_moves
       end
 
-      it 'returns the checkmated color' do
+      it 'returns true' do
         expect(king.checkmate?).to be_truthy
+      end
+    end
+
+    context 'when there is not checkmate' do
+      before do
+        board.instance_variable_set(:@white_pieces, [king])
+        rook = Rook.new(0, 3, 'black', board)
+        board.instance_variable_set(:@black_pieces, [rook])
+        board.assign_all_possible_moves
+      end
+
+      it 'returns false' do
+        expect(king.checkmate?).to be_falsey
       end
     end
   end
