@@ -1,10 +1,40 @@
 require 'colorize'
 
 class Board
-  attr_reader :positions
+  attr_reader :positions, :white_pieces, :black_pieces
 
   def initialize
     @positions = Array.new(8) { Array.new(8, nil) }
+  end
+
+  def add_starting_pieces(color)
+    pieces = [
+      if color == 'white'
+        WhitePawn.add_to_board(color, self)
+      else
+        BlackPawn.add_to_board(color, self)
+      end,
+      Rook.add_to_board(color, self),
+      Knight.add_to_board(color, self),
+      Bishop.add_to_board(color, self),
+      Queen.add_to_board(color, self),
+      King.add_to_board(color, self)
+    ]
+    @white_pieces = pieces if color == 'white'
+    @black_pieces = pieces if color == 'black'
+  end
+
+  def assign_all_possible_moves
+    white_pieces.each { |piece| piece.update_possible_moves }
+    black_pieces.each { |piece| piece.update_possible_moves }
+  end
+
+  def find_piece(move, color)
+    pieces = (color == 'white' ? white_pieces : black_pieces)
+    pieces.find do |piece|
+      piece.instance_of?(move[0]) &&
+        piece.possible_moves.include?([move[1], move[2]])
+    end
   end
 
   def add_background_color(array)

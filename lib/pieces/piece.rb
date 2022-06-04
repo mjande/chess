@@ -1,7 +1,7 @@
 require 'colorize'
 
 class Piece
-  attr_reader :row, :column, :color
+  attr_reader :row, :column, :color, :board, :possible_moves
 
   def initialize(row, column, color, board)
     @row = row
@@ -10,6 +10,7 @@ class Piece
     @board = board
     @previous_moves = nil
     board.positions[row][column] = self
+    @possible_moves = []
   end
 
   def self.add_to_board(color, board)

@@ -8,12 +8,10 @@ class Bishop < Piece
     color == 'white' ? ' ♝ '.colorize(:light_white) : ' ♝ '.colorize(:black)
   end
 
-  def possible_moves
-    possible_moves = []
+  def update_possible_moves
     check_direction(-1, 1).each { |position| possible_moves << position }
     check_direction(-1, -1).each { |position| possible_moves << position }
     check_direction(1, 1).each { |position| possible_moves << position }
     check_direction(1, -1).each { |position| possible_moves << position }
-    possible_moves
   end
 end

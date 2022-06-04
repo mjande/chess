@@ -7,8 +7,8 @@ class WhitePawn < Piece
     ' ♟ '.colorize(:light_white)
   end
 
-  def possible_moves
-    Array[
+  def update_possible_moves
+    @possible_moves = Array[
       valid_move?(@row - 1, @column, color),
       different_color?(@row - 1, @column - 1, color),
       different_color?(@row - 1, @column + 1, color),
@@ -25,7 +25,7 @@ class BlackPawn < Piece
   end
 
   def possible_moves
-    Array[
+    @possible_moves = Array[
       valid_move?(@row + 1, @column, color),
       different_color?(@row + 1, @column - 1, color),
       different_color?(@row + 1, @column + 1, color),

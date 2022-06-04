@@ -6,8 +6,8 @@ class Knight < Piece
     color == 'white' ? ' ♞ '.colorize(:light_white) : ' ♞ '.colorize(:black)
   end
 
-  def possible_moves
-    Array[
+  def update_possible_moves
+    @possible_moves = Array[
       valid_move?(@row + 2, @column + 1, color),
       valid_move?(@row + 2, @column - 1, color),
       valid_move?(@row + 1, @column + 2, color),
