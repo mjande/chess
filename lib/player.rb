@@ -2,24 +2,28 @@ require_relative 'library'
 
 class Player
   attr_reader :color, :board
+  attr_accessor :pieces
 
   def initialize(color, board)
     @color = color
     @board = board
+    @pieces = []
   end
-  
+
   def input_move
     puts 'Input the coordinates of your next move.'
     loop do
       input = gets.chomp.chars
-      input.push('P') if input[0].match(/A-Z/)
+      input.unshift('P') if input.length == 2
       piece = input[0]
       column = input[1]
       row = input[2].to_i
-      next unless valid_input?(piece, column, row)
-
-      coordinates = convert_to_numbered_coordinates(column, row)
-      return coordinates.unshift(convert_to_class(piece))
+      if valid_input?(piece, column, row)
+        coordinates = convert_to_numbered_coordinates(column, row)
+        return coordinates.unshift(convert_to_class(piece))
+      else
+        puts 'Please input a valid position. (Format: "a3" or "Ra3")'
+      end
     end
   end
 
@@ -61,4 +65,28 @@ class Player
       end
     end
   end
+
+  def find_piece(move)
+    pieces.find do |piece|
+      piece.instance_of?(move[0]) &&
+        piece.possible_moves.include?([move[1], move[2]])
+    end
+  end
+
+  def assign_possible_moves
+    pieces.each(&:update_possible_moves)
+  end
+
+  def king
+    pieces.find { |piece| piece.instance_of?(King) }
+  end
+
+  def check?
+    king.check?
+  end
+
+  def checkmate?
+    king.checkmate?
+  end
+  
 end

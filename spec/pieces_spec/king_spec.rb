@@ -55,12 +55,11 @@ describe King do
       subject(:white_king) { King.new(7, 4, 'white', board) }
 
       before do
-        board.instance_variable_set(:@white_pieces, [white_king])
         rook = Rook.new(1, 4, 'black', board)
         rook.update_possible_moves
         black_king = King.new(0, 4, 'black', board)
         black_king.update_possible_moves
-        board.instance_variable_set(:@black_pieces, [black_king, rook])
+        board.instance_variable_set(:@pieces, [white_king, black_king, rook])
       end
 
       it 'returns true' do
@@ -72,12 +71,11 @@ describe King do
       subject(:black_king) { King.new(0, 4, 'black', board) }
 
       before do
-        board.instance_variable_set(:@black_pieces, [black_king])
         white_king = King.new(7, 4, 'white', board)
         white_king.update_possible_moves
         bishop = Bishop.new(3, 1, 'white', board)
         bishop.update_possible_moves
-        board.instance_variable_set(:@white_pieces, [white_king, bishop])
+        board.instance_variable_set(:@pieces, [black_king, white_king, bishop])
       end
 
       it 'returns true' do
@@ -104,12 +102,11 @@ describe King do
 
     context 'when there is checkmate' do
       before do
-        board.instance_variable_set(:@white_pieces, [king])
         rook1 = Rook.new(0, 3, 'black', board)
         rook2 = Rook.new(0, 5, 'black', board)
         rook3 = Rook.new(6, 0, 'black', board)
-        board.instance_variable_set(:@black_pieces, [rook1, rook2, rook3])
-        board.assign_all_possible_moves
+        board.instance_variable_set(:@pieces, [king, rook1, rook2, rook3])
+        board.pieces.each(&:update_possible_moves)
       end
 
       it 'returns true' do
@@ -119,10 +116,10 @@ describe King do
 
     context 'when there is not checkmate' do
       before do
-        board.instance_variable_set(:@white_pieces, [king])
+        king.update_possible_moves
         rook = Rook.new(0, 3, 'black', board)
-        board.instance_variable_set(:@black_pieces, [rook])
-        board.assign_all_possible_moves
+        rook.update_possible_moves
+        board.instance_variable_set(:@pieces, [king, rook])
       end
 
       it 'returns false' do

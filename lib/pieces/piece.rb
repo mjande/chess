@@ -8,14 +8,13 @@ class Piece
     @column = column
     @color = color
     @board = board
-    @previous_moves = nil
+    @previous_moves = []
     board.positions[row][column] = self
     @possible_moves = []
   end
 
-  def self.add_to_board(color, board)
-    piece_set = []
-    case color
+  def self.add_to_board(board, player)
+    case player.color
     when 'white'
       starting_positions = self::WHITE_STARTING_POSITIONS
     when 'black'
@@ -25,10 +24,10 @@ class Piece
     starting_positions.each do |position|
       row = position[0]
       column = position[1]
-      piece = new(row, column, color, board)
-      piece_set << piece
+      piece = new(row, column, player.color, board)
+      player.pieces.push(piece)
+      board.pieces.push(piece)
     end
-    piece_set
   end
 
   def valid_move?(row, column, color)

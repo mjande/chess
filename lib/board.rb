@@ -1,39 +1,29 @@
 require 'colorize'
 
 class Board
-  attr_reader :positions, :white_pieces, :black_pieces
+  attr_reader :positions, :pieces
 
   def initialize
     @positions = Array.new(8) { Array.new(8, nil) }
+    @pieces = []
   end
 
-  def add_starting_pieces(color)
-    pieces = [
-      if color == 'white'
-        WhitePawn.add_to_board(color, self)
+  def add_starting_pieces(white_player, black_player)
+    player = white_player
+    other_player = black_player
+    2.times do
+      Rook.add_to_board(self, player)
+      Knight.add_to_board(self, player)
+      Bishop.add_to_board(self, player)
+      Queen.add_to_board(self, player)
+      King.add_to_board(self, player)
+      if player.color == 'white'
+        WhitePawn.add_to_board(self, player)
       else
-        BlackPawn.add_to_board(color, self)
-      end,
-      Rook.add_to_board(color, self),
-      Knight.add_to_board(color, self),
-      Bishop.add_to_board(color, self),
-      Queen.add_to_board(color, self),
-      King.add_to_board(color, self)
-    ]
-    @white_pieces = pieces if color == 'white'
-    @black_pieces = pieces if color == 'black'
-  end
-
-  def assign_all_possible_moves
-    white_pieces.each { |piece| piece.update_possible_moves }
-    black_pieces.each { |piece| piece.update_possible_moves }
-  end
-
-  def find_piece(move, color)
-    pieces = (color == 'white' ? white_pieces : black_pieces)
-    pieces.find do |piece|
-      piece.instance_of?(move[0]) &&
-        piece.possible_moves.include?([move[1], move[2]])
+        BlackPawn.add_to_board(self, player)
+      end
+      player = black_player
+      other_player = white_player
     end
   end
 

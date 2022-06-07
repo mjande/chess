@@ -24,7 +24,7 @@ class BlackPawn < Piece
     ' ♟ '.colorize(:black)
   end
 
-  def possible_moves
+  def update_possible_moves
     @possible_moves = Array[
       valid_move?(@row + 1, @column, color),
       different_color?(@row + 1, @column - 1, color),

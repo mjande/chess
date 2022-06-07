@@ -22,14 +22,17 @@ class King < Piece
     ].compact
   end
 
-  def check?(check_row = @row, check_column = @column)
-    pieces = (color == 'white' ? board.black_pieces : board.white_pieces)
-    pieces.any? do |piece|
+  def check?(check_row = row, check_column = column)
+    opposing_pieces = board.pieces.reject { |piece| piece.color == color }
+
+    opposing_pieces.any? do |piece|
       piece.possible_moves.include?([check_row, check_column])
     end
   end
 
   def checkmate?
+    return false if possible_moves.empty?
+
     possible_moves.all? do |position|
       check?(position[0], position[1])
     end
