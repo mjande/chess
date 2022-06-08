@@ -1,4 +1,9 @@
 require_relative 'library'
 
-game = Game.new
-game.start_game
+begin
+  game = Game.new
+  game.start_game
+rescue StandardError => e
+  puts e.class
+  puts e.backtrace
+end

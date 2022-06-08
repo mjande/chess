@@ -8,22 +8,16 @@ class Board
     @pieces = []
   end
 
-  def add_starting_pieces(white_player, black_player)
-    player = white_player
-    other_player = black_player
-    2.times do
-      Rook.add_to_board(self, player)
-      Knight.add_to_board(self, player)
-      Bishop.add_to_board(self, player)
-      Queen.add_to_board(self, player)
-      King.add_to_board(self, player)
-      if player.color == 'white'
-        WhitePawn.add_to_board(self, player)
-      else
-        BlackPawn.add_to_board(self, player)
-      end
-      player = black_player
-      other_player = white_player
+  def add_starting_pieces(player)
+    Rook.add_to_board(self, player)
+    Knight.add_to_board(self, player)
+    Bishop.add_to_board(self, player)
+    Queen.add_to_board(self, player)
+    King.add_to_board(self, player)
+    if player.color == 'white'
+      WhitePawn.add_to_board(self, player)
+    else
+      BlackPawn.add_to_board(self, player)
     end
   end
 

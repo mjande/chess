@@ -7,7 +7,8 @@ class Game
     @board = Board.new
     @white_player = Player.new('white', board)
     @black_player = Player.new('black', board)
-    board.add_starting_pieces(white_player, black_player)
+    board.add_starting_pieces(white_player)
+    board.add_starting_pieces(black_player)
     white_player.assign_possible_moves
     black_player.assign_possible_moves
     play_game
@@ -15,29 +16,16 @@ class Game
 
   def play_game
     loop do
-      play_turn(white_player)
+      white_player.play_turn
       break if black_player.checkmate?
 
       black_player.check_message if black_player.check?
-      play_turn(black_player)
+      black_player.play_turn
       break if white_player.checkmate?
 
       white_player.check_message if white_player.check?
     end
     end_game
-  end
-
-  def play_turn(player)
-    loop do
-      board.display
-      move = player.input_move
-      selected_piece = player.find_piece(move)
-      selected_piece.move(move[1], move[2])
-      break unless player.check?
-
-      puts 'Illegal move. Choose a different move.'
-      selected_piece.undo_move
-    end
   end
 
   def end_game

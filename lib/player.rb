@@ -10,8 +10,35 @@ class Player
     @pieces = []
   end
 
+  def update_pieces
+    pieces = []
+    board.positions.each do |row|
+      row.each do |position|
+        pieces << position unless !position.nil? && position.color == color
+      end
+    end
+  end
+
+  def play_turn
+    update_pieces
+    loop do
+      board.display
+      puts "#{color.capitalize}, input the coordinates of your next move."
+      chosen_move = input_move
+      piece = find_piece(chosen_move)
+      if piece.nil?
+        puts 'That is not a valid move. Try again.'
+        next
+      end
+      piece.move(chosen_move[1], chosen_move[2])
+      break unless check?
+
+      puts 'That move places your king in check. Try again.'
+      piece.undo_move
+    end
+  end
+
   def input_move
-    puts 'Input the coordinates of your next move.'
     loop do
       input = gets.chomp.chars
       input.unshift('P') if input.length == 2
@@ -22,37 +49,8 @@ class Player
         coordinates = convert_to_numbered_coordinates(column, row)
         return coordinates.unshift(convert_to_class(piece))
       else
-        puts 'Please input a valid position. (Format: "a3" or "Ra3")'
+        puts 'Please use chess notation ("a1" or "Kc6").'
       end
-    end
-  end
-
-  def valid_input?(piece, column, row)
-    possible_pieces = %w[P R N B Q K]
-    possible_pieces.include?(piece) && ('a'..'h').include?(column) && (1..8).include?(row)
-  end
-
-  def convert_to_numbered_coordinates(column, row)
-    letters_array = ('a'..'h').to_a
-    clean_column = letters_array.find_index(column)
-    clean_row = 8 - row
-    [clean_row, clean_column]
-  end
-
-  def convert_to_class(piece)
-    case piece
-    when 'P'
-      color == 'white' ? WhitePawn : BlackPawn
-    when 'R'
-      Rook
-    when 'N'
-      Knight
-    when 'B'
-      Bishop
-    when 'Q'
-      Queen
-    when 'K'
-      King
     end
   end
 
@@ -88,5 +86,39 @@ class Player
   def checkmate?
     king.checkmate?
   end
-  
+
+  def check_message
+    puts "Check! #{color.capitalize}, you must get your king out of check." 
+  end
+
+  private
+
+  def valid_input?(piece, column, row)
+    possible_pieces = %w[P R N B Q K]
+    possible_pieces.include?(piece) && ('a'..'h').include?(column) && (1..8).include?(row)
+  end
+
+  def convert_to_numbered_coordinates(column, row)
+    letters_array = ('a'..'h').to_a
+    clean_column = letters_array.find_index(column)
+    clean_row = 8 - row
+    [clean_row, clean_column]
+  end
+
+  def convert_to_class(piece)
+    case piece
+    when 'P'
+      color == 'white' ? WhitePawn : BlackPawn
+    when 'R'
+      Rook
+    when 'N'
+      Knight
+    when 'B'
+      Bishop
+    when 'Q'
+      Queen
+    when 'K'
+      King
+    end
+  end
 end

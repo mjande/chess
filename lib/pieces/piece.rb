@@ -67,6 +67,7 @@ class Piece
     @row = new_row
     @column = new_column
     @board.positions[@row][@column] = self
+    update_possible_moves
   end
 
   def undo_move
@@ -75,5 +76,6 @@ class Piece
     @column = @previous_moves[-1][1]
     @board.positions[@row][@column] = self
     @previous_moves.pop
+    update_possible_moves
   end
 end
