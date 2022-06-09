@@ -9,10 +9,10 @@ class WhitePawn < Piece
 
   def update_possible_moves
     @possible_moves = Array[
-      valid_move?(@row - 1, @column, color),
+      empty_position?(@row - 1, @column),
       different_color?(@row - 1, @column - 1, color),
       different_color?(@row - 1, @column + 1, color),
-      @row == 6 ? valid_move?(@row - 2, @column, color) : nil
+      @row == 6 ? empty_position?(@row - 2, @column) : nil
     ].compact
   end
 end

@@ -31,10 +31,12 @@ class Player
         next
       end
       piece.move(chosen_move[1], chosen_move[2])
+      board.update_all_possible_moves
       break unless check?
 
       puts 'That move places your king in check. Try again.'
       piece.undo_move
+      board.update_all_possible_moves
     end
   end
 

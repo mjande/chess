@@ -18,8 +18,37 @@ class King < Piece
       valid_move?(@row + 1, @column, color),
       valid_move?(@row + 1, @column - 1, color),
       valid_move?(@row, @column - 1, color),
-      valid_move?(@row - 1, @column - 1, color)
+      valid_move?(@row - 1, @column - 1, color),
+      kingside_castling?(@row),
+      queenside_castling(@row)
     ].compact
+  end
+
+  def kingside_castling?(row)
+    if board.positions[row][7].instance_of?(Rook) && board.positions[row][7].color == color
+      rook = board.positions[row][7]
+    end
+    if king.previous_moves.empty? &&
+       rook.previous_moves.empty? &&
+       !check? &&
+       !check?(row, 5) && empty_position?(row, 5) &&
+       !check?(row, 6) && empty_position?(row, 6)
+      [row, 6]
+    end
+  end
+
+  def queenside_castling(row)
+    if board.positions[row][0].instance_of?(Rook) && board.positions[row][0].color == color
+      rook = board.positions[row][0]
+    end
+    if king.previous_moves.empty? &&
+       rook.previous_moves.empty? &&
+       !check? &&
+       !check?(row, 3) && empty_position?(row, 3) &&
+       !check?(row, 2) && empty_position?(row, 2) &&
+       empty_position?(row, 1)
+      [row, 2]
+    end
   end
 
   def check?(check_row = row, check_column = column)

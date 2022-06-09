@@ -21,6 +21,10 @@ class Board
     end
   end
 
+  def update_all_possible_moves
+    pieces.each(&:update_possible_moves)
+  end
+
   def add_background_color(array)
     array.map.with_index do |row, row_index|
       row.map.with_index do |position, column_index|

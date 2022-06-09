@@ -26,9 +26,8 @@ describe King do
 
       before do
         bishop = Bishop.new(6, 4, 'black', board)
-        board.instance_variable_set(:@black_pieces, bishop)
         queen = Queen.new(7, 3, 'white', board)
-        board.instance_variable_set(:@white_pieces, queen)
+        board.instance_variable_set(:@pieces, [queen, bishop])
         allow(king).to receive(:check?).and_return(false)
         allow(king).to receive(:check?).with(7, 5).and_return(true)
         king.update_possible_moves
@@ -44,6 +43,24 @@ describe King do
 
       it 'does not return moves that place the king in check' do
         expect(king.possible_moves).not_to include([7, 5])
+      end
+    end
+
+    context 'when castling is possible' do
+      subject(:king) { described_class.new(7, 4, 'white', board) }
+
+      before do
+        Rook.new(7, 0, 'white', board)
+        Rook.new(7, 7, 'white', board)
+        king.update_possible_moves
+      end
+
+      it 'returns a move after kingside castling' do
+        expect(king.possible_moves).to include([7, 6])
+      end
+
+      it 'returns a move after queenside castling' do
+        expect(king.possible_moves).to include([7, 2])
       end
     end
   end
@@ -88,8 +105,7 @@ describe King do
       let(:black_king) { King.new(0, 4, 'black', board) }
 
       it 'returns false' do
-        board.instance_variable_set(:@white_pieces, [white_king])
-        board.instance_variable_set(:@black_pieces, [black_king])
+        board.instance_variable_set(:@pieces, [white_king, black_king])
         expect(black_king.check?).to be_falsey
         expect(white_king.check?).to be_falsey
       end

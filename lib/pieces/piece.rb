@@ -32,9 +32,13 @@ class Piece
 
   def valid_move?(row, column, color)
     if on_the_board?(row, column) &&
-       (@board.positions[row][column].nil? || different_color?(row, column, color))
+       (empty_position?(row, column) || different_color?(row, column, color))
       [row, column]
     end
+  end
+
+  def empty_position?(row, column)
+    [row, column] if @board.positions[row][column].nil?
   end
 
   def different_color?(row, column, color)
