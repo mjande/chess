@@ -21,8 +21,8 @@ class Player
 
   def play_turn
     update_pieces
+    board.display
     loop do
-      board.display
       puts "#{color.capitalize}, input the coordinates of your next move."
       chosen_move = input_move
       piece = find_piece(chosen_move)
@@ -71,7 +71,7 @@ class Player
     end
   end
 
-  def assign_possible_moves
+  def update_all_possible_moves
     pieces.each(&:update_possible_moves)
   end
 
@@ -89,6 +89,21 @@ class Player
 
   def check_message
     puts "Check! #{color.capitalize}, you must get your king out of check." 
+  end
+
+  def checkmate_message
+    puts "Checkmate! #{color.capitalize}, you win!"
+  end
+
+  def play_again_message
+    puts 'Would you like to play again? (Y or N)'
+    response = gets.chomp.upcase
+    if response == 'Y'
+      true
+    else
+      puts 'Thanks for playing!'
+      false
+    end
   end
 
   private
