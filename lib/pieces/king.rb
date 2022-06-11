@@ -63,9 +63,9 @@ class King < Piece
   end
 
   def kingside_castling?(row)
-    return unless board.positions[row][7].instance_of?(Rook) && board.positions[row][7].color == color
-
     rook = board.positions[row][7]
+    return unless rook.instance_of?(Rook) && rook.color == color
+
     if previous_moves.empty? &&
        rook.previous_moves.empty? &&
        !check? &&
@@ -76,9 +76,9 @@ class King < Piece
   end
 
   def queenside_castling?(row)
-    return unless board.positions[row][0].instance_of?(Rook) && board.positions[row][0].color == color
-
     rook = board.positions[row][0]
+    return unless rook.instance_of?(Rook) && rook.color == color
+
     if previous_moves.empty? &&
        rook.previous_moves.empty? &&
        !check? &&

@@ -42,7 +42,7 @@ class Player
 
   def special_move(piece, chosen_move)
     kingside_castling_moves = [[King, 0, 6], [King, 7, 6]]
-    queenside_castling_moves = [[King, 0, 2], [King, 7, 2]]
+    queenside_castling_moves = [[King, 0, 2], [King, 7, 2], ]
     if piece.instance_of?(King) && piece.previous_moves.empty?
       if kingside_castling_moves.include?(chosen_move)
         piece.kingside_castle_move

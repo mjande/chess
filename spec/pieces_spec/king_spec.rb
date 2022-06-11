@@ -144,7 +144,7 @@ describe King do
     end
   end
 
-  describe '#kingside_castling' do
+  describe '#kingside_castle_move' do
     let(:board) { Board.new }
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
@@ -161,7 +161,7 @@ describe King do
     end
   end
 
-  describe '#queenside_castling' do
+  describe '#queenside_castle_move' do
     let(:board) { Board.new }
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
