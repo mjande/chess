@@ -24,6 +24,7 @@ class Player
     board.display
     loop do
       puts "#{color.capitalize}, input the coordinates of your next move."
+      puts "If you like to save, quit, or call for a draw, type 'options'."
       chosen_move = input_move
       piece = find_piece(chosen_move)
       if piece.nil?
@@ -42,7 +43,7 @@ class Player
 
   def special_move(piece, chosen_move)
     kingside_castling_moves = [[King, 0, 6], [King, 7, 6]]
-    queenside_castling_moves = [[King, 0, 2], [King, 7, 2], ]
+    queenside_castling_moves = [[King, 0, 2], [King, 7, 2]]
     if piece.instance_of?(King) && piece.previous_moves.empty?
       if kingside_castling_moves.include?(chosen_move)
         piece.kingside_castle_move
@@ -54,16 +55,18 @@ class Player
 
   def input_move
     loop do
-      input = gets.chomp.chars
-      input.unshift('P') if input.length == 2
-      piece = input[0]
-      column = input[1]
-      row = input[2].to_i
-      if valid_input?(piece, column, row)
-        coordinates = convert_to_numbered_coordinates(column, row)
-        return coordinates.unshift(convert_to_class(piece))
+      input_string = gets.chomp
+      if input_string == 'options'
+        # Go to options interface / return 'options'
+      elsif castling_input?(input_string)
+        return convert_to_castling_coordinates(input_string)
+      elsif valid_input?(input_string)
+        input_array = input_string.chars
+        input_array.unshift('P') if input_array.length == 2
+        coordinates = convert_to_numbered_coordinates(input_array)
+        return coordinates.unshift(convert_to_class(input_array[0]))
       else
-        puts 'Please use chess notation ("a1" or "Kc6").'
+        puts 'Please use chess notation ("a1" or "Kc6"), or enter "options".'
       end
     end
   end
@@ -122,12 +125,36 @@ class Player
 
   private
 
-  def valid_input?(piece, column, row)
-    possible_pieces = %w[P R N B Q K]
-    possible_pieces.include?(piece) && ('a'..'h').include?(column) && (1..8).include?(row)
+  def castling_input?(string)
+    castling_codes = ['0-0', '0-0-0']
+    castling_codes.include?(string)
   end
 
-  def convert_to_numbered_coordinates(column, row)
+  def convert_to_castling_coordinates(string)
+    if string == '0-0'
+      color == 'white' ? [King, 7, 6] : [King, 0, 6]
+    else
+      color == 'white' ? [King, 7, 2] : [King, 0, 2]
+    end
+  end
+
+  def valid_input?(string)
+    input_array = string.chars
+    puts input_array
+    possible_pieces = %w[P R N B Q K]
+    if input_array.length == 3
+      possible_pieces.include?(input_array[0]) &&
+        ('a'..'h').include?(input_array[1]) &&
+        (1..8).include?(input_array[2].to_i)
+    else
+      ('a'..'h').include?(input_array[0]) &&
+        (1..8).include?(input_array[1].to_i)
+    end
+  end
+
+  def convert_to_numbered_coordinates(input_array)
+    row = input_array[2].to_i
+    column = input_array[1]
     letters_array = ('a'..'h').to_a
     clean_column = letters_array.find_index(column)
     clean_row = 8 - row

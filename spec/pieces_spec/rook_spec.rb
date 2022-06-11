@@ -53,21 +53,4 @@ describe Rook do
       end
     end
   end
-
-  describe '#kingside_castle_move' do
-    let(:board) { Board.new }
-    subject(:rook) { described_class.new(7, 7, 'white', board) }
-
-    it 'moves king to new position' do
-      King.new(7, 4, 'white', board)
-      rook.kingside_castle_move
-      expect(board.positions[7][5]).to be(rook)
-    end
-
-    it 'moves rook to new position' do
-      king = King.new(7, 4, 'white', board)
-      rook.kingside_castle_move
-      expect(board.positions[7][6]).to be(king)
-    end
-  end
 end

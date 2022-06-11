@@ -29,3 +29,7 @@ To Do List
 -Revisit tests
 -Refactor like crazy
 -Create detailed README
+
+Code Smells and Ideas for Refactoring
+-Turn coordinates into value objects
+-Refactor factory to be less messy(?)
