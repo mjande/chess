@@ -30,13 +30,25 @@ class Player
         puts 'That is not a valid move. Try again.'
         next
       end
-      piece.move(chosen_move[1], chosen_move[2])
+      piece.move(chosen_move[1], chosen_move[2]) unless special_move(piece, chosen_move)
       board.update_all_possible_moves
       break unless check?
 
       puts 'That move places your king in check. Try again.'
       piece.undo_move
       board.update_all_possible_moves
+    end
+  end
+
+  def special_move(piece, chosen_move)
+    kingside_castling_moves = [[King, 0, 6], [King, 7, 6]]
+    queenside_castling_moves = [[King, 0, 2], [King, 7, 2]]
+    if piece.instance_of?(King) && piece.previous_moves.empty?
+      if kingside_castling_moves.include?(chosen_move)
+        piece.kingside_castle_move
+      elsif queenside_castling_moves.include?(chosen_move)
+        piece.queenside_castle_move
+      end
     end
   end
 

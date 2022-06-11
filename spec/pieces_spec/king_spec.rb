@@ -143,4 +143,38 @@ describe King do
       end
     end
   end
+
+  describe '#kingside_castling' do
+    let(:board) { Board.new }
+    subject(:king) { described_class.new(7, 4, 'white', board) }
+
+    it 'moves king to new position' do
+      Rook.new(7, 7, 'white', board)
+      king.kingside_castle_move
+      expect(board.positions[7][6]).to be(king)
+    end
+
+    it 'moves rook to new position' do
+      rook = Rook.new(7, 7, 'white', board)
+      king.kingside_castle_move
+      expect(board.positions[7][5]).to be(rook)
+    end
+  end
+
+  describe '#queenside_castling' do
+    let(:board) { Board.new }
+    subject(:king) { described_class.new(7, 4, 'white', board) }
+
+    it 'moves king to new position' do
+      Rook.new(7, 0, 'white', board)
+      king.queenside_castle_move
+      expect(board.positions[7][2]).to be(king)
+    end
+
+    it 'moves rook to new position' do
+      rook = Rook.new(7, 0, 'white', board)
+      king.queenside_castle_move
+      expect(board.positions[7][3]).to be(rook)
+    end
+  end
 end

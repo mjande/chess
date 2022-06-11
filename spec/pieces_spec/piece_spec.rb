@@ -2,20 +2,25 @@ require_relative '../../lib/library'
 
 describe Piece do
   describe '#Piece.add_to_board' do
-    let(:positions) { Array.new(8) { Array.new(7, nil)} }
-    let(:board) { double('board', positions: positions) }
+    let(:board) { Board.new }
+    let(:white_player) { double('white_player', color: 'white', pieces: []) }
+    let(:black_player) { double('black_player', color: 'black', pieces: []) }
 
     it 'assigns pieces to starting position' do
-      Rook.add_to_board('white', board)
+      Rook.add_to_board(board, white_player)
       expect(board.positions[7][0]).to be_a(Rook)
-      Bishop.add_to_board('black', board)
+      Bishop.add_to_board(board, black_player)
       expect(board.positions[0][2]).to be_a(Bishop)
     end
 
-    it 'returns array of created piece objects' do
-      result = Rook.add_to_board('white', board)
-      expect(result).to all(be_a(Rook))
-      expect(result.length).to eq(2)
+    it 'adds array of created pieces to player.pieces' do
+      Rook.add_to_board(board, white_player)
+      expect(white_player.pieces).to include(a_kind_of(Rook)).twice
+    end
+
+    it 'adds array of created pieces to board.pieces' do
+      Rook.add_to_board(board, white_player)
+      expect(board.pieces).to include(a_kind_of(Rook)).twice
     end
   end
 
@@ -23,14 +28,42 @@ describe Piece do
     let(:board) { Board.new }
     subject(:piece) { described_class.new(6, 0, 'white', board) }
 
-    it 'removes self from previous position' do
+    before do
       piece.move(5, 0)
+    end
+
+    it 'removes self from previous position' do
       expect(board.positions[6][0]).to be_nil
     end
 
     it 'adds self to new position' do
-      piece.move(5, 0)
       expect(board.positions[5][0]).to be(piece)
+    end
+
+    it 'updates current row' do
+      expect(piece.row).to eq(5)
+    end
+  end
+
+  describe '#undo_move' do
+    let(:board) { Board.new }
+    subject(:piece) { described_class.new(5, 0, 'white', board) }
+
+    before do
+      piece.instance_variable_set(:@previous_moves, [[6, 0]])
+      piece.undo_move
+    end
+
+    it 'removes self from requested position' do
+      expect(board.positions[5][0]).to be_nil
+    end
+
+    it 'adds self to previous position' do
+      expect(board.positions[6][0]).to eq(piece)
+    end
+
+    it 'updates row back to previous row' do
+      expect(piece.row).to eq(6)
     end
   end
 end

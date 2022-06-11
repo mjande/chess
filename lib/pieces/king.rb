@@ -20,35 +20,8 @@ class King < Piece
       valid_move?(@row, @column - 1, color),
       valid_move?(@row - 1, @column - 1, color),
       kingside_castling?(@row),
-      queenside_castling(@row)
+      queenside_castling?(@row)
     ].compact
-  end
-
-  def kingside_castling?(row)
-    if board.positions[row][7].instance_of?(Rook) && board.positions[row][7].color == color
-      rook = board.positions[row][7]
-    end
-    if king.previous_moves.empty? &&
-       rook.previous_moves.empty? &&
-       !check? &&
-       !check?(row, 5) && empty_position?(row, 5) &&
-       !check?(row, 6) && empty_position?(row, 6)
-      [row, 6]
-    end
-  end
-
-  def queenside_castling(row)
-    if board.positions[row][0].instance_of?(Rook) && board.positions[row][0].color == color
-      rook = board.positions[row][0]
-    end
-    if king.previous_moves.empty? &&
-       rook.previous_moves.empty? &&
-       !check? &&
-       !check?(row, 3) && empty_position?(row, 3) &&
-       !check?(row, 2) && empty_position?(row, 2) &&
-       empty_position?(row, 1)
-      [row, 2]
-    end
   end
 
   def check?(check_row = row, check_column = column)
@@ -67,6 +40,18 @@ class King < Piece
     end
   end
 
+  def kingside_castle_move
+    move(@row, 6)
+    rook = @board.positions[@row][7]
+    rook.move(@row, 5)
+  end
+
+  def queenside_castle_move
+    move(@row, 2)
+    rook = @board.positions[@row][0]
+    rook.move(@row, 3)
+  end
+
   private
 
   def valid_move?(row, column, color)
@@ -74,6 +59,33 @@ class King < Piece
        (@board.positions[row][column].nil? || different_color?(row, column, color)) &&
        !check?(row, column)
       [row, column]
+    end
+  end
+
+  def kingside_castling?(row)
+    return unless board.positions[row][7].instance_of?(Rook) && board.positions[row][7].color == color
+
+    rook = board.positions[row][7]
+    if previous_moves.empty? &&
+       rook.previous_moves.empty? &&
+       !check? &&
+       !check?(row, 5) && empty_position?(row, 5) &&
+       !check?(row, 6) && empty_position?(row, 6)
+      [row, 6]
+    end
+  end
+
+  def queenside_castling?(row)
+    return unless board.positions[row][0].instance_of?(Rook) && board.positions[row][0].color == color
+
+    rook = board.positions[row][0]
+    if previous_moves.empty? &&
+       rook.previous_moves.empty? &&
+       !check? &&
+       !check?(row, 3) && empty_position?(row, 3) &&
+       !check?(row, 2) && empty_position?(row, 2) &&
+       empty_position?(row, 1)
+      [row, 2]
     end
   end
 end
