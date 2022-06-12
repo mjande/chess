@@ -15,6 +15,7 @@ describe WhitePawn do
 
     it 'returns just one possible move when not in start position' do
       pawn.move(4, 0)
+      pawn.update_possible_moves
 
       expect(pawn.possible_moves).to contain_exactly([3, 0])
     end
@@ -29,6 +30,18 @@ describe WhitePawn do
       BlackPawn.new(5, 1, 'black', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).to include([5, 1])
+    end
+
+    context 'there is an opportunity for en-passant capture' do
+      let(:board) { Board.new }
+      subject(:pawn) { described_class.new(3, 0, 'white', board) }
+
+      it 'returns diagonal moves for en_passant capture' do
+        black_pawn = BlackPawn.new(3, 1, 'black', board)
+        black_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
+        pawn.update_possible_moves
+        expect(pawn.possible_moves).to include([2, 1])
+      end
     end
   end
 end
@@ -48,6 +61,7 @@ describe BlackPawn do
 
     it 'returns just one possible move when not in start position' do
       pawn.move(2, 0)
+      pawn.update_possible_moves
       expect(pawn.possible_moves).to contain_exactly([3, 0])
     end
 
@@ -61,6 +75,18 @@ describe BlackPawn do
       WhitePawn.new(2, 1, 'white', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).to include([2, 1])
+    end
+
+    context 'there is an opportunity for en-passant capture' do
+      let(:board) { Board.new }
+      subject(:pawn) { described_class.new(4, 6, 'black', board) }
+
+      it 'returns diagonal moves for en_passant capture' do
+        white_pawn = WhitePawn.new(4, 5, 'white', board)
+        white_pawn.instance_variable_set(:@previous_moves, [[6, 5]])
+        pawn.update_possible_moves
+        expect(pawn.possible_moves).to include([5, 5])
+      end
     end
   end
 end

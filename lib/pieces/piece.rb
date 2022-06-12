@@ -8,7 +8,7 @@ class Piece
     @column = column
     @color = color
     @board = board
-    @previous_moves = []
+    @previous_moves = [[row, column]]
     board.positions[row][column] = self
     @possible_moves = []
   end
@@ -66,11 +66,11 @@ class Piece
   end
 
   def move(new_row, new_column)
-    @previous_moves << [@row, @column]
     @board.positions[@row][@column] = nil
     @row = new_row
     @column = new_column
     @board.positions[@row][@column] = self
+    @previous_moves << [@row, @column]
   end
 
   def undo_move

@@ -5,6 +5,10 @@ describe Player do
     let(:board) { Board.new }
     subject(:player) { described_class.new('white', board) }
 
+    before do
+      allow(player).to receive(:puts)
+    end
+
     it 'returns an array of coordinates for a valid normal input' do
       allow(player).to receive(:gets).and_return('a3')
       expect(player.input_move).to eq([WhitePawn, 5, 0])
@@ -17,7 +21,6 @@ describe Player do
 
     it 'loops until the player inputs a valid input' do
       allow(player).to receive(:gets).and_return('11', 'rook', 'Na1')
-      # allow(player).to receive(:valid_input?).and_return(false, false, true)
       expect(player.input_move).to eq([Knight, 7, 0])
     end
   end

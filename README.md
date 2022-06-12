@@ -25,6 +25,7 @@ Current problem: I'm really close to getting a working solution (despite my stup
 First Working Version
 To Do List
 -Special moves
+  -Added en_passant logic to possible moves, now just need to add logic to #special_moves
 -Create ability to save
 -Revisit tests
 -Refactor like crazy
