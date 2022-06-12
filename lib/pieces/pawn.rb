@@ -18,6 +18,11 @@ class WhitePawn < Piece
     ].compact
   end
 
+  def en_passant_capture(new_column)
+    move(2, new_column)
+    capture(3, new_column)
+  end
+
   private
 
   def en_passant?(new_column)
@@ -44,6 +49,11 @@ class BlackPawn < Piece
       en_passant?(column - 1),
       en_passant?(column + 1)
     ].compact
+  end
+
+  def en_passant_capture(new_column)
+    move(5, new_column)
+    capture(4, new_column)
   end
 
   private

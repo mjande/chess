@@ -69,6 +69,7 @@ class Piece
     @board.positions[@row][@column] = nil
     @row = new_row
     @column = new_column
+    capture(row, column) unless board.positions[row][column].nil?
     @board.positions[@row][@column] = self
     @previous_moves << [@row, @column]
   end
@@ -79,5 +80,12 @@ class Piece
     @column = @previous_moves[-1][1]
     @board.positions[@row][@column] = self
     @previous_moves.pop
+  end
+
+  private
+
+  def capture(new_row, new_column)
+    piece_to_be_removed = board.positions[new_row][new_column]
+    board.pieces.delete(piece_to_be_removed)
   end
 end

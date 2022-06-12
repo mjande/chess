@@ -44,6 +44,27 @@ describe WhitePawn do
       end
     end
   end
+
+  describe '#en_passant_move' do
+    let(:board) { Board.new }
+    subject(:pawn) { described_class.new(3, 0, 'white', board) }
+
+    it 'moves pawn to new position' do
+      other_pawn = BlackPawn.new(3, 1, 'black', board)
+      other_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
+      pawn.update_possible_moves
+      pawn.en_passant_capture(1)
+      expect(board.positions[2][1]).to be(pawn)
+    end
+
+    it 'removes opposing pawn' do
+      other_pawn = BlackPawn.new(3, 1, 'white', board)
+      other_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
+      pawn.update_possible_moves
+      pawn.en_passant_capture(1)
+      expect(board.pieces).not_to include(other_pawn)
+    end
+  end
 end
 
 describe BlackPawn do
@@ -87,6 +108,23 @@ describe BlackPawn do
         pawn.update_possible_moves
         expect(pawn.possible_moves).to include([5, 5])
       end
+    end
+  end
+
+  describe '#en_passant_move' do
+    let(:board) { Board.new }
+    subject(:pawn) { described_class.new(4, 0, 'black', board) }
+
+    it 'moves pawn to new position' do
+      pawn.en_passant_capture(1)
+      expect(board.positions[5][1]).to be(pawn)
+    end
+
+    it 'removes opposing pawn' do
+      other_pawn = WhitePawn.new(4, 1, 'white', board)
+      board.instance_variable_set(:@pieces, [pawn, other_pawn])
+      pawn.en_passant_capture(1)
+      expect(board.pieces).not_to include(other_pawn)
     end
   end
 end

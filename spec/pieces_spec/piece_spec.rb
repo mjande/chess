@@ -26,22 +26,36 @@ describe Piece do
 
   describe '#move' do
     let(:board) { Board.new }
-    subject(:piece) { described_class.new(6, 0, 'white', board) }
+    
+    context 'when moving to an unoccopied position' do
+      subject(:piece) { described_class.new(6, 0, 'white', board) }
 
-    before do
-      piece.move(5, 0)
+      before do
+        piece.move(5, 0)
+      end
+
+      it 'removes self from previous position' do
+        expect(board.positions[6][0]).to be_nil
+      end
+
+      it 'adds self to new position' do
+        expect(board.positions[5][0]).to be(piece)
+      end
+
+      it 'updates current row' do
+        expect(piece.row).to eq(5)
+      end
     end
 
-    it 'removes self from previous position' do
-      expect(board.positions[6][0]).to be_nil
-    end
+    context 'when capturing another piece' do
+      subject(:piece) { described_class.new(7, 0, 'white', board) }
 
-    it 'adds self to new position' do
-      expect(board.positions[5][0]).to be(piece)
-    end
-
-    it 'updates current row' do
-      expect(piece.row).to eq(5)
+      it 'removes captured piece from board.pieces' do
+        other_piece = described_class.new(5, 0, 'black', board)
+        board.instance_variable_set(:@pieces, [piece, other_piece])
+        piece.move(5, 0)
+        expect(board.pieces).not_to include(other_piece)
+      end
     end
   end
 
