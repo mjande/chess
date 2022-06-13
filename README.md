@@ -26,6 +26,7 @@ First Working Version
 To Do List
 -Special moves
   -Added en_passant logic to possible moves, now just need to add logic to #special_moves
+  -Almost done here, need to spend time checking if it works in regular play (initial test did not work as planned, despite unit tests passing)
 -Create ability to save
 -Revisit tests
 -Refactor like crazy

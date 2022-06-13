@@ -23,13 +23,11 @@ class WhitePawn < Piece
     capture(3, new_column)
   end
 
-  private
-
   def en_passant?(new_column)
     passed_pawn = board.positions[3][new_column]
     return unless passed_pawn.instance_of?(BlackPawn)
 
-    [2, new_column] if passed_pawn.previous_moves == [[1, new_column]]
+    [2, new_column] if passed_pawn.previous_moves == [[1, new_column], [3, new_column]]
   end
 end
 
@@ -56,12 +54,10 @@ class BlackPawn < Piece
     capture(4, new_column)
   end
 
-  private
-
   def en_passant?(new_column)
     passed_pawn = board.positions[4][new_column]
     return unless passed_pawn.instance_of?(WhitePawn)
 
-    [5, new_column] if passed_pawn.previous_moves == [[6, new_column]]
+    [5, new_column] if passed_pawn.previous_moves == [[6, new_column], [4, new_column]]
   end
 end

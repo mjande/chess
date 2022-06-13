@@ -51,6 +51,9 @@ class Player
         piece.queenside_castle_move
       end
     end
+    if (piece.instance_of?(WhitePawn) || piece.instance_of?(BlackPawn)) && piece.en_passant?(chosen_move[2])
+      piece.en_passant_capture(chosen_move[2])
+    end
   end
 
   def input_move

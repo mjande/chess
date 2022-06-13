@@ -87,5 +87,6 @@ class Piece
   def capture(new_row, new_column)
     piece_to_be_removed = board.positions[new_row][new_column]
     board.pieces.delete(piece_to_be_removed)
+    board.positions[new_row][new_column] = nil
   end
 end

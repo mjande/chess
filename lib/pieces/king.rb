@@ -35,9 +35,10 @@ class King < Piece
   def checkmate?
     return false if possible_moves.empty?
 
-    possible_moves.all? do |position|
-      check?(position[0], position[1])
-    end
+    check? &&
+      possible_moves.all? do |position|
+        check?(position[0], position[1])
+      end
   end
 
   def kingside_castle_move
