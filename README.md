@@ -26,6 +26,7 @@ First Working Version
 To Do List
 -Revisit tests
 -Refactor like crazy
+-Pawn Promotion
 -Stalemate
 -Create Input class and subclasses
 -Create ability to save

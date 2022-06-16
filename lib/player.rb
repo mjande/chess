@@ -11,15 +11,9 @@ class Player
   def play_turn
     board.display
     loop do
-      puts "#{color.capitalize}, input the coordinates of your next move."
       puts "If you like to save, quit, or call for a draw, type 'options'."
-      chosen_move = input_move
-      piece = find_piece(chosen_move)
-      if piece.nil?
-        puts 'That is not a valid move. Try again.'
-        next
-      end
-      piece.move(chosen_move[1], chosen_move[2]) unless special_move(piece, chosen_move)
+      input = input_move
+      input.piece.move(input.row, input.column) # unless special_move(input.piece, input)
       board.update_all_possible_moves
       break unless check?
 
@@ -29,10 +23,10 @@ class Player
     end
   end
 
-  def special_move(piece, chosen_move)
+  def special_move(input)
     kingside_castling_moves = [[King, 0, 6], [King, 7, 6]]
     queenside_castling_moves = [[King, 0, 2], [King, 7, 2]]
-    if piece.instance_of?(King) && piece.previous_moves.empty?
+    if input.piece.instance_of?(King) && input.piece.previous_move.empty?
       if kingside_castling_moves.include?(chosen_move)
         piece.kingside_castle_move
       elsif queenside_castling_moves.include?(chosen_move)
@@ -46,18 +40,18 @@ class Player
 
   def input_move
     loop do
+      puts "#{color.capitalize}, input the coordinates of your next move."
       input_string = gets.chomp
-      if input_string == 'options'
-        # Go to options interface / return 'options'
-      elsif castling_input?(input_string)
-        return convert_to_castling_coordinates(input_string)
-      elsif valid_input?(input_string)
-        input_array = input_string.chars
-        input_array.unshift('P') if input_array.length == 2
-        coordinates = convert_to_numbered_coordinates(input_array)
-        return coordinates.unshift(convert_to_class(input_array[0]))
+      input = MoveInput.for(input_string, color, board)
+      if input.piece.is_a?(Array)
+        puts 'There are two or more pieces with that move.'
+        puts 'Please indicate which piece using standard chess notation (Rdf8).'
+      elsif input.piece.nil?
+        puts 'There is not a piece that is able to make that move.'
+      elsif input.instance_of?(InvalidMoveInput)
+        puts 'Please use chess notation ("a1" or "Kc6"), or enter "save" to save or "=" to draw.'
       else
-        puts 'Please use chess notation ("a1" or "Kc6"), or enter "options".'
+        return input
       end
     end
   end
