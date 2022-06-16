@@ -1,8 +1,7 @@
 class Queen < Piece
-  WHITE_STARTING_POSITIONS = [[7, 3]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 3]].freeze
+  STARTING_POSITIONS = { 'white' => [[7, 3]], 'black' => [[0, 3]] }.freeze
 
-  def to_s 
+  def to_s
     color == 'white' ? ' ♛ '.colorize(:light_white) : ' ♛ '.colorize(:black)
   end
 

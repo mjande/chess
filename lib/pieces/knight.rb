@@ -1,6 +1,6 @@
 class Knight < Piece
-  WHITE_STARTING_POSITIONS = [[7, 1], [7, 6]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 1], [0, 6]].freeze
+  STARTING_POSITIONS = { 'white' => [[7, 1], [7, 6]],
+                         'black' => [[0, 1], [0, 6]] }.freeze
 
   def to_s
     color == 'white' ? ' ♞ '.colorize(:light_white) : ' ♞ '.colorize(:black)

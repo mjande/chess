@@ -1,7 +1,7 @@
 require_relative '../../lib/library'
 
-describe WhitePawn do
-  describe '#possible_moves' do
+describe Pawn do
+  describe '#update_possible_moves' do
     let(:board) { Board.new }
     subject(:pawn) { described_class.new(6, 0, 'white', board) }
 
@@ -21,13 +21,13 @@ describe WhitePawn do
     end
 
     it 'does not return any possible moves with a blocking piece in front' do
-      BlackPawn.new(5, 0, 'black', board)
+      Pawn.new(5, 0, 'black', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).not_to include([5, 0])
     end
 
     it 'returns diagonal moves to take opposing pieces' do
-      BlackPawn.new(5, 1, 'black', board)
+      Pawn.new(5, 1, 'black', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).to include([5, 1])
     end
@@ -37,8 +37,8 @@ describe WhitePawn do
       subject(:pawn) { described_class.new(3, 0, 'white', board) }
 
       it 'returns diagonal moves for en_passant capture' do
-        black_pawn = BlackPawn.new(3, 1, 'black', board)
-        black_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
+        black_pawn = Pawn.new(3, 1, 'black', board)
+        black_pawn.instance_variable_set(:@previous_move, [1, 1])
         pawn.update_possible_moves
         expect(pawn.possible_moves).to include([2, 1])
       end
@@ -50,15 +50,15 @@ describe WhitePawn do
     subject(:pawn) { described_class.new(3, 0, 'white', board) }
 
     it 'moves pawn to new position' do
-      other_pawn = BlackPawn.new(3, 1, 'black', board)
+      other_pawn = Pawn.new(3, 1, 'black', board)
       other_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
       pawn.update_possible_moves
       pawn.en_passant_capture(1)
-      expect(board.positions[2][1]).to be(pawn)
+      expect(board.at_position(2, 1)).to be(pawn)
     end
 
     it 'removes opposing pawn' do
-      other_pawn = BlackPawn.new(3, 1, 'white', board)
+      other_pawn = Pawn.new(3, 1, 'white', board)
       other_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
       pawn.update_possible_moves
       pawn.en_passant_capture(1)
@@ -67,6 +67,7 @@ describe WhitePawn do
   end
 end
 
+=begin
 describe BlackPawn do
   describe '#possible_moves' do
     let(:board) { Board.new }
@@ -128,3 +129,4 @@ describe BlackPawn do
     end
   end
 end
+=end

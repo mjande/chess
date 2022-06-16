@@ -2,25 +2,13 @@ require_relative 'library'
 
 class Player
   attr_reader :color, :board
-  attr_accessor :pieces
 
   def initialize(color, board)
     @color = color
     @board = board
-    @pieces = []
-  end
-
-  def update_pieces
-    pieces = []
-    board.positions.each do |row|
-      row.each do |position|
-        pieces << position unless !position.nil? && position.color == color
-      end
-    end
   end
 
   def play_turn
-    update_pieces
     board.display
     loop do
       puts "#{color.capitalize}, input the coordinates of your next move."
@@ -51,7 +39,7 @@ class Player
         piece.queenside_castle_move
       end
     end
-    if (piece.instance_of?(WhitePawn) || piece.instance_of?(BlackPawn)) && piece.en_passant?(chosen_move[2])
+    if piece.instance_of?(Pawn) && piece.en_passant?(chosen_move[2])
       piece.en_passant_capture(chosen_move[2])
     end
   end
@@ -74,29 +62,16 @@ class Player
     end
   end
 
-  def search_for_move(piece, coordinates)
-    @pieces.select do |possible_piece|
-      next unless possible_piece.instance_of(piece[0])
-
-      possible_piece.possible_moves.find(proc { false }) do |possible_move|
-        possible_move == coordinates
-      end
-    end
-  end
-
   def find_piece(move)
-    pieces.find do |piece|
+    board.pieces.find do |piece|
       piece.instance_of?(move[0]) &&
-        piece.possible_moves.include?([move[1], move[2]])
+        piece.possible_moves.include?([move[1], move[2]]) &&
+        piece.color == color
     end
-  end
-
-  def update_all_possible_moves
-    pieces.each(&:update_possible_moves)
   end
 
   def king
-    pieces.find { |piece| piece.instance_of?(King) }
+    board.pieces.find { |piece| piece.instance_of?(King) && piece.color == color }
   end
 
   def check?
@@ -108,14 +83,14 @@ class Player
   end
 
   def check_message
-    puts "Check! #{color.capitalize}, you must get your king out of check." 
+    puts "Check! #{color.capitalize}, you must get your king out of check."
   end
 
-  def checkmate_message
+  def win_message
     puts "Checkmate! #{color.capitalize}, you win!"
   end
 
-  def play_again_message
+  def play_again_input
     puts 'Would you like to play again? (Y or N)'
     response = gets.chomp.upcase
     if response == 'Y'
@@ -167,7 +142,7 @@ class Player
   def convert_to_class(piece)
     case piece
     when 'P'
-      color == 'white' ? WhitePawn : BlackPawn
+      Pawn
     when 'R'
       Rook
     when 'N'

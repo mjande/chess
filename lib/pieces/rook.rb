@@ -1,8 +1,8 @@
 require_relative '../library'
 
 class Rook < Piece
-  WHITE_STARTING_POSITIONS = [[7, 0], [7, 7]].freeze
-  BLACK_STARTING_POSITIONS = [[0, 0], [0, 7]].freeze
+  STARTING_POSITIONS = { 'white' => [[7, 0], [7, 7]],
+                         'black' => [[0, 0], [0, 7]] }
 
   def to_s
     color == 'white' ? ' ♜ '.colorize(:light_white) : ' ♜ '.colorize(:black)

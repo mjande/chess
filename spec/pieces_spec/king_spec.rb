@@ -1,7 +1,7 @@
 require_relative '../../lib/library'
 
 describe King do
-  describe '#possible_moves' do
+  describe '#update_possible_moves' do
     let(:board) { Board.new }
 
     context 'when on a blank board' do
@@ -121,8 +121,9 @@ describe King do
         rook1 = Rook.new(0, 3, 'black', board)
         rook2 = Rook.new(0, 5, 'black', board)
         rook3 = Rook.new(6, 0, 'black', board)
-        board.instance_variable_set(:@pieces, [king, rook1, rook2, rook3])
-        board.pieces.each(&:update_possible_moves)
+        rook4 = Rook.new(0, 4, 'black', board)
+        board.instance_variable_set(:@pieces, [king, rook1, rook2, rook3, rook4])
+        board.update_all_possible_moves
       end
 
       it 'returns true' do
@@ -151,13 +152,13 @@ describe King do
     it 'moves king to new position' do
       Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
-      expect(board.positions[7][6]).to be(king)
+      expect(board.at_position(7, 6)).to be(king)
     end
 
     it 'moves rook to new position' do
       rook = Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
-      expect(board.positions[7][5]).to be(rook)
+      expect(board.at_position(7, 5)).to be(rook)
     end
   end
 
@@ -168,13 +169,13 @@ describe King do
     it 'moves king to new position' do
       Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
-      expect(board.positions[7][2]).to be(king)
+      expect(board.at_position(7, 2)).to be(king)
     end
 
     it 'moves rook to new position' do
       rook = Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
-      expect(board.positions[7][3]).to be(rook)
+      expect(board.at_position(7, 3)).to be(rook)
     end
   end
 end

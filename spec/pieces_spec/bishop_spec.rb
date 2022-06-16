@@ -1,17 +1,19 @@
 require_relative '../../lib/library'
 
 describe Bishop do
-  describe '#possible_moves' do
+  describe '#update_possible_moves' do
     let(:board) { Board.new }
 
     context 'when the board is blank' do
       it 'returns an array of all possible moves from the middle of the board' do
         bishop = described_class.new(4, 4, 'white', board)
+        bishop.update_possible_moves
         expect(bishop.possible_moves).to contain_exactly([3, 3], [2, 2], [1, 1], [0, 0], [3, 5], [2, 6], [1, 7], [5, 3], [6, 2], [7, 1], [5, 5], [6, 6], [7, 7])
       end
 
       it 'returns an array of all possible moves from the edge of the board' do
         bishop = described_class.new(0, 2, 'black', board)
+        bishop.update_possible_moves
         expect(bishop.possible_moves).to contain_exactly([1, 1], [2, 0], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7])
       end
     end
@@ -22,6 +24,7 @@ describe Bishop do
       before do
         Rook.new(3, 6, 'white', board)
         Knight.new(3, 2, 'black', board)
+        bishop.update_possible_moves
       end
 
       it 'returns moves to capture different colored pieces' do

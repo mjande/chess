@@ -1,32 +1,39 @@
 require_relative '../../lib/library'
 
 describe Piece do
-  describe '#Piece.add_to_board' do
+  describe '#Piece.add_white_pieces_to_board' do
     let(:board) { Board.new }
-    let(:white_player) { double('white_player', color: 'white', pieces: []) }
-    let(:black_player) { double('black_player', color: 'black', pieces: []) }
 
     it 'assigns pieces to starting position' do
-      Rook.add_to_board(board, white_player)
-      expect(board.positions[7][0]).to be_a(Rook)
-      Bishop.add_to_board(board, black_player)
-      expect(board.positions[0][2]).to be_a(Bishop)
+      Rook.add_white_pieces_to_board(board)
+      expect(board.at_position(7, 0)).to be_a(Rook)
+      expect(board.at_position(7, 0).color).to eq('white')
     end
 
-    it 'adds array of created pieces to player.pieces' do
-      Rook.add_to_board(board, white_player)
-      expect(white_player.pieces).to include(a_kind_of(Rook)).twice
+    it 'adds created pieces to board.pieces' do
+      Bishop.add_white_pieces_to_board(board)
+      expect(board.pieces).to include(a_kind_of(Bishop)).twice
+    end
+  end
+
+  describe '#Piece.add_black_pieces_to_board' do
+    let(:board) { Board.new }
+
+    it 'assigns pieces to starting positions' do
+      Knight.add_black_pieces_to_board(board)
+      expect(board.at_position(0, 1)).to be_a(Knight)
+      expect(board.at_position(0, 6)).to be_a(Knight)
     end
 
-    it 'adds array of created pieces to board.pieces' do
-      Rook.add_to_board(board, white_player)
-      expect(board.pieces).to include(a_kind_of(Rook)).twice
+    it 'adds created pieces to board.pieces' do
+      Queen.add_black_pieces_to_board(board) 
+      expect(board.pieces).to include(a_kind_of(Queen)).once
     end
   end
 
   describe '#move' do
     let(:board) { Board.new }
-    
+
     context 'when moving to an unoccopied position' do
       subject(:piece) { described_class.new(6, 0, 'white', board) }
 
@@ -35,11 +42,11 @@ describe Piece do
       end
 
       it 'removes self from previous position' do
-        expect(board.positions[6][0]).to be_nil
+        expect(board.at_position(7, 0)).to be_nil
       end
 
       it 'adds self to new position' do
-        expect(board.positions[5][0]).to be(piece)
+        expect(board.at_position(5, 0)).to be(piece)
       end
 
       it 'updates current row' do
@@ -64,16 +71,16 @@ describe Piece do
     subject(:piece) { described_class.new(5, 0, 'white', board) }
 
     before do
-      piece.instance_variable_set(:@previous_moves, [[6, 0]])
+      piece.instance_variable_set(:@previous_move, [6, 0])
       piece.undo_move
     end
 
     it 'removes self from requested position' do
-      expect(board.positions[5][0]).to be_nil
+      expect(board.at_position(5, 0)).to be_nil
     end
 
     it 'adds self to previous position' do
-      expect(board.positions[6][0]).to eq(piece)
+      expect(board.at_position(6, 0)).to eq(piece)
     end
 
     it 'updates row back to previous row' do

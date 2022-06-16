@@ -1,28 +1,44 @@
 require 'colorize'
 
 class Board
-  attr_reader :positions, :pieces
+  attr_reader :data_array, :pieces
 
   def initialize
-    @positions = Array.new(8) { Array.new(8, nil) }
+    @data_array = Array.new(8) { Array.new(8, nil) }
     @pieces = []
   end
 
-  def add_starting_pieces(player)
-    Rook.add_to_board(self, player)
-    Knight.add_to_board(self, player)
-    Bishop.add_to_board(self, player)
-    Queen.add_to_board(self, player)
-    King.add_to_board(self, player)
-    if player.color == 'white'
-      WhitePawn.add_to_board(self, player)
-    else
-      BlackPawn.add_to_board(self, player)
+  def add_starting_pieces
+    piece_types = [Rook, Knight, Bishop, Queen, King, Pawn]
+    piece_types.each do |piece_type|
+      piece_type.add_white_pieces_to_board(self)
+      piece_type.add_black_pieces_to_board(self)
     end
   end
 
   def update_all_possible_moves
     pieces.each(&:update_possible_moves)
+  end
+
+  def open?(row, column)
+    data_array[row][column].nil?
+  end
+
+  def different_color?(row, column, color)
+    piece = data_array[row][column]
+    piece.color != color
+  end
+
+  def at_position(row, column)
+    data_array[row][column]
+  end
+
+  def clear_position(row, column)
+    data_array[row][column] = nil
+  end
+
+  def add_to_position(row, column, piece)
+    data_array[row][column] = piece
   end
 
   def add_background_color(array)
@@ -55,7 +71,7 @@ class Board
   end
 
   def clean_rows
-    clean_rows = positions.map do |row|
+    clean_rows = data_array.map do |row|
       row.map { |position| position.nil? ? '   ' : position }
     end
 

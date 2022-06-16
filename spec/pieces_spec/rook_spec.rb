@@ -23,7 +23,7 @@ describe Rook do
 
       before do
         Bishop.new(7, 2, 'white', board)
-        BlackPawn.new(1, 0, 'black', board)
+        Pawn.new(1, 0, 'black', board)
         rook.update_possible_moves
       end
 

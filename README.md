@@ -24,14 +24,9 @@ Current problem: I'm really close to getting a working solution (despite my stup
 
 First Working Version
 To Do List
--Special moves
-  -Added en_passant logic to possible moves, now just need to add logic to #special_moves
-  -Almost done here, need to spend time checking if it works in regular play (initial test did not work as planned, despite unit tests passing)
--Create ability to save
 -Revisit tests
 -Refactor like crazy
+-Stalemate
+-Create Input class and subclasses
+-Create ability to save
 -Create detailed README
-
-Code Smells and Ideas for Refactoring
--Turn coordinates into value objects
--Refactor factory to be less messy(?)
