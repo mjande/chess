@@ -20,13 +20,21 @@ class Board
     pieces.each(&:update_possible_moves)
   end
 
+  def on_the_board?(row, column)
+    row >= 0 && row <= 7 && column >= 0 && column <= 7
+  end
+
   def open?(row, column)
-    data_array[row][column].nil?
+    return unless on_the_board?(row, column)
+
+    [row, column] if data_array[row][column].nil?
   end
 
   def different_color?(row, column, color)
+    return unless on_the_board?(row, column) && !open?(row, column)
+
     piece = data_array[row][column]
-    piece.color != color
+    [row, column] if piece.color != color
   end
 
   def at_position(row, column)

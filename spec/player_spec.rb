@@ -1,46 +1,6 @@
 require_relative '../lib/player'
 
 describe Player do
-  describe '#input_move' do
-    let(:board) { Board.new }
-    subject(:player) { described_class.new('white', board) }
-
-    before do
-      allow(player).to receive(:puts)
-    end
-
-    it 'returns an array of coordinates for a valid normal input' do
-      allow(player).to receive(:gets).and_return('a3')
-      expect(player.input_move).to eq([WhitePawn, 5, 0])
-    end
-
-    it 'returns an array of coordinates for a castling special input' do
-      allow(player).to receive(:gets).and_return('0-0')
-      expect(player.input_move).to eq([King, 7, 6])
-    end
-
-    it 'loops until the player inputs a valid input' do
-      allow(player).to receive(:gets).and_return('11', 'rook', 'Na1')
-      expect(player.input_move).to eq([Knight, 7, 0])
-    end
-  end
-
-  describe '#find_piece' do
-    let(:board) { Board.new }
-    subject(:player) { described_class.new('white', board) }
-
-    before do
-      board.add_starting_pieces(player)
-      board.update_all_possible_moves
-    end
-
-    it 'returns the piece that can make that move' do
-      original_pawn = board.positions[6][0]
-      move = [WhitePawn, 5, 0]
-      expect(player.find_piece(move)).to be(original_pawn)
-    end
-  end
-
   describe '#play_turn' do
     let(:board) { Board.new }
     subject(:player) { described_class.new('white', board) }
@@ -63,7 +23,7 @@ describe Player do
     end
 
     context 'when the player inputs an invalid move' do
-      let(:piece) { double('piece', move:nil) }
+      let(:piece) { double('piece', move: nil) }
 
       it 'loops until a valid move is inputted' do
         allow(piece).to receive(:nil?).and_return(true, false)

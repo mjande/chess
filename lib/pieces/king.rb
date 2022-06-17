@@ -59,8 +59,9 @@ class King < Piece
   private
 
   def valid_move?(row, column, color)
-    if on_the_board?(row, column) &&
-       (board.open?(row, column) || board.different_color?(row, column, color)) &&
+    if board.on_the_board?(row, column) &&
+       (board.open?(row, column) ||
+       board.different_color?(row, column, color)) &&
        !check?(row, column)
       [row, column]
     end
@@ -85,11 +86,11 @@ class King < Piece
   end
 
   def all_kingside_positions_are_open?
-    empty_position?(row, 5) && empty_position?(row, 6)
+    board.open?(row, 5) && board.open?(row, 6)
   end
 
   def all_queenside_positions_are_open?
-    empty_position?(row, 3) && empty_position?(row, 2) && empty_position?(row, 1)
+    board.open?(row, 3) && board.open?(row, 2) && board.open?(row, 1)
   end
 
   def no_kingside_positions_are_in_check?

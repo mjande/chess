@@ -31,33 +31,19 @@ class Piece
   end
 
   def valid_move?(row, column, color)
-    if on_the_board?(row, column) &&
-       (empty_position?(row, column) || different_color?(row, column, color))
+    if board.on_the_board?(row, column) &&
+       (board.open?(row, column) || board.different_color?(row, column, color))
       [row, column]
     end
   end
 
-  def empty_position?(row, column)
-    [row, column] if board.open?(row, column)
-  end
-
-  def different_color?(row, column, color)
-    return if board.open?(row, column)
-
-    [row, column] if board.different_color?(row, column, color)
-  end
-
-  def on_the_board?(row, column)
-    row >= 0 && row <= 7 && column >= 0 && column <= 7
-  end
-
   def check_direction(row_shift, column_shift)
     moves = []
-    next_row = @row + row_shift
-    next_column = @column + column_shift
+    next_row = row + row_shift
+    next_column = column + column_shift
     while next_row.between?(0, 7) && next_column.between?(0, 7)
       moves << valid_move?(next_row, next_column, color)
-      break unless @board.open?(next_row, next_column)
+      break unless board.open?(next_row, next_column)
 
       next_row += row_shift
       next_column += column_shift

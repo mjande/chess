@@ -1,7 +1,7 @@
 require_relative '../library'
 
 class MoveInput
-  attr_reader :row, :column, :piece
+  attr_reader :row, :column, :piece, :type
 
   def initialize(string, color, board)
     string.delete!('x')
@@ -15,7 +15,8 @@ class MoveInput
 
   def self.for(string, color, board)
     [MoveInput, PawnMoveInput, MultiPieceMoveInput, PawnCaptureMoveInput,
-     PawnPromotionMoveInput, CheckMoveInput, OtherMoveInput, InvalidMoveInput]
+     PawnPromotionMoveInput, CheckMoveInput, CastlingMoveInput, OtherMoveInput,
+     InvalidMoveInput]
       .find { |candidate| candidate.handles?(string) }.new(string, color, board)
   end
 
@@ -44,7 +45,7 @@ class MoveInput
   def self.valid_row?(number)
     return if valid_column?(number)
 
-    number.to_i >= 0 && number.to_i <= 7
+    number.to_i >= 0 && number.to_i <= 8
   end
 
   def self.valid_column?(letter)

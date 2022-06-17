@@ -1,6 +1,8 @@
 require_relative '../library'
 
 class PawnMoveInput < MoveInput
+  attr_reader :promotion_piece
+  
   def initialize(string, color, board)
     clean_string = string.prepend('P')
     super(clean_string, color, board)
@@ -13,6 +15,8 @@ class PawnMoveInput < MoveInput
 end
 
 class PawnPromotionMoveInput < MoveInput
+  attr_reader :promotion_piece
+  
   def initialize(string, color, board)
     clean_string = "P#{string[0..-2]}"
     super(clean_string, color, board)
