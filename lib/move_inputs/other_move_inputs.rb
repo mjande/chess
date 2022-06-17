@@ -10,18 +10,6 @@ class InvalidMoveInput < MoveInput
   end
 end
 
-class PawnMoveInput < MoveInput
-  def initialize(string, color, board)
-    clean_string = string.prepend('P')
-    super(clean_string, color, board)
-  end
-
-  def self.handles?(string)
-    string.length == 2 && valid_column?(string[0]) &&
-      valid_row?(string[1])
-  end
-end
-
 class CastlingMoveInput < MoveInput
   def initialize(string, color, board)
     @board = board
@@ -47,19 +35,6 @@ class CastlingMoveInput < MoveInput
   end
 end
 
-class PawnPromotionMoveInput < MoveInput
-  def initialize(string, color, board)
-    clean_string = "P#{string[0..-2]}"
-    super(clean_string, color, board)
-    @type = 'promotion'
-    @promotion_piece = piece_class(string[-1])
-  end
-
-  def self.handles?(string)
-    valid_column?(string[0]) && valid_row?(string[1]) && valid_piece?(string[2])
-  end
-end
-
 class CheckMoveInput < MoveInput
   def initialize(string, color, board)
     clean_string = string
@@ -76,7 +51,7 @@ class CheckMoveInput < MoveInput
 end
 
 class OtherMoveInput < MoveInput
-  def initialize(_string, _color, _board)
+  def initialize(string, _color, _board)
     @type = 'draw' if string == '='
     @type = 'save' if string == 'save'
   end

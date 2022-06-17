@@ -14,13 +14,26 @@ class MoveInput
   end
 
   def self.for(string, color, board)
-    [MoveInput, PawnMoveInput, MultiPieceMoveInput, PawnPromotionMoveInput,
-     CheckMoveInput, OtherMoveInput, InvalidMoveInput]
+    [MoveInput, PawnMoveInput, MultiPieceMoveInput, PawnCaptureMoveInput,
+     PawnPromotionMoveInput, CheckMoveInput, OtherMoveInput, InvalidMoveInput]
       .find { |candidate| candidate.handles?(string) }.new(string, color, board)
   end
 
   def self.handles?(string)
-    valid_piece?(string[0]) && valid_column?(string[1]) && valid_row?(string[2])
+    string.delete!('x')
+    string.length == 3 && valid_piece?(string[0]) && valid_column?(string[1]) &&
+      valid_row?(string[2])
+  end
+
+  def find_piece(piece_class, color)
+    selected_pieces = @board.pieces.select do |board_piece|
+      board_piece.instance_of?(piece_class) &&
+        board_piece.possible_moves.include?([row, column]) &&
+        board_piece.color == color
+    end
+    return selected_pieces if selected_pieces.length > 1
+
+    selected_pieces[0]
   end
 
   def self.valid_piece?(character)
@@ -39,6 +52,8 @@ class MoveInput
     letters_array.include?(letter)
   end
 
+  private
+
   def numbered_row(number)
     8 - number.to_i
   end
@@ -46,17 +61,6 @@ class MoveInput
   def numbered_column(letter)
     letters_array = ('a'..'h').to_a
     letters_array.find_index(letter)
-  end
-
-  def find_piece(piece_class, color)
-    selected_pieces = @board.pieces.select do |board_piece|
-      board_piece.instance_of?(piece_class) &&
-        board_piece.possible_moves.include?([row, column]) &&
-        board_piece.color == color
-    end
-    return selected_pieces if selected_pieces.length > 1
-
-    selected_pieces[0]
   end
 
   def piece_class(piece)

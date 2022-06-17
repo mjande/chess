@@ -2,11 +2,10 @@ require_relative '../library'
 
 class MultiPieceMoveInput < MoveInput
   def initialize(string, color, board)
-    @original_column = numbered_column(string[1]) if MoveInput.valid_column?(string[1])
+    string.delete!('x')
     write_original_coordinates(string)
     clean_string = string[0] + string[-2, 2]
     super(clean_string, color, board)
-    @type = 'capture' if string[2] == 'x' || string[3] == 'x'
   end
 
   def self.handles?(string)
@@ -16,17 +15,22 @@ class MultiPieceMoveInput < MoveInput
   end
 
   def write_original_coordinates(string)
+    @original_column = numbered_column(string[1]) if MoveInput.valid_column?(string[1])
     @original_row = numbered_row(string[1]) if MoveInput.valid_row?(string[1])
     @original_row = numbered_row(string[2]) if MoveInput.valid_row?(string[2])
   end
 
   def find_piece(piece_class, color)
     matching_pieces = super(piece_class, color)
+    return matching_pieces unless matching_pieces.instance_of?(Array)
+
     matching_pieces = find_piece_by_origin(matching_pieces)
     return matching_pieces if matching_pieces.length > 1
 
     matching_pieces[0]
   end
+
+  private
 
   def find_piece_by_origin(pieces)
     pieces.select do |matching_piece|
