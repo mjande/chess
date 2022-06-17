@@ -46,10 +46,10 @@ class Player
       if input.piece.is_a?(Array)
         puts 'There are two or more pieces with that move.'
         puts 'Please indicate which piece using standard chess notation (Rdf8).'
+      elsif input.instance_of?(InvalidMoveInput)
+        puts 'Invalid move. Please use chess notation ("a1" or "Kc6"), or enter "save" to save or "=" to draw.'
       elsif input.piece.nil?
         puts 'There is not a piece that is able to make that move.'
-      elsif input.instance_of?(InvalidMoveInput)
-        puts 'Please use chess notation ("a1" or "Kc6"), or enter "save" to save or "=" to draw.'
       else
         return input
       end

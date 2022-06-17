@@ -24,10 +24,10 @@ Current problem: I'm really close to getting a working solution (despite my stup
 
 First Working Version
 To Do List
+-Create Input class and subclasses
 -Revisit tests
 -Refactor like crazy
 -Pawn Promotion
 -Stalemate
--Create Input class and subclasses
 -Create ability to save
 -Create detailed README
