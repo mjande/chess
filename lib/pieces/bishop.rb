@@ -18,4 +18,8 @@ class Bishop < Piece
     check_direction(1, 1).each { |position| possible_moves << position }
     check_direction(1, -1).each { |position| possible_moves << position }
   end
+
+  def territory
+    (row + column).even? ? 'light_squares' : 'dark_squares'
+  end
 end

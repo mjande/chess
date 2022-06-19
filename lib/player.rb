@@ -1,15 +1,18 @@
 require_relative 'library'
 
 class Player
-  attr_reader :color, :board
+  attr_reader :color, :board, :draw
+  attr_accessor :save
 
   def initialize(color, board)
     @color = color
     @board = board
+    @draw = false
+    @save = false
   end
 
   def play_turn
-    board.display
+    puts board.display
     loop do
       puts "If you like to save, quit, or call for a draw, type 'options'."
       input = input_move
@@ -33,6 +36,10 @@ class Player
       piece.queenside_castle_move
     elsif input.type == 'promotion'
       piece.promote(input)
+    elsif input.type == 'draw'
+      draw_offer_message
+    elsif input.type == 'save'
+      @save = true
     end
   end
 
@@ -72,6 +79,26 @@ class Player
 
   def win_message
     puts "Checkmate! #{color.capitalize}, you win!"
+  end
+
+  def draw_offer_message
+    puts "#{color}, would you like to offer a draw? (Y or N)"
+    response = gets.chomp
+    return unless response == 'Y'
+
+    @draw = true
+  end
+
+  def draw_acceptance_message
+    puts "#{color}, your opponent has offered a draw. Do you accept? (Y or N)"
+    response = gets.chomp
+    return unless response == 'Y'
+
+    @draw == true
+  end
+
+  def tie_message
+    puts 'The game ended in a draw!'
   end
 
   def play_again_input

@@ -54,6 +54,7 @@ class OtherMoveInput < MoveInput
   def initialize(string, _color, _board)
     @type = 'draw' if string == '='
     @type = 'save' if string == 'save'
+    @piece = 'other'
   end
 
   def self.handles?(string)

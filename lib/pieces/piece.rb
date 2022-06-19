@@ -56,6 +56,7 @@ class Piece
     board.clear_position(row, column)
     @row = new_row
     @column = new_column
+    board.moves_since_capture += 1
     capture(row, column) unless board.open?(row, column)
     board.add_to_position(row, column, self)
   end
@@ -73,5 +74,6 @@ class Piece
     piece_to_be_removed = board.at_position(new_row, new_column)
     board.pieces.delete(piece_to_be_removed)
     board.clear_position(new_row, new_column)
+    board.moves_since_capture = 0
   end
 end

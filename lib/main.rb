@@ -11,4 +11,4 @@ end
 =end
 
 game = Game.new
-game.start_game
+game.start

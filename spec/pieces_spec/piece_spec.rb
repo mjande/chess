@@ -52,16 +52,27 @@ describe Piece do
       it 'updates current row' do
         expect(piece.row).to eq(5)
       end
+
+      it 'adds to moves_since_capture counter' do
+        expect { piece.move(4, 0) }.to change { board.moves_since_capture }.by(1)
+      end
     end
 
     context 'when capturing another piece' do
       subject(:piece) { described_class.new(7, 0, 'white', board) }
+      let(:other_piece) { described_class.new(5, 0, 'black', board) }
 
-      it 'removes captured piece from board.pieces' do
-        other_piece = described_class.new(5, 0, 'black', board)
+      before do
         board.instance_variable_set(:@pieces, [piece, other_piece])
         piece.move(5, 0)
+      end
+
+      it 'removes captured piece from board.pieces' do
         expect(board.pieces).not_to include(other_piece)
+      end
+
+      it 'resets moves_since_capture to zero' do
+        expect(board.moves_since_capture).to eq(0)
       end
     end
   end
