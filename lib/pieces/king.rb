@@ -13,18 +13,27 @@ class King < Piece
   end
 
   def update_possible_moves
-    @possible_moves = Array[
-      valid_move?(@row - 1, @column, color),
-      valid_move?(@row - 1, @column + 1, color),
-      valid_move?(@row, @column + 1, color),
-      valid_move?(@row + 1, @column + 1, color),
-      valid_move?(@row + 1, @column, color),
-      valid_move?(@row + 1, @column - 1, color),
-      valid_move?(@row, @column - 1, color),
-      valid_move?(@row - 1, @column - 1, color),
-      kingside_castling?,
-      queenside_castling?
-    ].compact
+    @possible_moves = check_adjacent_squares
+    possible_moves << kingside_castling?
+    possible_moves << queenside_castling?
+    @possible_moves.compact!
+  end
+
+  def adjacent_squares
+    adjacent_squares = []
+    diffs = [0, -1, -1, 1, 1]
+
+    diffs.permutation do |coordinate_diff|
+      coordinate = [row + coordinate_diff[0], column + coordinate_diff[1]]
+      adjacent_squares << coordinate
+    end
+    adjacent_squares.uniq
+  end
+
+  def check_adjacent_squares
+    adjacent_squares.select do |square|
+      valid_move?(square[0], square[1], color)
+    end
   end
 
   def check?(check_row = row, check_column = column)
@@ -36,12 +45,7 @@ class King < Piece
   end
 
   def checkmate?
-    return false if possible_moves.empty?
-
-    check? &&
-      possible_moves.all? do |position|
-        check?(position[0], position[1])
-      end
+    possible_moves.empty? && check?
   end
 
   def kingside_castle_move

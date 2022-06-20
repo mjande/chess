@@ -2,8 +2,7 @@
 
 require_relative '../library'
 
-# Bishop class handles deciding the starting positions and possible moves for
-# both sets of bishop pieces
+# The Bishop class handles starting positions and possible moves of both bishops
 class Bishop < Piece
   STARTING_POSITIONS = { 'white' => [[7, 2], [7, 5]],
                          'black' => [[0, 2], [0, 5]] }.freeze
@@ -13,10 +12,7 @@ class Bishop < Piece
   end
 
   def update_possible_moves
-    check_direction(-1, 1).each { |position| possible_moves << position }
-    check_direction(-1, -1).each { |position| possible_moves << position }
-    check_direction(1, 1).each { |position| possible_moves << position }
-    check_direction(1, -1).each { |position| possible_moves << position }
+    check_diagonals
   end
 
   def territory

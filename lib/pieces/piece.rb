@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 require 'colorize'
 
+# The Piece class handles the factory for creating different pieces at the start
+# of the game, and also contains several methods that are shared by several of
+# the different pieces subclasses. Most methods deal with move validation and
+# movement scripts.
 class Piece
   attr_reader :row, :column, :color, :board, :possible_moves, :previous_move
 
@@ -10,6 +16,7 @@ class Piece
     @board = board
     board.add_to_position(row, column, self)
     @possible_moves = []
+    @previous_move = nil
   end
 
   def self.add_white_pieces_to_board(board)
@@ -51,14 +58,32 @@ class Piece
     moves.compact
   end
 
+  def check_diagonals
+    check_direction(1, -1).each { |position| possible_moves << position }
+    check_direction(1, 1).each { |position| possible_moves << position }
+    check_direction(-1, 1).each { |position| possible_moves << position }
+    check_direction(-1, -1).each { |position| possible_moves << position }
+  end
+
+  def check_horizontals_and_verticals
+    check_direction(1, 0).each { |position| possible_moves << position }
+    check_direction(-1, 0).each { |position| possible_moves << position }
+    check_direction(0, -1).each { |position| possible_moves << position }
+    check_direction(0, 1).each { |position| possible_moves << position }
+  end
+
   def move(new_row, new_column)
-    @previous_move = [@row, @column]
-    board.clear_position(row, column)
+    leave_previous_square
     @row = new_row
     @column = new_column
     board.moves_since_capture += 1
     capture(row, column) unless board.open?(row, column)
     board.add_to_position(row, column, self)
+  end
+
+  def leave_previous_square
+    @previous_move = [row, column]
+    board.clear_position(row, column)
   end
 
   def undo_move

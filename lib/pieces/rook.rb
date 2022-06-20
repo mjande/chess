@@ -1,17 +1,17 @@
+# frozen_string_literal: true
+
 require_relative '../library'
 
+# The Rook class handles starting positions and possible moves of all rooks
 class Rook < Piece
   STARTING_POSITIONS = { 'white' => [[7, 0], [7, 7]],
-                         'black' => [[0, 0], [0, 7]] }
+                         'black' => [[0, 0], [0, 7]] }.freeze
 
   def to_s
     color == 'white' ? ' ♜ '.colorize(:light_white) : ' ♜ '.colorize(:black)
   end
 
   def update_possible_moves
-    check_direction(-1, 0).each { |position| possible_moves << position }
-    check_direction(0, 1).each { |position| possible_moves << position }
-    check_direction(1, 0).each { |position| possible_moves << position }
-    check_direction(0, -1).each { |position| possible_moves << position }
+    check_horizontals_and_verticals
   end
 end

@@ -2,6 +2,8 @@
 
 require_relative '../library'
 
+# The Pawn class handles starting positions and possible moves of all pawns,
+# including checking for en-passant capture and handling a promotion move
 class Pawn < Piece
   attr_reader :direction
 
@@ -20,21 +22,39 @@ class Pawn < Piece
   end
 
   def update_possible_moves
-    @possible_moves = Array[
-      board.open?(row + direction, column),
-      board.different_color?(row + direction, column - 1, color),
-      board.different_color?(row + direction, column + 1, color),
-      double_step,
-      en_passant?(column - 1),
-      en_passant?(column + 1)
-    ].compact
+    @possible_moves = []
+    check_ahead
+    check_up_left
+    check_up_right
+    check_en_passant
+    possible_moves.compact!
   end
 
-  def double_step
-    return unless previous_move.nil?
+  def check_ahead
+    return unless board.open?(row + direction, column)
 
+    possible_moves << [row + direction, column]
+    check_double_step
+  end
+
+  def check_double_step
     new_row = row + (direction * 2)
-    [new_row, column] if board.open?(new_row, column)
+    return unless previous_move.nil? && board.open?(new_row, column)
+
+    possible_moves << [new_row, column]
+  end
+
+  def check_up_left
+    possible_moves << board.different_color?(row + direction, column + 1, color)
+  end
+
+  def check_up_right
+    possible_moves << board.different_color?(row + direction, column - 1, color)
+  end
+
+  def check_en_passant
+    possible_moves << en_passant?(column - 1)
+    possible_moves << en_passant?(column + 1)
   end
 
   def en_passant_capture(new_column)
