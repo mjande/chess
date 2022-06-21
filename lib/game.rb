@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'library'
 require 'yaml'
 
+# The Game class handles the basic game loop, including: initializing the game,
+# allowing each player to take their turn, and ending the game.
 class Game
   attr_reader :board, :white_player, :black_player
 
@@ -21,7 +25,7 @@ class Game
     @board = Board.new
     @white_player = Player.new('white', board)
     @black_player = Player.new('black', board)
-    @next_turn = 'white'
+    @next_player = white_player
     board.add_starting_pieces
     board.update_all_possible_moves
     play_game
@@ -29,21 +33,13 @@ class Game
 
   def play_game
     loop do
-      case @next_turn
-      when 'white'
-        break if white_player.checkmate? || draw?(white_player)
+      break if @next_player.checkmate? || draw?(@next_player)
 
+      case @next_player
+      when white_player
         white_turn
-        board.log_position
-        check_responses
-        @next_turn = 'black'
-      when 'black'
-        break if black_player.checkmate? || draw?(black_player)
-
+      when black_player
         black_turn
-        board.log_position
-        check_responses
-        @next_turn = 'white'
       end
     end
     end_game
@@ -97,7 +93,7 @@ class Game
 
   def serialize
     game_data = { board: @board, white_player: @white_player,
-                  black_player: @black_player, next_turn: @next_turn }
+                  black_player: @black_player, next_player: @next_player }
     YAML.dump(game_data)
   end
 
@@ -110,12 +106,7 @@ class Game
     file_name = 'saved_games/save.yml'
     file = File.open(file_name, 'r')
     data = deserialize(file)
-    @board = data[:board]
-    @white_player = data[:white_player]
-    white_player.save = false
-    @black_player = data[:black_player]
-    black_player.save = false
-    @next_turn = data[:next_turn]
+    assign_loaded_variables(data)
     play_game
   end
 
@@ -124,10 +115,25 @@ class Game
   def white_turn
     white_player.check_message if white_player.check?
     white_player.play_turn
+    board.log_position
+    check_responses
+    @next_player = black_player
   end
 
   def black_turn
     black_player.check_message if black_player.check?
     black_player.play_turn
+    board.log_position
+    check_responses
+    @next_player = white_player
+  end
+
+  def assign_loaded_variables(data)
+    @board = data[:board]
+    @white_player = data[:white_player]
+    white_player.save = false
+    @black_player = data[:black_player]
+    black_player.save = false
+    @next_player = data[:next_player]
   end
 end

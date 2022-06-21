@@ -1,14 +1,6 @@
-require_relative 'library'
+# frozen_string_literal: true
 
-=begin
-begin
-  game = Game.new
-  game.start_game
-rescue StandardError => e
-  puts e.class
-  puts e.backtrace
-end
-=end
+require_relative 'library'
 
 game = Game.new
 game.start

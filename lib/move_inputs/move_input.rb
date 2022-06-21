@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 require_relative '../library'
 
+# The MoveInput class handles the standard move input (those inputs that are
+# still valid but not handled by any other input classes), contains the factory
+# for selecting which move input subclass to use, and houses methods shared by
+# the move input subclasses.
 class MoveInput
   attr_reader :row, :column, :piece, :type
 
@@ -24,6 +30,10 @@ class MoveInput
     string.delete!('x')
     string.length == 3 && valid_piece?(string[0]) && valid_column?(string[1]) &&
       valid_row?(string[2])
+  end
+
+  def move_piece
+    piece.move(row, column)
   end
 
   def find_piece(piece_class, color)

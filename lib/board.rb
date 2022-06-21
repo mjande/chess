@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
 require 'colorize'
 
+# The Board class handles storage of the squares and pieces of the chess board. 
+# It also handles methods for checking the details of a particular square 
+# (whether it is open and what color piece is occupying it). Several methods 
+# which make changes to all the pieces in the game are handled here as well. 
+# (This class is one that might need to be broken into several, as it is doing
+# several distinct types of functions).
 class Board
   attr_reader :data_array, :pieces
   attr_accessor :moves_since_capture
@@ -52,19 +60,11 @@ class Board
 
   def add_background_color(array)
     array.map.with_index do |row, row_index|
-      row.map.with_index do |position, column_index|
-        if row_index.even?
-          if column_index.even?
-            position.to_s.colorize(background: :white)
-          else
-            position.to_s.colorize(background: :light_black)
-          end
-        elsif row_index.odd?
-          if column_index.even?
-            position.to_s.colorize(background: :light_black)
-          else
-            position.to_s.colorize(background: :white)
-          end
+      row.map.with_index do |square, column_index|
+        if (row_index + column_index).even?
+          square.to_s.colorize(background: :white)
+        else
+          square.to_s.colorize(background: :light_black)
         end
       end
     end
@@ -79,10 +79,7 @@ class Board
   end
 
   def clean_rows
-    clean_rows = data_array.map do |row|
-      row.map { |position| position.nil? ? '   ' : position }
-    end
-
+    clean_rows = add_space_to_empty_squares
     clean_rows = add_background_color(clean_rows)
 
     row_number = 8
@@ -93,6 +90,12 @@ class Board
     end
 
     clean_rows.join
+  end
+
+  def add_space_to_empty_squares
+    data_array.map do |row|
+      row.map { |square| square.nil? ? '   ' : square }
+    end
   end
 
   def log_position
@@ -106,14 +109,14 @@ class Board
   def open?(row, column)
     return unless on_the_board?(row, column)
 
-    [row, column] if data_array[row][column].nil?
+    data_array[row][column].nil?
   end
 
   def different_color?(row, column, color)
     return unless on_the_board?(row, column) && !open?(row, column)
 
     piece = data_array[row][column]
-    [row, column] if piece.color != color
+    piece.color != color
   end
 
   def at_position(row, column)

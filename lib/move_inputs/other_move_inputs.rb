@@ -14,24 +14,19 @@ class CastlingMoveInput < MoveInput
   def initialize(string, color, board)
     @board = board
     @row = (color == 'white' ? 7 : 0)
-    kingside_move if string == 'O-O'
-    queenside_move if string == 'O-O-O'
+    @type = 'kingside_castling' if string == 'O-O'
+    @type = 'queenside_castling' if string == 'O-O-O'
     @piece = find_piece(King, color)
-  end
-
-  def kingside_move
-    @type = 'kingside_castling'
-    @column = 6
-  end
-
-  def queenside_move
-    @type = 'queenside_castling'
-    @column = 2
   end
 
   def self.handles?(string)
     castling_inputs = ['O-O', 'O-O-O']
     castling_inputs.include?(string)
+  end
+
+  def move_piece
+    piece.kingside_castle_move if type == 'kingside_castling'
+    piece.queenside_castle_move if type == 'queenside_castling'
   end
 end
 
@@ -60,5 +55,9 @@ class OtherMoveInput < MoveInput
   def self.handles?(string)
     other_inputs = ['=', 'save']
     other_inputs.include?(string.downcase)
+  end
+
+  def move_piece
+    nil
   end
 end

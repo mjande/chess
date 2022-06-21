@@ -38,12 +38,10 @@ class Piece
   end
 
   def valid_move?(possible_row, possible_column)
-    if board.on_the_board?(possible_row, possible_column) &&
-       (board.open?(possible_row, possible_column) ||
-       board.different_color?(possible_row, possible_column, color)) &&
-       leads_to_check?(possible_row, possible_column)
-      [row, column]
-    end
+    board.on_the_board?(possible_row, possible_column) &&
+      (board.open?(possible_row, possible_column) ||
+      board.different_color?(possible_row, possible_column, color)) &&
+      !leads_to_check?(possible_row, possible_column)
   end
 
   def leads_to_check?(possible_row, possible_column)
@@ -61,7 +59,7 @@ class Piece
     next_row = row + row_shift
     next_column = column + column_shift
     while next_row.between?(0, 7) && next_column.between?(0, 7)
-      moves << valid_move?(next_row, next_column)
+      moves << [next_row, next_column] if valid_move?(next_row, next_column)
       break unless board.open?(next_row, next_column)
 
       next_row += row_shift

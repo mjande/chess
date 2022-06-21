@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'library'
 
+# The Player class focuses on methods that interact with the player, as well as
+# handling the loops and procedures for check input and procceding through the
+# player's turn.
 class Player
   attr_reader :color, :board, :draw
   attr_accessor :save
@@ -13,32 +18,23 @@ class Player
 
   def play_turn
     puts board.display
-    loop do
-      puts "If you like to save, quit, or call for a draw, type 'options'."
-      input = input_move
-      input.piece.move(input.row, input.column) unless special_move(input)
-      board.update_all_possible_moves
-      break unless check?
-
-      puts 'That move places your king in check. Try again.'
-      input.piece.undo_move
-      board.update_all_possible_moves
-    end
+    input = input_move
+    input.move_piece
+    check_for_special_input(input.type)
+    board.update_all_possible_moves
   end
 
   def special_move(input)
-    piece = input.piece
-    if piece.instance_of?(Pawn) && piece.en_passant?(input.column)
-      piece.en_passant_capture(input.column)
-    elsif input.type == 'kingside_castling'
-      piece.kingside_castle_move
-    elsif input.type == 'queenside_castling'
-      piece.queenside_castle_move
-    elsif input.type == 'promotion'
-      piece.promote(input)
-    elsif input.type == 'draw'
+    pawn_special_move(input.type)
+    castling_special_move(input.type)
+    other_special_move(input.type)
+  end
+
+  def check_for_special_input(type)
+    case type
+    when 'draw'
       draw_offer_message
-    elsif input.type == 'save'
+    when 'save'
       @save = true
     end
   end
@@ -46,18 +42,23 @@ class Player
   def input_move
     loop do
       puts "#{color.capitalize}, input the coordinates of your next move."
+      puts "You may also enter '=' to offer a draw, or 'save' to save your game."
       input_string = gets.chomp
       input = MoveInput.for(input_string, color, board)
-      if input.piece.is_a?(Array)
-        puts 'There are two or more pieces with that move.'
-        puts 'Please indicate which piece using standard chess notation (Rdf8).'
-      elsif input.instance_of?(InvalidMoveInput)
-        puts 'Invalid move. Please use chess notation ("a1" or "Kc6"), or enter "save" to save or "=" to draw.'
-      elsif input.piece.nil?
-        puts 'There is not a piece that is able to make that move.'
-      else
-        return input
-      end
+      return input if move_validation(input)
+    end
+  end
+
+  def move_validation(input)
+    if input.piece.is_a?(Array)
+      puts 'There are two or more pieces with that move.'
+      puts 'Please indicate which piece using standard chess notation (Rdf8).'
+    elsif input.instance_of?(InvalidMoveInput)
+      puts 'Invalid move. Please use chess notation ("a1" or "Kc6"), or enter "save" to save or "=" to draw.'
+    elsif input.piece.nil?
+      puts 'There is not a piece that is able to make that move.'
+    else
+      true
     end
   end
 

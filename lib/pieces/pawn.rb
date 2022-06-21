@@ -45,11 +45,19 @@ class Pawn < Piece
   end
 
   def check_up_left
-    possible_moves << board.different_color?(row + direction, column + 1, color)
+    new_row = row + direction
+    new_column = column - 1
+    return unless board.different_color?(new_row, new_column, color)
+
+    possible_moves << [new_row, new_column]
   end
 
   def check_up_right
-    possible_moves << board.different_color?(row + direction, column - 1, color)
+    new_row = row + direction
+    new_column = column + 1
+    return unless board.different_color?(new_row, new_column, color)
+
+    possible_moves << [new_row, new_column]
   end
 
   def check_en_passant

@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../library'
 
+# The MultiPieceMoveInput class handles a move input that specifies which piece
+# should make the desired move.
 class MultiPieceMoveInput < MoveInput
   def initialize(string, color, board)
     string.delete!('x')
