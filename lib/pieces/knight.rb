@@ -28,7 +28,7 @@ class Knight < Piece
 
   def check_knight_squares
     knight_squares.select do |square|
-      valid_move?(square[0], square[1], color)
+      valid_move?(square[0], square[1])
     end
   end
 end

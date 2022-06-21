@@ -46,6 +46,10 @@ class Board
     repetitions > 2
   end
 
+  def clone
+    YAML.load(YAML.dump(self))
+  end
+
   def add_background_color(array)
     array.map.with_index do |row, row_index|
       row.map.with_index do |position, column_index|

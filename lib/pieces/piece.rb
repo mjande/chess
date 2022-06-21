@@ -37,11 +37,23 @@ class Piece
     end
   end
 
-  def valid_move?(row, column, color)
-    if board.on_the_board?(row, column) &&
-       (board.open?(row, column) || board.different_color?(row, column, color))
+  def valid_move?(possible_row, possible_column)
+    if board.on_the_board?(possible_row, possible_column) &&
+       (board.open?(possible_row, possible_column) ||
+       board.different_color?(possible_row, possible_column, color)) &&
+       leads_to_check?(possible_row, possible_column)
       [row, column]
     end
+  end
+
+  def leads_to_check?(possible_row, possible_column)
+    board_copy = board.clone
+    piece_copy = board_copy.at_position(row, column)
+    piece_copy.move(possible_row, possible_column)
+    king = board_copy.pieces.find do |copied_piece|
+      copied_piece.instance_of?(King) && copied_piece.color == color
+    end
+    king.check?
   end
 
   def check_direction(row_shift, column_shift)
@@ -49,7 +61,7 @@ class Piece
     next_row = row + row_shift
     next_column = column + column_shift
     while next_row.between?(0, 7) && next_column.between?(0, 7)
-      moves << valid_move?(next_row, next_column, color)
+      moves << valid_move?(next_row, next_column)
       break unless board.open?(next_row, next_column)
 
       next_row += row_shift

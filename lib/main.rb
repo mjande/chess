@@ -10,6 +10,5 @@ rescue StandardError => e
 end
 =end
 
-board = Board.new
-pawn = Pawn.new(6, 0, 'white', board)
-pawn.update_possible_moves
+game = Game.new
+game.start

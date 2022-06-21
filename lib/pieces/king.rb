@@ -32,7 +32,7 @@ class King < Piece
 
   def check_adjacent_squares
     adjacent_squares.select do |square|
-      valid_move?(square[0], square[1], color)
+      valid_move?(square[0], square[1])
     end
   end
 
@@ -61,15 +61,6 @@ class King < Piece
   end
 
   private
-
-  def valid_move?(row, column, color)
-    if board.on_the_board?(row, column) &&
-       (board.open?(row, column) ||
-       board.different_color?(row, column, color)) &&
-       !check?(row, column)
-      [row, column]
-    end
-  end
 
   def kingside_castling?
     rook = board.at_position(row, 7)
