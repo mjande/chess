@@ -1,5 +1,8 @@
 require_relative '../library'
 
+# The PawnMoveInput class handles two-character pawn move inputs. It adds the
+# leading character to indicate the class, and then sends the data up to the 
+# MoveInput parent class.
 class PawnMoveInput < MoveInput
   attr_reader :promotion_piece
 
@@ -14,9 +17,12 @@ class PawnMoveInput < MoveInput
   end
 end
 
+# The PawnPromotionMoveInput class handles move inputs indicating a promotion
+# for a pawn. It cleans the data (just like PawnMoveInput) and saves the desired
+# promotion class for later processing.
 class PawnPromotionMoveInput < MoveInput
   attr_reader :promotion_piece
-  
+
   def initialize(string, color, board)
     clean_string = "P#{string[0..-2]}"
     super(clean_string, color, board)
@@ -33,11 +39,13 @@ class PawnPromotionMoveInput < MoveInput
   end
 end
 
+# The PawnCaptureMoveInput handles move input where a pawn captures another
+# piece. This cleans the data so that it can be handled by MultiPieceMoveInput,
+# whose approach it most resembles.
 class PawnCaptureMoveInput < MultiPieceMoveInput
   def initialize(string, color, board)
     string.prepend('P')
     super(string, color, board)
-    # @type = 'en_passant' if en_passant_move?
   end
 
   def self.handles?(string)
@@ -46,20 +54,10 @@ class PawnCaptureMoveInput < MultiPieceMoveInput
   end
 
   def move_piece
-    if en_passant_move?
-      piece.en_passant_capture(column)
+    if piece.en_passant?(square)
+      piece.en_passant_capture(square)
     else
-      super(row, column)
+      super(square)
     end
-  end
-
-  def en_passant_move?
-    row = string[1]
-    column = string[0]
-    direction = (color == 'white' ? -1 : 1)
-
-    passed_pawn = board.square(row, column).piece
-    passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
-      passed_pawn.previous_move == [row + (direction * 2), new_column]
   end
 end

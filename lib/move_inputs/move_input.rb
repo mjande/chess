@@ -12,8 +12,9 @@ class MoveInput
   def initialize(string, color, board)
     string.delete!('x')
     @board = board
-    @row = numbered_row(string[2])
-    @column = numbered_column(string[1])
+    row = numbered_row(string[2])
+    column = numbered_column(string[1])
+    @square = board.square(row, column)
     piece_class = piece_class(string[0])
     @piece = find_piece(piece_class, color)
     @type = nil
@@ -33,13 +34,13 @@ class MoveInput
   end
 
   def move_piece
-    piece.move(row, column)
+    piece.move(square)
   end
 
   def find_piece(piece_class, color)
     selected_pieces = @board.pieces.select do |board_piece|
       board_piece.instance_of?(piece_class) &&
-        board_piece.possible_moves.include?([row, column]) &&
+        board_piece.possible_moves.include?(square) &&
         board_piece.color == color
     end
     return selected_pieces if selected_pieces.length > 1

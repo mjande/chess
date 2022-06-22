@@ -8,7 +8,7 @@ describe Board do
       board.add_starting_pieces
     end
 
-    it 'adds pieces to different positions on board' do
+    it 'adds pieces to different squares on board' do
       expect(board.square(0, 0).piece).to be_a(Rook)
       expect(board.square(7, 4).piece).to be_a(King)
       expect(board.square(1, 3).piece).to be_a(Pawn)

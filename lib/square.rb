@@ -10,6 +10,14 @@ class Square
     @piece = nil
   end
 
+  def ==(other)
+    row == other.row && column == other.column
+  end
+
+  def eql?(other)
+    self == other && piece == other.piece
+  end
+
   def open?
     piece.nil?
   end
@@ -24,6 +32,10 @@ class Square
 
   def clear
     @piece = nil
+  end
+
+  def color
+    (row + column).even? ? 'light' : 'dark'
   end
 
   def to_s

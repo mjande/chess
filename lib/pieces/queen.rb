@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-# The Queen class handles starting positions and possible moves of both queens
+# The Queen class handles starting squares and possible moves of both queens
 class Queen < Piece
-  STARTING_POSITIONS = { 'white' => [[7, 3]], 'black' => [[0, 3]] }.freeze
+  STARTING_SQUARES = { 'white' => [board.square(7, 3)],
+                       'black' => [board.square(0, 3)] }.freeze
 
   def to_s
     color == 'white' ? ' ♛ '.colorize(:light_white) : ' ♛ '.colorize(:black)

@@ -2,10 +2,10 @@
 
 require_relative '../library'
 
-# The Rook class handles starting positions and possible moves of all rooks
+# The Rook class handles starting squares and possible moves of all rooks
 class Rook < Piece
-  STARTING_POSITIONS = { 'white' => [[7, 0], [7, 7]],
-                         'black' => [[0, 0], [0, 7]] }.freeze
+  STARTING_SQUARES = { 'white' => [board.square(7, 0), board.square(7, 1)],
+                       'black' => [board.square(0, 0), board.square(0, 7)] }.freeze
 
   def to_s
     color == 'white' ? ' ♜ '.colorize(:light_white) : ' ♜ '.colorize(:black)

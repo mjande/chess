@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../library'
 
+# The InvalidMoveInput class handles move inputs that do not fit into any other
+# class (ie that are not valid).
 class InvalidMoveInput < MoveInput
   def initialize(_string, _color, _board)
     @piece = nil
@@ -10,10 +14,14 @@ class InvalidMoveInput < MoveInput
   end
 end
 
+# The CastlingMoveInput class handles the unique input that describes queenside
+# and kingside castling. The class turns that unique move input into data that
+# can be processed by other objects in the program.
 class CastlingMoveInput < MoveInput
   def initialize(string, color, board)
     @board = board
-    @row = (color == 'white' ? 7 : 0)
+    row = (color == 'white' ? 7 : 0)
+    @square = board.square(row, 4)
     @type = 'kingside_castling' if string == 'O-O'
     @type = 'queenside_castling' if string == 'O-O-O'
     @piece = find_piece(King, color)
@@ -30,6 +38,9 @@ class CastlingMoveInput < MoveInput
   end
 end
 
+# The CheckMoveInput class handles move inputs that involve check or checkmate.
+# The class mainly cleans up the input and then sends it to methods in the
+# parent class.
 class CheckMoveInput < MoveInput
   def initialize(string, color, board)
     clean_string = string
@@ -45,6 +56,10 @@ class CheckMoveInput < MoveInput
   end
 end
 
+# The OtherMoveInput class handles the unique move inputs that indicating saving
+# or asking for a draw. Instead of cleaning up data, this class changes the type
+# instance variable to signal to the game loop to end the game with one of these
+# conditions.
 class OtherMoveInput < MoveInput
   def initialize(string, _color, _board)
     @type = 'draw' if string == '='

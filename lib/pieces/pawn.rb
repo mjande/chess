@@ -2,17 +2,21 @@
 
 require_relative '../library'
 
-# The Pawn class handles starting positions and possible moves of all pawns,
+# The Pawn class handles starting squares and possible moves of all pawns,
 # including checking for en-passant capture and handling a promotion move
 class Pawn < Piece
   attr_reader :direction
 
-  STARTING_POSITIONS = { 'white' => [[6, 0], [6, 1], [6, 2], [6, 3], [6, 4],
-                                     [6, 5], [6, 6], [6, 7]],
-                         'black' => [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],
-                                     [1, 5], [1, 6], [1, 7]] }.freeze
+  STARTING_SQUARES = { 'white' => [board.square(6, 0), board.square(6, 1),
+                                   board.square(6, 2), board.square(6, 3),
+                                   board.square(6, 4), board.square(6, 5),
+                                   board.square(6, 6), board.square(6, 7)],
+                       'black' => [board.square(1, 0), board.square(1, 1),
+                                   board.square(1, 2), board.square(1, 3),
+                                   board.square(1, 4), board.square(1, 5),
+                                   board.square(1, 6), board.square(1, 7)] }.freeze
 
-  def initialize(row, column, color, board)
+  def initialize(square, color, board)
     super
     @direction = (color == 'white' ? -1 : 1)
   end
@@ -22,67 +26,73 @@ class Pawn < Piece
   end
 
   def update_possible_moves
-    @possible_moves = []
     check_ahead
     check_up_left
     check_up_right
-    check_en_passant
-    possible_moves.compact!
+    check_en_passant_left
+    check_en_passant_right
   end
 
   def check_ahead
-    return unless board.square(row + direction, column).open?
+    candidate = board.square(current_square.row + current_square.direction, column)
+    return unless candidate.open?
 
-    possible_moves << [row + direction, column]
+    possible_moves << candidate
     check_double_step
   end
 
   def check_double_step
     new_row = row + (direction * 2)
-    return unless previous_move.nil? && board.square(new_row, column).open?
+    candidate = board.square(new_row, column)
+    return unless has_not_moved && candidate.open?
 
-    possible_moves << [new_row, column]
+    possible_moves << candidate
   end
 
   def check_up_left
-    new_row = row + direction
-    new_column = column - 1
-    possible_square = board.square(new_row, new_column)
-    return unless possible_square.different_colored_piece?(color)
+    new_row = current_square.row + direction
+    new_column = current_square.column - 1
+    candidate = board.square(new_row, new_column)
+    return unless candidate.different_colored_piece?(color)
 
-    possible_moves << [new_row, new_column]
+    possible_moves << candidate
   end
 
   def check_up_right
-    new_row = row + direction
-    new_column = column + 1
-    possible_square = board.square(new_row, new_column)
-    return unless possible_square.different_colored_piece?(color)
+    new_row = current_square.row + direction
+    new_column = current_square.column + 1
+    candidate = board.square(new_row, new_column)
+    return unless candidate.different_colored_piece?(color)
 
-    possible_moves << [new_row, new_column]
+    possible_moves << candidate
   end
 
-  def check_en_passant
-    possible_moves << en_passant?(column - 1)
-    possible_moves << en_passant?(column + 1)
+  def check_en_passant_left
+    en_passant_left = board.square(current_square.row, current_square.column - 1)
+    possible_moves << en_passant_left if en_passant?(en_passant_left)
   end
 
-  def en_passant_capture(new_column)
-    move(row + direction, new_column)
-    capture(row - direction, new_column)
+  def check_en_passant_right
+    en_passant_right = board.square(current_square.row, current_square.column + 1)
+    possible_moves << en_passant_right if en_passant?(en_passant_right)
   end
 
-  def en_passant?(new_column)
-    passed_pawn = board.square(row, new_column).piece
-    return unless passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
-                  passed_pawn.previous_move == [row + (direction * 2), new_column]
+  def en_passant?(destination)
+    passed_pawn = board.square(current_square.row, destination.column).piece
 
-    [row + direction, new_column]
+    passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
+      passed_pawn.has_not_moved
+  end
+
+  def en_passant_capture(destination)
+    move(destination)
+    capture(current_square.row - direction, destination.column)
   end
 
   def promote(input)
-    move(input.row, input.column)
-    new_piece = input.promotion_piece.new(row, column, color, board)
+    destination = board.square(input.row, input.column)
+    move(destination)
+    new_piece = input.promotion_piece.new(destination, color, board)
     board.pieces.push(new_piece)
     board.pieces.delete(self)
   end

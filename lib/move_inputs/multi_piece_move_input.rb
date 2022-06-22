@@ -39,12 +39,12 @@ class MultiPieceMoveInput < MoveInput
   def find_piece_by_origin(pieces)
     pieces.select do |matching_piece|
       if @original_column.nil?
-        matching_piece.row == @original_row
+        matching_piece.current_square.row == @original_row
       elsif @original_row.nil?
-        matching_piece.column == @original_column
+        matching_piece.current_square.column == @original_column
       else
-        matching_piece.row == @original_row
-        matching_piece.column == @original_column
+        matching_piece.current_square.row == @original_row
+        matching_piece.current_square.column == @original_column
       end
     end
   end

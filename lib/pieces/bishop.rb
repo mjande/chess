@@ -2,10 +2,10 @@
 
 require_relative '../library'
 
-# The Bishop class handles starting positions and possible moves of both bishops
+# The Bishop class handles starting squares and possible moves of both bishops
 class Bishop < Piece
-  STARTING_POSITIONS = { 'white' => [[7, 2], [7, 5]],
-                         'black' => [[0, 2], [0, 5]] }.freeze
+  STARTING_SQUARES = { 'white' => [board.square(7, 2), board.square(7, 5)],
+                       'black' => [board.square(0, 2), board.square(0,)] }.freeze
 
   def to_s
     color == 'white' ? ' ♝ '.colorize(:light_white) : ' ♝ '.colorize(:black)
@@ -13,9 +13,5 @@ class Bishop < Piece
 
   def update_possible_moves
     check_diagonals
-  end
-
-  def territory
-    (row + column).even? ? 'light_squares' : 'dark_squares'
   end
 end

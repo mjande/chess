@@ -4,7 +4,7 @@ describe Piece do
   describe '#Piece.add_white_pieces_to_board' do
     let(:board) { Board.new }
 
-    it 'assigns pieces to starting position' do
+    it 'assigns pieces to starting square' do
       Rook.add_white_pieces_to_board(board)
       expect(board.square(7, 0).piece).to be_a(Rook)
       expect(board.square(7, 0).piece_color).to eq('white')
@@ -19,7 +19,7 @@ describe Piece do
   describe '#Piece.add_black_pieces_to_board' do
     let(:board) { Board.new }
 
-    it 'assigns pieces to starting positions' do
+    it 'assigns pieces to starting squares' do
       Knight.add_black_pieces_to_board(board)
       expect(board.square(0, 1).piece).to be_a(Knight)
       expect(board.square(0, 6).piece).to be_a(Knight)
@@ -34,18 +34,18 @@ describe Piece do
   describe '#move' do
     let(:board) { Board.new }
 
-    context 'when moving to an unoccopied position' do
+    context 'when moving to an unoccopied square' do
       subject(:piece) { described_class.new(6, 0, 'white', board) }
 
       before do
         piece.move(5, 0)
       end
 
-      it 'removes self from previous position' do
+      it 'removes self from previous square' do
         expect(board.square(7, 0).open?).to be_truthy
       end
 
-      it 'adds self to new position' do
+      it 'adds self to new square' do
         expect(board.square(5, 0).piece).to be(piece)
       end
 

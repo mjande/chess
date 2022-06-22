@@ -149,13 +149,13 @@ describe King do
     let(:board) { Board.new }
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
-    it 'moves king to new position' do
+    it 'moves king to new square' do
       Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
       expect(board.square(7, 6).piece).to be(king)
     end
 
-    it 'moves rook to new position' do
+    it 'moves rook to new square' do
       rook = Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
       expect(board.square(7, 5).piece).to be(rook)
@@ -166,13 +166,13 @@ describe King do
     let(:board) { Board.new }
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
-    it 'moves king to new position' do
+    it 'moves king to new square' do
       Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
       expect(board.square(7, 2).piece).to be(king)
     end
 
-    it 'moves rook to new position' do
+    it 'moves rook to new square' do
       rook = Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
       expect(board.square(7, 3).piece).to be(rook)
