@@ -152,13 +152,13 @@ describe King do
     it 'moves king to new position' do
       Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
-      expect(board.at_position(7, 6)).to be(king)
+      expect(board.square(7, 6).piece).to be(king)
     end
 
     it 'moves rook to new position' do
       rook = Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
-      expect(board.at_position(7, 5)).to be(rook)
+      expect(board.square(7, 5).piece).to be(rook)
     end
   end
 
@@ -169,13 +169,13 @@ describe King do
     it 'moves king to new position' do
       Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
-      expect(board.at_position(7, 2)).to be(king)
+      expect(board.square(7, 2).piece).to be(king)
     end
 
     it 'moves rook to new position' do
       rook = Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
-      expect(board.at_position(7, 3)).to be(rook)
+      expect(board.square(7, 3).piece).to be(rook)
     end
   end
 end

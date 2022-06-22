@@ -54,7 +54,7 @@ describe Pawn do
       other_pawn.instance_variable_set(:@previous_moves, [[1, 1]])
       pawn.update_possible_moves
       pawn.en_passant_capture(1)
-      expect(board.at_position(2, 1)).to be(pawn)
+      expect(board.square(2, 1).piece).to be(pawn)
     end
 
     it 'removes opposing pawn' do

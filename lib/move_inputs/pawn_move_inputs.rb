@@ -58,7 +58,7 @@ class PawnCaptureMoveInput < MultiPieceMoveInput
     column = string[0]
     direction = (color == 'white' ? -1 : 1)
 
-    passed_pawn = board.at_position(row, column)
+    passed_pawn = board.square(row, column).piece
     passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
       passed_pawn.previous_move == [row + (direction * 2), new_column]
   end

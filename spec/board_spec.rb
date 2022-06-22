@@ -9,10 +9,10 @@ describe Board do
     end
 
     it 'adds pieces to different positions on board' do
-      expect(board.at_position(0, 0)).to be_a(Rook)
-      expect(board.at_position(7, 4)).to be_a(King)
-      expect(board.at_position(1, 3)).to be_a(Pawn)
-      expect(board.at_position(7, 6)).to be_a(Knight)
+      expect(board.square(0, 0).piece).to be_a(Rook)
+      expect(board.square(7, 4).piece).to be_a(King)
+      expect(board.square(1, 3).piece).to be_a(Pawn)
+      expect(board.square(7, 6).piece).to be_a(Knight)
     end
 
     it 'adds pieces to @pieces array' do

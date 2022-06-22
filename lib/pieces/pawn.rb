@@ -31,7 +31,7 @@ class Pawn < Piece
   end
 
   def check_ahead
-    return unless board.open?(row + direction, column)
+    return unless board.square(row + direction, column).open?
 
     possible_moves << [row + direction, column]
     check_double_step
@@ -39,7 +39,7 @@ class Pawn < Piece
 
   def check_double_step
     new_row = row + (direction * 2)
-    return unless previous_move.nil? && board.open?(new_row, column)
+    return unless previous_move.nil? && board.square(new_row, column).open?
 
     possible_moves << [new_row, column]
   end
@@ -47,7 +47,8 @@ class Pawn < Piece
   def check_up_left
     new_row = row + direction
     new_column = column - 1
-    return unless board.different_color?(new_row, new_column, color)
+    possible_square = board.square(new_row, new_column)
+    return unless possible_square.different_colored_piece?(color)
 
     possible_moves << [new_row, new_column]
   end
@@ -55,7 +56,8 @@ class Pawn < Piece
   def check_up_right
     new_row = row + direction
     new_column = column + 1
-    return unless board.different_color?(new_row, new_column, color)
+    possible_square = board.square(new_row, new_column)
+    return unless possible_square.different_colored_piece?(color)
 
     possible_moves << [new_row, new_column]
   end
@@ -71,7 +73,7 @@ class Pawn < Piece
   end
 
   def en_passant?(new_column)
-    passed_pawn = board.at_position(row, new_column)
+    passed_pawn = board.square(row, new_column).piece
     return unless passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
                   passed_pawn.previous_move == [row + (direction * 2), new_column]
 

@@ -14,7 +14,7 @@ class Piece
     @column = column
     @color = color
     @board = board
-    board.add_to_position(row, column, self)
+    board.square(row, column).piece = self
     @possible_moves = []
     @previous_move = nil
   end
@@ -38,15 +38,16 @@ class Piece
   end
 
   def valid_move?(possible_row, possible_column)
-    board.on_the_board?(possible_row, possible_column) &&
-      (board.open?(possible_row, possible_column) ||
-      board.different_color?(possible_row, possible_column, color)) &&
+    destination = board.square(possible_row, possible_column)
+    return if destination.nil?
+
+    (destination.open? || destination.different_colored_piece?(color)) &&
       !leads_to_check?(possible_row, possible_column)
   end
 
   def leads_to_check?(possible_row, possible_column)
     board_copy = board.clone
-    piece_copy = board_copy.at_position(row, column)
+    piece_copy = board_copy.square(row, column).piece
     piece_copy.move(possible_row, possible_column)
     king = board_copy.pieces.find do |copied_piece|
       copied_piece.instance_of?(King) && copied_piece.color == color
@@ -60,7 +61,7 @@ class Piece
     next_column = column + column_shift
     while next_row.between?(0, 7) && next_column.between?(0, 7)
       moves << [next_row, next_column] if valid_move?(next_row, next_column)
-      break unless board.open?(next_row, next_column)
+      break unless board.square(next_row, next_column).open?
 
       next_row += row_shift
       next_column += column_shift
@@ -87,28 +88,20 @@ class Piece
     @row = new_row
     @column = new_column
     board.moves_since_capture += 1
-    capture(row, column) unless board.open?(row, column)
-    board.add_to_position(row, column, self)
+    capture(row, column) unless board.square(row, column).open?
+    board.square(row, column).piece = self
   end
 
   def leave_previous_square
     @previous_move = [row, column]
-    board.clear_position(row, column)
-  end
-
-  def undo_move
-    @board.clear_position(row, column)
-    @row = @previous_move[0]
-    @column = @previous_move[1]
-    board.add_to_position(row, column, self)
+    board.square(row, column).clear
   end
 
   private
 
   def capture(new_row, new_column)
-    piece_to_be_removed = board.at_position(new_row, new_column)
+    piece_to_be_removed = board.square(new_row, new_column).piece
     board.pieces.delete(piece_to_be_removed)
-    board.clear_position(new_row, new_column)
     board.moves_since_capture = 0
   end
 end

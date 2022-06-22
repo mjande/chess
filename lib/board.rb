@@ -1,22 +1,40 @@
 # frozen_string_literal: true
 
+require_relative 'library'
 require 'colorize'
 
-# The Board class handles storage of the squares and pieces of the chess board. 
-# It also handles methods for checking the details of a particular square 
-# (whether it is open and what color piece is occupying it). Several methods 
-# which make changes to all the pieces in the game are handled here as well. 
+# The Board class handles storage of the squares and pieces of the chess board.
+# It also handles methods for checking the details of a particular square
+# (whether it is open and what color piece is occupying it). Several methods
+# which make changes to all the pieces in the game are handled here as well.
 # (This class is one that might need to be broken into several, as it is doing
 # several distinct types of functions).
 class Board
-  attr_reader :data_array, :pieces
+  attr_reader :data_array, :pieces, :squares
   attr_accessor :moves_since_capture
 
   def initialize
     @data_array = Array.new(8) { Array.new(8, nil) }
+    @squares = []
+    create_squares
     @pieces = []
     @log = []
     @moves_since_capture = 0
+  end
+
+  def create_squares
+    8.times do |row|
+      8.times do |column|
+        new_square = Square.new(row, column)
+        squares << new_square
+      end
+    end
+  end
+
+  def square(row, column)
+    squares.find do |square|
+      square.row == (row) && square.column == (column)
+    end
   end
 
   def add_starting_pieces
@@ -29,7 +47,9 @@ class Board
 
   def update_all_possible_moves
     pieces.each(&:update_possible_moves)
-    pieces.select { |piece| piece.instance_of?(King) }.each(&:update_possible_moves)
+    pieces.select do |piece|
+      piece.instance_of?(King)
+    end.each(&:update_possible_moves)
   end
 
   def no_possible_moves?(player)
@@ -50,7 +70,7 @@ class Board
 
   def threefold_repetition?
     current_board = @log[-1]
-    repetitions = @log.count { |board_layout| board_layout == current_board }
+    repetitions = @log.count { |position| position == current_board }
     repetitions > 2
   end
 
@@ -58,77 +78,19 @@ class Board
     YAML.load(YAML.dump(self))
   end
 
-  def add_background_color(array)
-    array.map.with_index do |row, row_index|
-      row.map.with_index do |square, column_index|
-        if (row_index + column_index).even?
-          square.to_s.colorize(background: :white)
-        else
-          square.to_s.colorize(background: :light_black)
-        end
-      end
-    end
-  end
-
   def display
-    column_labels = '   a  b  c  d  e  f  g  h   '
-
-    printable_board = clean_rows
-
-    printable_board + column_labels
-  end
-
-  def clean_rows
-    clean_rows = add_space_to_empty_squares
-    clean_rows = add_background_color(clean_rows)
-
-    row_number = 8
-    clean_rows.each do |row|
-      row.unshift("#{row_number} ")
-      row.push("\n")
-      row_number -= 1
+    0.upto(7) do |row_num|
+      print "#{8 - row_num} "
+      row_squares = squares.select { |candidate| candidate.row == row_num }
+      row_squares.sort_by!(&:column)
+      row_squares.each { |row_square| print row_square }
+      print "\n"
     end
-
-    clean_rows.join
-  end
-
-  def add_space_to_empty_squares
-    data_array.map do |row|
-      row.map { |square| square.nil? ? '   ' : square }
-    end
+    puts '   a  b  c  d  e  f  g  h   '
   end
 
   def log_position
-    @log << display
-  end
-
-  def on_the_board?(row, column)
-    row.between?(0, 7) && column.between?(0, 7)
-  end
-
-  def open?(row, column)
-    return unless on_the_board?(row, column)
-
-    data_array[row][column].nil?
-  end
-
-  def different_color?(row, column, color)
-    return unless on_the_board?(row, column) && !open?(row, column)
-
-    piece = data_array[row][column]
-    piece.color != color
-  end
-
-  def at_position(row, column)
-    data_array[row][column]
-  end
-
-  def clear_position(row, column)
-    data_array[row][column] = nil
-  end
-
-  def add_to_position(row, column, piece)
-    data_array[row][column] = piece
+    @log << squares
   end
 
   private

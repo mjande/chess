@@ -2,5 +2,4 @@
 
 require_relative 'library'
 
-game = Game.new
-game.start
+Game.new.start

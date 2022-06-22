@@ -6,8 +6,8 @@ describe Piece do
 
     it 'assigns pieces to starting position' do
       Rook.add_white_pieces_to_board(board)
-      expect(board.at_position(7, 0)).to be_a(Rook)
-      expect(board.at_position(7, 0).color).to eq('white')
+      expect(board.square(7, 0).piece).to be_a(Rook)
+      expect(board.square(7, 0).piece_color).to eq('white')
     end
 
     it 'adds created pieces to board.pieces' do
@@ -21,8 +21,8 @@ describe Piece do
 
     it 'assigns pieces to starting positions' do
       Knight.add_black_pieces_to_board(board)
-      expect(board.at_position(0, 1)).to be_a(Knight)
-      expect(board.at_position(0, 6)).to be_a(Knight)
+      expect(board.square(0, 1).piece).to be_a(Knight)
+      expect(board.square(0, 6).piece).to be_a(Knight)
     end
 
     it 'adds created pieces to board.pieces' do
@@ -42,11 +42,11 @@ describe Piece do
       end
 
       it 'removes self from previous position' do
-        expect(board.at_position(7, 0)).to be_nil
+        expect(board.square(7, 0).open?).to be_truthy
       end
 
       it 'adds self to new position' do
-        expect(board.at_position(5, 0)).to be(piece)
+        expect(board.square(5, 0).piece).to be(piece)
       end
 
       it 'updates current row' do
@@ -74,28 +74,6 @@ describe Piece do
       it 'resets moves_since_capture to zero' do
         expect(board.moves_since_capture).to eq(0)
       end
-    end
-  end
-
-  describe '#undo_move' do
-    let(:board) { Board.new }
-    subject(:piece) { described_class.new(5, 0, 'white', board) }
-
-    before do
-      piece.instance_variable_set(:@previous_move, [6, 0])
-      piece.undo_move
-    end
-
-    it 'removes self from requested position' do
-      expect(board.at_position(5, 0)).to be_nil
-    end
-
-    it 'adds self to previous position' do
-      expect(board.at_position(6, 0)).to eq(piece)
-    end
-
-    it 'updates row back to previous row' do
-      expect(piece.row).to eq(6)
     end
   end
 end
