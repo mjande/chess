@@ -7,7 +7,7 @@ require_relative '../library'
 # for selecting which move input subclass to use, and houses methods shared by
 # the move input subclasses.
 class MoveInput
-  attr_reader :row, :column, :piece, :type
+  attr_reader :piece, :type, :square
 
   def initialize(string, color, board)
     string.delete!('x')
@@ -40,7 +40,7 @@ class MoveInput
   def find_piece(piece_class, color)
     selected_pieces = @board.pieces.select do |board_piece|
       board_piece.instance_of?(piece_class) &&
-        board_piece.possible_moves.include?(square) &&
+        board_piece.possible_moves.include?([square.row, square.column]) &&
         board_piece.color == color
     end
     return selected_pieces if selected_pieces.length > 1

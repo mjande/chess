@@ -7,14 +7,10 @@ require_relative '../library'
 class Pawn < Piece
   attr_reader :direction
 
-  STARTING_SQUARES = { 'white' => [board.square(6, 0), board.square(6, 1),
-                                   board.square(6, 2), board.square(6, 3),
-                                   board.square(6, 4), board.square(6, 5),
-                                   board.square(6, 6), board.square(6, 7)],
-                       'black' => [board.square(1, 0), board.square(1, 1),
-                                   board.square(1, 2), board.square(1, 3),
-                                   board.square(1, 4), board.square(1, 5),
-                                   board.square(1, 6), board.square(1, 7)] }.freeze
+  STARTING_COORDINATES = { 'white' => [[6, 0], [6, 1], [6, 2], [6, 3], [6, 4],
+                                       [6, 5], [6, 6], [6, 7]],
+                           'black' => [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],
+                                       [1, 5], [1, 6], [1, 7]] }.freeze
 
   def initialize(square, color, board)
     super
@@ -34,10 +30,10 @@ class Pawn < Piece
   end
 
   def check_ahead
-    candidate = board.square(current_square.row + current_square.direction, column)
+    candidate = board.square(row + direction, column)
     return unless candidate.open?
 
-    possible_moves << candidate
+    possible_moves << [candidate.row, candidate.column]
     check_double_step
   end
 
@@ -46,39 +42,39 @@ class Pawn < Piece
     candidate = board.square(new_row, column)
     return unless has_not_moved && candidate.open?
 
-    possible_moves << candidate
+    possible_moves << [new_row, column]
   end
 
   def check_up_left
-    new_row = current_square.row + direction
-    new_column = current_square.column - 1
+    new_row = row + direction
+    new_column = column - 1
     candidate = board.square(new_row, new_column)
     return unless candidate.different_colored_piece?(color)
 
-    possible_moves << candidate
+    possible_moves << [new_row, new_column]
   end
 
   def check_up_right
-    new_row = current_square.row + direction
-    new_column = current_square.column + 1
+    new_row = row + direction
+    new_column = column + 1
     candidate = board.square(new_row, new_column)
     return unless candidate.different_colored_piece?(color)
 
-    possible_moves << candidate
+    possible_moves << [new_row, new_column]
   end
 
   def check_en_passant_left
-    en_passant_left = board.square(current_square.row, current_square.column - 1)
-    possible_moves << en_passant_left if en_passant?(en_passant_left)
+    en_passant_left = board.square(row, column - 1)
+    possible_moves << [row, column - 1] if en_passant?(en_passant_left)
   end
 
   def check_en_passant_right
-    en_passant_right = board.square(current_square.row, current_square.column + 1)
-    possible_moves << en_passant_right if en_passant?(en_passant_right)
+    en_passant_right = board.square(row, column + 1)
+    possible_moves << [row, columnd + 1] if en_passant?(en_passant_right)
   end
 
   def en_passant?(destination)
-    passed_pawn = board.square(current_square.row, destination.column).piece
+    passed_pawn = board.square(row, destination.column).piece
 
     passed_pawn.instance_of?(Pawn) && passed_pawn.color != color &&
       passed_pawn.has_not_moved
@@ -86,7 +82,7 @@ class Pawn < Piece
 
   def en_passant_capture(destination)
     move(destination)
-    capture(current_square.row - direction, destination.column)
+    capture(row - direction, destination.column)
   end
 
   def promote(input)

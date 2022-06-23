@@ -7,11 +7,12 @@ require 'colorize'
 # the different pieces subclasses. Most methods deal with move validation and
 # movement scripts.
 class Piece
-  attr_reader :row, :column, :color, :board, :possible_moves, :moved
+  attr_reader :row, :column, :color, :board, :possible_moves, :has_not_moved
 
   def initialize(square, color, board)
     @color = color
-    @current_square = square
+    @row = square.row
+    @column = square.column
     @board = board
     square.piece = self
     @possible_moves = []
@@ -19,14 +20,16 @@ class Piece
   end
 
   def self.add_white_pieces_to_board(board)
-    self::STARTING_SQUARES['white'].each do |square|
+    self::STARTING_COORDINATES['white'].each do |coordinates|
+      square = board.square(coordinates[0], coordinates[1])
       piece = new(square, 'white', board)
       board.pieces.push(piece)
     end
   end
 
   def self.add_black_pieces_to_board(board)
-    self::STARTING_SQUARES['black'].each do |square|
+    self::STARTING_COORDINATES['black'].each do |coordinates|
+      square = board.square(coordinates[0], coordinates[1])
       piece = new(square, 'black', board)
       board.pieces.push(piece)
     end
@@ -42,7 +45,7 @@ class Piece
   def leads_to_check?(candidate)
     board_copy = board.clone
     piece_copy = board_copy.square(row, column).piece
-    piece_copy.move(candidate)
+    piece_copy.move(board_copy.square(candidate.row, candidate.column))
     king = board_copy.pieces.find do |copied_piece|
       copied_piece.instance_of?(King) && copied_piece.color == color
     end
@@ -50,18 +53,18 @@ class Piece
   end
 
   def check_direction(row_shift, column_shift)
-    candidate = next_candidate(row_shift, column_shift)
+    next_row = row + row_shift
+    next_column = column + column_shift
+    candidate = board.square(next_row, next_column)
     until candidate.nil?
-      possible_moves << candidate if valid_move?(candidate)
+      possible_moves << [candidate.row, candidate.column] if valid_move?(candidate)
       break unless candidate.open?
 
       candidate = next_candidate(row_shift, column_shift, candidate)
     end
   end
 
-  def next_candidate(row_shift, column_shift, candidate = nil)
-    return board.square(row + row_shift, column + column_shift) if candidate.nil?
-
+  def next_candidate(row_shift, column_shift, candidate)
     board.square(candidate.row + row_shift, candidate.column + column_shift)
   end
 
@@ -81,7 +84,8 @@ class Piece
 
   def move(square)
     leave_previous_square
-    @current_square = square
+    @row = square.row
+    @column = square.column
     board.moves_since_capture += 1
     capture(square) unless square.open?
     square.piece = self
@@ -89,7 +93,7 @@ class Piece
 
   def leave_previous_square
     @has_not_moved = false
-    current_square.clear
+    board.square(row, column).clear
   end
 
   private

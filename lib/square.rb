@@ -3,7 +3,7 @@ require 'colorize'
 class Square
   attr_accessor :piece
   attr_reader :row, :column
-  
+
   def initialize(row, column)
     @row = row
     @column = column
@@ -23,10 +23,14 @@ class Square
   end
 
   def piece_color?
+    return if piece.nil?
+
     piece.color
   end
 
   def different_colored_piece?(color)
+    return if piece.nil?
+
     color != piece.color
   end
 
@@ -45,5 +49,24 @@ class Square
     else
       printable_piece.colorize(background: :light_black)
     end
+  end
+end
+
+class NoSquare
+  attr_accessor :piece
+  attr_reader :row, :column
+
+  def initialize(_row, _column)
+    @row = nil
+    @column = nil
+    @piece = nil
+  end
+
+  def open?
+    nil
+  end
+
+  def different_colored_piece?(_color)
+    nil
   end
 end

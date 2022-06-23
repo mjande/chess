@@ -32,9 +32,10 @@ class Board
   end
 
   def square(row, column)
-    squares.find do |square|
-      square.row == (row) && square.column == (column)
+    wanted_square = squares.find do |square|
+      square.row == row && square.column == column
     end
+    wanted_square.nil? ? NoSquare.new(row, column) : wanted_square
   end
 
   def add_starting_pieces
@@ -91,6 +92,10 @@ class Board
 
   def log_position
     @log << squares
+  end
+
+  def inspect
+    'Board'
   end
 
   private

@@ -29,3 +29,10 @@ To Do List
 -Stalemate
 -Create ability to save
 -Create detailed README
+
+Note: Refactoring to include Square class is basically finished, but I need to
+test drive the basic game function and the tests to make sure it is working as
+intended. After that, I need to add better test coverage, then refactor the
+tests (before doing this, I'll need to figure out how to add RSpec linting to
+Rubocop). Once all of that is done, I will look up some famous games and run them
+through the program to catch any bugs, then I should be done.

@@ -6,8 +6,7 @@ require_relative '../library'
 # kings, and possesses special methods for king-specific checks (ex. check?,
 # checkmate?, and making sure king cannot move into check)
 class King < Piece
-  STARTING_SQUARES = { 'white' => [board.square(7, 4)],
-                       'black' => [board.square(0, 4)] }.freeze
+  STARTING_COORDINATES = { 'white' => [[7, 4]], 'black' => [[0, 4]] }.freeze
 
   def to_s
     color == 'white' ? ' ♚ '.colorize(:light_white) : ' ♚ '.colorize(:black)
@@ -15,35 +14,36 @@ class King < Piece
 
   def update_possible_moves
     check_adjacent_squares
-    possible_moves << board.square(current_square.row, 6) if castling?('kingside')
-    possible_moves << board.square(current_square.row, 2) if castling?('queenside')
+    possible_moves << [row, 6] if castling?('kingside')
+    possible_moves << [row, 2] if castling?('queenside')
   end
 
-  def adjacent_square_coordinates
+  def adjacent_squares_coordinates
     adjacent_square_coordinates = []
     diffs = [0, -1, -1, 1, 1]
 
     diffs.permutation do |coordinate_diff|
-      coordinate = [row + coordinate_diff[0], column + coordinate_diff[1]]
+      coordinate =
+        [row + coordinate_diff[0], column + coordinate_diff[1]]
       adjacent_square_coordinates << coordinate
     end
     adjacent_square_coordinates.uniq
   end
 
   def check_adjacent_squares
-    valid_adjacent_squares =
+    valid_coordinates =
       adjacent_squares_coordinates.select do |square_coordinates|
         square = board.square(square_coordinates[0], square_coordinates[1])
         valid_move?(square)
       end
-    valid_adjacent_squares.each { |square| possible_moves << square }
+    valid_coordinates.each { |coordinates| possible_moves << coordinates }
   end
 
-  def check?(square = current_square)
+  def check?(square = board.square(row, column))
     opposing_pieces = board.pieces.reject { |piece| piece.color == color }
 
     opposing_pieces.any? do |piece|
-      piece.possible_moves.include?(square)
+      piece.possible_moves.include?([square.row, square.column])
     end
   end
 
@@ -52,18 +52,18 @@ class King < Piece
   end
 
   def kingside_castle_move
-    king_destination = board.square(current_square.row, 6)
+    king_destination = board.square(row, 6)
     move(king_destination)
-    rook = board.square(current_square.row, 7).piece
-    rook_destination = board.square(current_square.row, 5)
+    rook = board.square(row, 7).piece
+    rook_destination = board.square(row, 5)
     rook.move(rook_destination)
   end
 
   def queenside_castle_move
-    king_destination = board.square(current_square.row, 2)
+    king_destination = board.square(row, 2)
     move(king_destination)
     rook = board.square(row, 0).piece
-    rook_destination = board.square(current_square.row, 3)
+    rook_destination = board.square(row, 3)
     rook.move(rook_destination)
   end
 
@@ -72,9 +72,9 @@ class King < Piece
   def rook(side)
     rook =
       if side == 'kingside'
-        board.square(current_square.row, 7).piece
+        board.square(row, 7).piece
       else
-        board.square(current_square.row, 0).piece
+        board.square(row, 0).piece
       end
     return unless rook.instance_of?(Rook) && rook.color == color
 
@@ -85,7 +85,8 @@ class King < Piece
     if side == 'kingside'
       [board.square(row, 5), board.square(row, 6)]
     else
-      [board.square(row, 3), board.square(row, 2), board.square(row, 1)]
+      [board.square(row, 3), board.square(row, 2),
+       board.square(row, 1)]
     end
   end
 
@@ -94,9 +95,13 @@ class King < Piece
     side_rook = rook(side)
 
     !(side_rook.nil? && check?) &&
-      pieces_have_not_moved(side_rook) &&
+      pieces_have_not_moved?(side_rook) &&
       side_squares.all?(&:open?) &&
       side_squares.none? { |square| check?(square) }
+  end
+
+  def pieces_have_not_moved?(rook)
+    has_not_moved && rook.has_not_moved
   end
 
 =begin

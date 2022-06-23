@@ -27,6 +27,7 @@ class Game
     @black_player = Player.new('black', board)
     @next_player = white_player
     board.add_starting_pieces
+    board.display
     board.update_all_possible_moves
     play_game
   end
