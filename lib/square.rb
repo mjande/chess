@@ -3,7 +3,7 @@
 require 'colorize'
 
 # The Square class stores data about each individual square on the board, and
-# includes methods for checking the validity of those squares for movement. 
+# includes methods for checking the validity of those squares for movement.
 class Square
   attr_accessor :piece
   attr_reader :row, :column
@@ -15,9 +15,10 @@ class Square
   end
 
   def self.at(row, column)
-    @@all_squares.find { |square| square.row == row && square.column == column }
   end
 
+  # Revisit whether this distinction is necessary. It seems like it might hide a
+  # concept that is better left stated plainly whereever it is used.
   def ==(other)
     row == other.row && column == other.column
   end
@@ -50,17 +51,10 @@ class Square
     (row + column).even? ? 'light' : 'dark'
   end
 
-  # This version returns an array of all possible moves on both axes, but
-  # doesn't stop when a piece is occupied. Additionally, it doesn't know
-  # anything about what direction these squares are moving (that is, it is not
-  # properly sorted by direction). I think I will change this into a hash, with
-  # with a corresponding key for each direction. Adding in logic to stop adding
-  # coordinates might also be helpful, but I'll have to consider if that will be
-  # useful in all cases.
   def axial_coordinates
     {
-      up: coordinates_in_direction(1, 0),
-      down: coordinates_in_direction(-1, 0),
+      up: coordinates_in_direction(-1, 0),
+      down: coordinates_in_direction(1, 0),
       left: coordinates_in_direction(0, -1),
       right: coordinates_in_direction(0, 1)
     }
@@ -100,13 +94,16 @@ class Square
     knight_square_coordinates.uniq
   end
 
-  def valid_knight_square(coordinates)
-    next_row = coordinates[0]
-    next_column = coordinates[1]
-    next_row.abs == next_column.abs ||
-      !next_row.between?(0, 7) ||
-      !next_column.between?(0, 7)
+  def to_s
+    printable_piece = (piece.nil? ? '   ' : piece.to_s)
+    if (row + column).even?
+      printable_piece.colorize(background: :white)
+    else
+      printable_piece.colorize(background: :light_black)
+    end
   end
+
+  private
 
   def coordinates_in_direction(row_shift, column_shift)
     coordinates = []
@@ -120,13 +117,12 @@ class Square
     coordinates
   end
 
-  def to_s
-    printable_piece = (piece.nil? ? '   ' : piece.to_s)
-    if (row + column).even?
-      printable_piece.colorize(background: :white)
-    else
-      printable_piece.colorize(background: :light_black)
-    end
+  def valid_knight_square(coordinates)
+    next_row = coordinates[0]
+    next_column = coordinates[1]
+    next_row.abs == next_column.abs ||
+      !next_row.between?(0, 7) ||
+      !next_column.between?(0, 7)
   end
 end
 

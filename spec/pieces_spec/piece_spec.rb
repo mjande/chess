@@ -38,7 +38,7 @@ describe Piece do
       subject(:piece) { described_class.new(6, 0, 'white', board) }
 
       before do
-        piece.move(5, 0)
+        piece.move(board.square(5, 0))
       end
 
       it 'removes self from previous square' do
@@ -54,7 +54,7 @@ describe Piece do
       end
 
       it 'adds to moves_since_capture counter' do
-        expect { piece.move(4, 0) }.to change { board.moves_since_capture }.by(1)
+        expect { piece.move(board.square(4, 0)) }.to change { board.moves_since_capture }.by(1)
       end
     end
 
@@ -64,7 +64,7 @@ describe Piece do
 
       before do
         board.instance_variable_set(:@pieces, [piece, other_piece])
-        piece.move(5, 0)
+        piece.move(board.square(5, 0))
       end
 
       it 'removes captured piece from board.pieces' do
