@@ -9,11 +9,12 @@ require 'colorize'
 class Piece
   attr_reader :row, :column, :color, :board, :possible_moves, :has_not_moved
 
-  def initialize(square, color, board)
+  def initialize(row, column, color, board)
+    @row = row
+    @column = column
     @color = color
-    @row = square.row
-    @column = square.column
     @board = board
+    square = board.square(row, column)
     square.piece = self
     @possible_moves = []
     @has_not_moved = true
@@ -21,16 +22,14 @@ class Piece
 
   def self.add_white_pieces_to_board(board)
     self::STARTING_COORDINATES['white'].each do |coordinates|
-      square = board.square(coordinates[0], coordinates[1])
-      piece = new(square, 'white', board)
+      piece = new(coordinates[0], coordinates[1], 'white', board)
       board.pieces.push(piece)
     end
   end
 
   def self.add_black_pieces_to_board(board)
     self::STARTING_COORDINATES['black'].each do |coordinates|
-      square = board.square(coordinates[0], coordinates[1])
-      piece = new(square, 'black', board)
+      piece = new(coordinates[0], coordinates[1], 'black', board)
       board.pieces.push(piece)
     end
   end
@@ -38,12 +37,13 @@ class Piece
   def valid_move?(candidate)
     return if candidate.nil?
 
-    return unless candidate.open? || candidate.different_colored_piece?(color)
-
-    board.copy || !leads_to_check?(candidate)
+    (candidate.open? || candidate.different_colored_piece?(color)) &&
+    !leads_to_check?(candidate)
   end
 
   def leads_to_check?(candidate)
+    return if board.copy
+
     board_copy = board.clone
     piece_copy = board_copy.square(row, column).piece
     piece_copy.move(board_copy.square(candidate.row, candidate.column))

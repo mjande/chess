@@ -7,8 +7,8 @@ describe King do
     let(:board) { Board.new }
 
     context 'when on a blank board' do
-      let(:center_king) { described_class.new(board.square(4, 3), 'white', board) }
-      let(:edge_king) { described_class.new(board.square(7, 4), 'white', board) }
+      let(:center_king) { described_class.new(4, 3, 'white', board) }
+      let(:edge_king) { described_class.new(7, 4, 'white', board) }
 
       before do
         board.instance_variable_set(:@pieces, [center_king, edge_king])
@@ -32,11 +32,11 @@ describe King do
     end
 
     context 'when there are other pieces on the board' do
-      subject(:king) { described_class.new(board.square(7, 4), 'white', board) }
+      subject(:king) { described_class.new(7, 4, 'white', board) }
 
       before do
-        bishop = Bishop.new(board.square(6, 4), 'black', board)
-        queen = Queen.new(board.square(7, 3), 'white', board)
+        bishop = Bishop.new(6, 4, 'black', board)
+        queen = Queen.new(7, 3, 'white', board)
         board.instance_variable_set(:@pieces, [queen, bishop, king])
         king.update_possible_moves
       end
@@ -55,11 +55,11 @@ describe King do
     end
 
     context 'when castling is possible' do
-      subject(:king) { described_class.new(board.square(7, 4), 'white', board) }
+      subject(:king) { described_class.new(7, 4, 'white', board) }
 
       before do
-        rook1 = Rook.new(board.square(7, 0), 'white', board)
-        rook2 = Rook.new(board.square(7, 7), 'white', board)
+        rook1 = Rook.new(7, 0, 'white', board)
+        rook2 = Rook.new(7, 7, 'white', board)
         board.instance_variable_set(:@pieces, [king, rook1, rook2])
         king.update_possible_moves
       end
@@ -78,11 +78,11 @@ describe King do
     let(:board) { Board.new }
 
     context 'when white is in check' do
-      subject(:white_king) { described_class.new(board.square(7, 4), 'white', board) }
+      subject(:white_king) { described_class.new(7, 4, 'white', board) }
 
       before do
-        rook = Rook.new(board.square(1, 4), 'black', board)
-        black_king = described_class.new(board.square(0, 4), 'black', board)
+        rook = Rook.new(1, 4, 'black', board)
+        black_king = described_class.new(0, 4, 'black', board)
         board.instance_variable_set(:@pieces, [white_king, black_king, rook])
         rook.update_possible_moves
         black_king.update_possible_moves
@@ -94,11 +94,11 @@ describe King do
     end
 
     context 'when black is in check' do
-      subject(:black_king) { described_class.new(board.square(0, 4), 'black', board) }
+      subject(:black_king) { described_class.new(0, 4, 'black', board) }
 
       before do
-        white_king = described_class.new(board.square(7, 4), 'white', board)
-        bishop = Bishop.new(board.square(3, 1), 'white', board)
+        white_king = described_class.new(7, 4, 'white', board)
+        bishop = Bishop.new(3, 1, 'white', board)
         board.instance_variable_set(:@pieces, [black_king, white_king, bishop])
         bishop.update_possible_moves
         white_king.update_possible_moves
@@ -110,8 +110,8 @@ describe King do
     end
 
     context 'when there is no check' do
-      let(:white_king) { described_class.new(board.square(7, 4), 'white', board) }
-      let(:black_king) { described_class.new(board.square(0, 4), 'black', board) }
+      let(:white_king) { described_class.new(7, 4, 'white', board) }
+      let(:black_king) { described_class.new(0, 4, 'black', board) }
 
       before do
         board.instance_variable_set(:@pieces, [white_king, black_king])
@@ -128,17 +128,17 @@ describe King do
   end
 
   describe '#checkmate?' do
-    subject(:white_king) { described_class.new(board.square(7, 4), 'white', board) }
+    subject(:white_king) { described_class.new(7, 4, 'white', board) }
 
     let(:board) { Board.new }
 
     context 'when there is checkmate' do
       before do
-        rook1 = Rook.new(board.square(0, 3), 'black', board)
-        rook2 = Rook.new(board.square(0, 5), 'black', board)
-        rook3 = Rook.new(board.square(6, 0), 'black', board)
-        rook4 = Rook.new(board.square(0, 4), 'black', board)
-        black_king = described_class.new(board.square(0, 0), 'black', board)
+        rook1 = Rook.new(0, 3, 'black', board)
+        rook2 = Rook.new(0, 5, 'black', board)
+        rook3 = Rook.new(6, 0, 'black', board)
+        rook4 = Rook.new(0, 4, 'black', board)
+        black_king = described_class.new(0, 0, 'black', board)
         board.instance_variable_set(:@pieces, [white_king, black_king, rook1,
                                                rook2, rook3, rook4])
         board.update_all_possible_moves
@@ -151,8 +151,8 @@ describe King do
 
     context 'when there is not checkmate' do
       before do
-        rook = Rook.new(board.square(0, 3), 'black', board)
-        black_king = described_class.new(board.square(0, 0), 'black', board)
+        rook = Rook.new(0, 3, 'black', board)
+        black_king = described_class.new(0, 0, 'black', board)
         board.instance_variable_set(:@pieces, [white_king, black_king, rook])
         white_king.update_possible_moves
         rook.update_possible_moves
@@ -167,16 +167,16 @@ describe King do
   describe '#kingside_castle_move' do
     let(:board) { Board.new }
 
-    subject(:king) { described_class.new(board.square(7, 4), 'white', board) }
+    subject(:king) { described_class.new(7, 4, 'white', board) }
 
     it 'moves king to new square' do
-      Rook.new(board.square(7, 7), 'white', board)
+      Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
       expect(board.square(7, 6).piece).to be(king)
     end
 
     it 'moves rook to new square' do
-      rook = Rook.new(board.square(7, 7), 'white', board)
+      rook = Rook.new(7, 7, 'white', board)
       king.kingside_castle_move
       expect(board.square(7, 5).piece).to be(rook)
     end
@@ -185,16 +185,16 @@ describe King do
   describe '#queenside_castle_move' do
     let(:board) { Board.new }
 
-    subject(:king) { described_class.new(board.square(7, 4), 'white', board) }
+    subject(:king) { described_class.new(7, 4, 'white', board) }
 
     it 'moves king to new square' do
-      Rook.new(board.square(7, 0), 'white', board)
+      Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
       expect(board.square(7, 2).piece).to be(king)
     end
 
     it 'moves rook to new square' do
-      rook = Rook.new(board.square(7, 0), 'white', board)
+      rook = Rook.new(7, 0, 'white', board)
       king.queenside_castle_move
       expect(board.square(7, 3).piece).to be(rook)
     end

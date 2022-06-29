@@ -3,7 +3,11 @@
 require_relative 'library'
 
 board = Board.new
-center_king = King.new(board.square(4, 3), 'white', board)
-# edge_king = King.new(board.square(7, 4), 'white', board)
-board.instance_variable_set(:@pieces, [center_king])
-center_king.update_possible_moves
+
+white_pawn = Pawn.new(3, 0, 'white', board)
+
+black_pawn = Pawn.new(3, 1, 'black', board)
+king = King.new(7, 4, 'white', board)
+board.instance_variable_set(:@pieces, [white_pawn, black_pawn, king])
+black_pawn.instance_variable_set(:@open_to_en_passant, true)
+white_pawn.update_possible_moves

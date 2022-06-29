@@ -7,12 +7,16 @@ describe Knight do
     context 'when the board is blank' do
       it 'returns an array of all possible moves from the middle of the board' do
         knight = described_class.new(4, 3, 'white', board)
+        king = King.new(7, 4, 'white', board)
+        board.instance_variable_set(:@pieces, [knight, king])
         knight.update_possible_moves
         expect(knight.possible_moves).to contain_exactly([6, 4], [6, 2], [5, 5], [3, 5], [2, 4], [2, 2], [5, 1], [3, 1])
       end
 
       it 'returns an array of all possible moves from the edge of the board' do
         knight = described_class.new(1, 0, 'black', board)
+        king = King.new(7, 4, 'black', board)
+        board.instance_variable_set(:@pieces, [knight, king])
         knight.update_possible_moves
         expect(knight.possible_moves).to contain_exactly([0, 2], [2, 2], [3, 1])
       end
@@ -22,9 +26,11 @@ describe Knight do
       subject(:knight) { described_class.new(2, 0, 'black', board) }
 
       before do
-        Rook.new(4, 1, 'white', board)
-        Queen.new(0, 1, 'black', board)
-        Bishop.new(2, 1, 'black', board)
+        rook = Rook.new(4, 1, 'white', board)
+        queen = Queen.new(0, 1, 'black', board)
+        bishop = Bishop.new(2, 1, 'black', board)
+        king = King.new(7, 7, 'black', board)
+        board.instance_variable_set(:@pieces, [knight, rook, queen, bishop, king])
         knight.update_possible_moves
       end
 
