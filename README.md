@@ -36,3 +36,11 @@ intended. After that, I need to add better test coverage, then refactor the
 tests (before doing this, I'll need to figure out how to add RSpec linting to
 Rubocop). Once all of that is done, I will look up some famous games and run them
 through the program to catch any bugs, then I should be done.
+
+Idea: remove board dependency from pieces. Use Square class method to deliver
+squares to pieces, board remains dependent on pieces (less likely to change),
+but pieces are no long depenedent on the board (also simplifies data structures alot,
+removes need to board to contain pieces to contain board...).
+
+Issue: In #leads_to_check?, I create a board clone to process whether a move would lead to check. Issue is that check is calculated based on pieces possible moves, so those possible moves need to be updated to calculate correctly. However, this results in an infinite loop where board calls
+update_all_possible_moves, which sends #leads_to_check? to all pieces, which then sends update all possible moves to the board clone. Idea for a fix is to make update_all_possible_moves more selective so it ignores certain pieces? 

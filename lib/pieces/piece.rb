@@ -38,8 +38,9 @@ class Piece
   def valid_move?(candidate)
     return if candidate.nil?
 
-    (candidate.open? || candidate.different_colored_piece?(color)) &&
-      !leads_to_check?(candidate)
+    return unless candidate.open? || candidate.different_colored_piece?(color)
+
+    board.copy || !leads_to_check?(candidate)
   end
 
   def leads_to_check?(candidate)
@@ -49,6 +50,7 @@ class Piece
     king = board_copy.pieces.find do |copied_piece|
       copied_piece.instance_of?(King) && copied_piece.color == color
     end
+    board_copy.update_all_possible_moves
     king.check?
   end
 
@@ -66,6 +68,20 @@ class Piece
 
   def next_candidate(row_shift, column_shift, candidate)
     board.square(candidate.row + row_shift, candidate.column + column_shift)
+  end
+
+  def knight_square_coordinates
+    knight_square_coordinates = []
+    diffs = [1, 2, -1, -2]
+
+    diffs.permutation(2) do |coordinate_diff|
+      next if coordinate_diff[0].abs == coordinate_diff[1].abs
+
+      coordinate =
+        [row + coordinate_diff[0], column + coordinate_diff[1]]
+      knight_square_coordinates << coordinate
+    end
+    knight_square_coordinates.uniq
   end
 
   def check_diagonals

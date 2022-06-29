@@ -18,17 +18,5 @@ class Knight < Piece
     valid_coordinates.each { |coordinates| possible_moves << coordinates }
   end
 
-  def knight_square_coordinates
-    knight_square_coordinates = []
-    diffs = [1, 2, -1, -2]
 
-    diffs.permutation(2) do |coordinate_diff|
-      next if coordinate_diff[0].abs == coordinate_diff[1].abs
-
-      coordinate =
-        [row + coordinate_diff[0], column + coordinate_diff[1]]
-      knight_square_coordinates << coordinate
-    end
-    knight_square_coordinates.uniq
-  end
 end

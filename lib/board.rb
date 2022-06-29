@@ -3,15 +3,11 @@
 require_relative 'library'
 require 'colorize'
 
-# The Board class handles storage of the squares and pieces of the chess board.
-# It also handles methods for checking the details of a particular square
-# (whether it is open and what color piece is occupying it). Several methods
-# which make changes to all the pieces in the game are handled here as well.
-# (This class is one that might need to be broken into several, as it is doing
-# several distinct types of functions).
+# The Board class handles storage of the squares and pieces of the chess board,
+# and includes several methods which make changes to all the pieces in the game.
 class Board
   attr_reader :data_array, :pieces, :squares
-  attr_accessor :moves_since_capture
+  attr_accessor :moves_since_capture, :copy
 
   def initialize
     @data_array = Array.new(8) { Array.new(8, nil) }
@@ -20,6 +16,7 @@ class Board
     @pieces = []
     @log = []
     @moves_since_capture = 0
+    @copy = false
   end
 
   def create_squares
@@ -76,7 +73,9 @@ class Board
   end
 
   def clone
-    YAML.load(YAML.dump(self))
+    board_clone = YAML.load(YAML.dump(self))
+    board_clone.copy = true
+    board_clone
   end
 
   def display
