@@ -10,7 +10,10 @@ class Queen < Piece
   end
 
   def update_possible_moves
-    check_horizontals_and_verticals
-    check_diagonals
+    current_square = board.square(row, column)
+    diagonal_coordinates = current_square.diagonal_coordinates
+    add_coordinates_from_directions(diagonal_coordinates)
+    axial_coordinates = current_square.axial_coordinates
+    add_coordinates_from_directions(axial_coordinates)
   end
 end

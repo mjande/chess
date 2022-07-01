@@ -12,6 +12,8 @@ class Rook < Piece
   end
 
   def update_possible_moves
-    check_horizontals_and_verticals
+    current_square = board.square(row, column)
+    axial_coordinates = current_square.axial_coordinates
+    add_coordinates_from_directions(axial_coordinates)
   end
 end

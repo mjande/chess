@@ -12,6 +12,7 @@ class Bishop < Piece
   end
 
   def update_possible_moves
-    check_diagonals
+    coordinates = board.square(row, column).diagonal_coordinates
+    add_coordinates_from_directions(coordinates)
   end
 end

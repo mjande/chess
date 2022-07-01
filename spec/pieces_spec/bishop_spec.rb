@@ -16,13 +16,18 @@ describe Bishop do
       it 'updates @possible_moves to include all possible moves from the middle of the board' do
         bishop = described_class.new(4, 4, 'white', board)
         bishop.update_possible_moves
-        expect(bishop.possible_moves).to contain_exactly([3, 3], [2, 2], [1, 1], [0, 0], [3, 5], [2, 6], [1, 7], [5, 3], [6, 2], [7, 1], [5, 5], [6, 6], [7, 7])
+        expect(bishop.possible_moves).to contain_exactly(
+          [3, 3], [2, 2], [1, 1], [0, 0], [3, 5], [2, 6], [1, 7], [5, 3],
+          [6, 2], [7, 1], [5, 5], [6, 6], [7, 7]
+        )
       end
 
       it 'updates @possible_moves to include all possible moves from the edge of the board' do
         bishop = described_class.new(0, 2, 'black', board)
         bishop.update_possible_moves
-        expect(bishop.possible_moves).to contain_exactly([1, 1], [2, 0], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7])
+        expect(bishop.possible_moves).to contain_exactly(
+          [1, 1], [2, 0], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7]
+        )
       end
     end
 

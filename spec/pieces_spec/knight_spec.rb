@@ -46,5 +46,17 @@ describe Knight do
         expect(knight.possible_moves).to include([3, 2])
       end
     end
+
+    context 'when there is a threat of check' do 
+      subject(:knight) { described_class.new(7, 2, 'white', board) }
+
+      it 'adds no moves that result in check to @possible_moves' do
+        king = King.new(7, 4, 'white', board)
+        rook = Rook.new(7, 0, 'black', board)
+        board.instance_variable_set(:@pieces, [knight, king, rook])
+        knight.update_possible_moves
+        expect(knight.possible_moves).to be_empty
+      end
+    end
   end
 end

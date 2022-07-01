@@ -10,13 +10,12 @@ class Knight < Piece
   end
 
   def update_possible_moves
+    current_square = board.square(row, column)
     valid_coordinates =
-      knight_square_coordinates.select do |square_coordinates|
+      current_square.knight_coordinates.select do |square_coordinates|
         square = board.square(square_coordinates[0], square_coordinates[1])
         valid_move?(square)
       end
     valid_coordinates.each { |coordinates| possible_moves << coordinates }
   end
-
-
 end

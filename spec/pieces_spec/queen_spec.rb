@@ -57,5 +57,17 @@ describe Queen do
         expect(queen.possible_moves).not_to include([1, 1], [5, 4], [4, 7])
       end
     end
+
+    context 'when there is a threat of check' do
+      subject(:queen) { described_class.new(7, 3, 'white', board) }
+
+      it 'adds no moves that result in check to @possible_moves' do
+        king = King.new(7, 4, 'white', board)
+        rook = Rook.new(7, 0, 'black', board)
+        board.instance_variable_set(:@pieces, [queen, rook, king])
+        queen.update_possible_moves
+        expect(queen.possible_moves).not_to include([6, 2], [6, 3], [6, 4])
+      end
+    end
   end
 end

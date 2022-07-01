@@ -14,9 +14,6 @@ class Square
     @piece = nil
   end
 
-  def self.at(row, column)
-  end
-
   # Revisit whether this distinction is necessary. It seems like it might hide a
   # concept that is better left stated plainly whereever it is used.
   def ==(other)
@@ -62,10 +59,10 @@ class Square
 
   def diagonal_coordinates
     {
-      up_right: coordinates_in_direction(1, 1),
-      up_left: coordinates_in_direction(1, -1),
-      down_left: coordinates_in_direction(-1, -1),
-      down_right: coordinates_in_direction(-1, 1)
+      up_right: coordinates_in_direction(-1, 1),
+      up_left: coordinates_in_direction(-1, -1),
+      down_left: coordinates_in_direction(1, -1),
+      down_right: coordinates_in_direction(1, 1)
     }
   end
 
@@ -85,10 +82,10 @@ class Square
     diffs = [1, 2, -1, -2]
 
     diffs.permutation(2) do |coordinate_diff|
+      next unless valid_knight_square?(coordinate_diff)
+
       coordinate =
         [row + coordinate_diff[0], column + coordinate_diff[1]]
-      next if valid_knight_square(coordinate)
-
       knight_square_coordinates << coordinate
     end
     knight_square_coordinates.uniq
@@ -117,12 +114,12 @@ class Square
     coordinates
   end
 
-  def valid_knight_square(coordinates)
-    next_row = coordinates[0]
-    next_column = coordinates[1]
-    next_row.abs == next_column.abs ||
-      !next_row.between?(0, 7) ||
-      !next_column.between?(0, 7)
+  def valid_knight_square?(coordinate_diff)
+    return if coordinate_diff[0].abs == coordinate_diff[1].abs
+
+    next_row = row + coordinate_diff[0]
+    next_column = column + coordinate_diff[1]
+    next_row.between?(0, 7) && next_column.between?(0, 7)
   end
 end
 

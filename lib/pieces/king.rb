@@ -28,82 +28,8 @@ class King < Piece
     valid_coordinates.each { |coordinates| possible_moves << coordinates }
   end
 
-  def old_check?(square = board.square(row, column))
-    opposing_pieces = board.pieces.reject { |piece| piece.color == color }
-
-    opposing_pieces.any? do |piece|
-      piece.possible_moves.include?([square.row, square.column])
-    end
-  end
-
   def check?(square = board.square(row, column))
-    check_on_axials?(square) ||
-      check_on_diagonals?(square) ||
-      check_on_knight_squares?(square)
-  end
-
-  # Current issue: this correctly iterates over several different positions, but
-  # it doesn't stop when it hits a blocking pieces. An idea to fix this is to
-  # create a hash in the used square methods that corresponds to order by
-  # direction (ex. each square to the right, starting with the immediate right
-  # square and continuing rightward). This change could allow it to proceed in
-  # order until it needs to stop. Another idea could be to build that stopping
-  # logic into the the hash in square. See further notes there.
-  def check_on_axials?(square)
-    square.axial_coordinates.each_value do |direction|
-      i = 0
-      while i <= (direction.length - 1)
-        next_coordinate = direction[i]
-        next_square = board.square(next_coordinate[0], next_coordinate[1])
-        return true if axial_threat?(next_square)
-
-        break unless next_square.open?
-
-        i += 1
-      end
-    end
-    false
-  end
-
-  def check_on_diagonals?(square)
-    square.diagonal_coordinates.each_value do |direction|
-      i = 0
-      while i <= (direction.length - 1)
-        next_coordinate = direction[i]
-        next_square = board.square(next_coordinate[0], next_coordinate[1])
-        return true if diagonal_threat?(next_square)
-        break unless next_square.open?
-
-        i += 1
-      end
-    end
-    false
-  end
-
-  def check_on_knight_squares?(square)
-    square.knight_coordinates.any? do |coordinates|
-      next_square = board.square(coordinates[0], coordinates[1])
-      knight_threat?(next_square)
-    end
-  end
-
-  def axial_threat?(square)
-    square.different_colored_piece?(color) &&
-      (square.piece.instance_of?(Rook) || square.piece.instance_of?(Queen))
-  end
-
-  def diagonal_threat?(square)
-    return unless square.different_colored_piece?(color)
-
-    if square.piece.instance_of?(Pawn)
-      square.row == row + 1
-    else
-      square.piece.instance_of?(Bishop) || square.piece.instance_of?(Queen)
-    end
-  end
-
-  def knight_threat?(square)
-    square.different_colored_piece?(color) && square.piece.instance_of?(Knight)
+    CheckDetector.on?(square, board, color)
   end
 
   def checkmate?

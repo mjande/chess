@@ -38,7 +38,7 @@ class Piece
     return if candidate.nil?
 
     (candidate.open? || candidate.different_colored_piece?(color)) &&
-    !leads_to_check?(candidate)
+      !leads_to_check?(candidate)
   end
 
   def leads_to_check?(candidate)
@@ -54,48 +54,18 @@ class Piece
     king.check?
   end
 
-  def check_direction(row_shift, column_shift)
-    next_row = row + row_shift
-    next_column = column + column_shift
-    candidate = board.square(next_row, next_column)
-    until candidate.nil?
-      possible_moves << [candidate.row, candidate.column] if valid_move?(candidate)
-      break unless candidate.open?
+  def add_coordinates_from_directions(hash)
+    hash.each_value do |direction_array|
+      i = 0
+      while i <= (direction_array.length - 1)
+        next_coordinate = direction_array[i]
+        next_square = board.square(next_coordinate[0], next_coordinate[1])
+        @possible_moves << next_coordinate if valid_move?(next_square)
+        break unless next_square.open?
 
-      candidate = next_candidate(row_shift, column_shift, candidate)
+        i += 1
+      end
     end
-  end
-
-  def next_candidate(row_shift, column_shift, candidate)
-    board.square(candidate.row + row_shift, candidate.column + column_shift)
-  end
-
-  def knight_square_coordinates
-    knight_square_coordinates = []
-    diffs = [1, 2, -1, -2]
-
-    diffs.permutation(2) do |coordinate_diff|
-      next if coordinate_diff[0].abs == coordinate_diff[1].abs
-
-      coordinate =
-        [row + coordinate_diff[0], column + coordinate_diff[1]]
-      knight_square_coordinates << coordinate
-    end
-    knight_square_coordinates.uniq
-  end
-
-  def check_diagonals
-    check_direction(1, -1)
-    check_direction(1, 1)
-    check_direction(-1, 1)
-    check_direction(-1, -1)
-  end
-
-  def check_horizontals_and_verticals
-    check_direction(1, 0)
-    check_direction(-1, 0)
-    check_direction(0, -1)
-    check_direction(0, 1)
   end
 
   def move(square)

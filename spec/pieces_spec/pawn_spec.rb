@@ -49,6 +49,18 @@ describe Pawn do
         expect(pawn.possible_moves).to include([2, 1])
       end
     end
+
+    context 'when there is a threat of check' do
+      subject(:pawn) { described_class.new(6, 3, 'white', board) }
+
+      it 'adds no moves that result in check to @possible_moves' do
+        king = King.new(6, 4, 'white', board)
+        rook = Rook.new(6, 0, 'black', board)
+        board.instance_variable_set(:@pieces, [pawn, king, rook])
+        pawn.update_possible_moves
+        expect(pawn.possible_moves).to be_empty
+      end
+    end
   end
 
   describe '#en_passant_move' do
