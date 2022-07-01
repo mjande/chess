@@ -12,16 +12,19 @@ class Square
     @row = row
     @column = column
     @piece = nil
+    add_to_registery
   end
 
-  # Revisit whether this distinction is necessary. It seems like it might hide a
-  # concept that is better left stated plainly whereever it is used.
-  def ==(other)
-    row == other.row && column == other.column
+  def self.registery
+    @registery ||= []
   end
 
-  def eql?(other)
-    self == other && piece == other.piece
+  def self.at(row, column)
+    @registery.find { |square| square.row == row && square.column == column }
+  end
+
+  def add_to_registery
+    self.class.registery << self
   end
 
   def open?
@@ -154,7 +157,7 @@ class NoSquare
   def diagonal_coordinates
     {}
   end
-  
+
   def knight_coordinates
     []
   end
