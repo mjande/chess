@@ -5,7 +5,7 @@ describe MoveInput do
     let(:board) { Board.new }
 
     it 'returns new MoveInput object for normal input' do
-      expect(MoveInput.for('Nc3', 'white', board)).to be_a(MoveInput)
+      expect(described_class.for('Nc3', 'white', board)).to be_a(described_class)
     end
 
     it 'returns new PawnMoveInput object for pawn input' do

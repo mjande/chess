@@ -3,13 +3,10 @@ require_relative '../library'
 # The CheckDetector class is used to evaluate whether a given square is in
 # check.
 class CheckDetector
-  def self.on?(square, board, color)
+  def self.for?(square, board, color)
     @board = board
     @square = square
     @color = color
-    @king = board.pieces.find do |piece|
-      piece.instance_of?(King) && piece.color == color
-    end
     check_on_axials? || check_on_diagonals? || check_on_knight_squares?
   end
 
@@ -60,7 +57,7 @@ class CheckDetector
     return unless next_square.different_colored_piece?(@color)
 
     if next_square.piece.instance_of?(Pawn)
-      next_square.row == row + 1
+      next_square.row == @square.row + 1
     else
       next_square.piece.instance_of?(Bishop) ||
         next_square.piece.instance_of?(Queen)

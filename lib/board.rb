@@ -103,6 +103,7 @@ class Board
     bishops = pieces.select { |piece| piece.instance_of?(Bishop) }
     return unless bishops.length == 2
 
-    bishops[0].territory == bishops[1].territory
+    square(bishops[0].row, bishops[0].column).color ==
+      square(bishops[1].row, bishops[1].column).color
   end
 end

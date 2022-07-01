@@ -24,12 +24,6 @@ class Player
     board.update_all_possible_moves
   end
 
-  def special_move(input)
-    pawn_special_move(input.type)
-    castling_special_move(input.type)
-    other_special_move(input.type)
-  end
-
   def check_for_special_input(type)
     case type
     when 'draw'
@@ -67,7 +61,8 @@ class Player
   end
 
   def check?
-    king.check?
+    king_square = board.square(king.row, king.column)
+    CheckDetector.for?(king_square, board, color)
   end
 
   def checkmate?

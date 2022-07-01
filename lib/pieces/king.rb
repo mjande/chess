@@ -29,11 +29,12 @@ class King < Piece
   end
 
   def check?(square = board.square(row, column))
-    CheckDetector.on?(square, board, color)
+    CheckDetector.for?(square, board, color)
   end
 
   def checkmate?
-    possible_moves.empty? && check?
+    current_square = board.square(row, column)
+    possible_moves.empty? && CheckDetector.for?(current_square, board, color)
   end
 
   def kingside_castle_move
@@ -79,10 +80,11 @@ class King < Piece
     side_squares = assign_side_squares(side)
     side_rook = rook(side)
 
-    !(side_rook.nil? || check?) &&
+    !(side_rook.nil? ||
+      CheckDetector.for?(board.square(row, column), board, color)) &&
       pieces_have_not_moved?(side_rook) &&
       side_squares.all?(&:open?) &&
-      side_squares.none? { |square| check?(square) }
+      side_squares.none? { |square| CheckDetector.for?(square, board, color) }
   end
 
   def pieces_have_not_moved?(rook)

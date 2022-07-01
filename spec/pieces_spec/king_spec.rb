@@ -15,7 +15,6 @@ describe King do
       end
 
       it 'returns all possible moves from middle of board' do
-        allow(center_king).to receive(:check?).and_return(false)
         center_king.update_possible_moves
         expect(center_king.possible_moves).to contain_exactly(
           [3, 2], [3, 3], [3, 4], [4, 2], [4, 4], [5, 2], [5, 3], [5, 4]
@@ -23,7 +22,6 @@ describe King do
       end
 
       it 'returns all possible moves from the edge of the board' do
-        allow(edge_king).to receive(:check?).and_return(false)
         edge_king.update_possible_moves
         expect(edge_king.possible_moves).to contain_exactly(
           [7, 3], [6, 3], [6, 4], [6, 5], [7, 5]

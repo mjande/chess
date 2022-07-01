@@ -2,4 +2,5 @@
 
 --default-path spec
 
+--pattern *_spec.rb
 --pattern ****/*_spec.rb

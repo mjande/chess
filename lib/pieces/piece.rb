@@ -50,8 +50,9 @@ class Piece
     king = board_copy.pieces.find do |copied_piece|
       copied_piece.instance_of?(King) && copied_piece.color == color
     end
+    king_square = board.square(king.row, king.column)
     board_copy.update_all_possible_moves
-    king.check?
+    CheckDetector.for?(king_square, board_copy, king.color)
   end
 
   def add_coordinates_from_directions(hash)
