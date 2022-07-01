@@ -6,11 +6,10 @@ require 'colorize'
 # The Board class handles storage of the squares and pieces of the chess board,
 # and includes several methods which make changes to all the pieces in the game.
 class Board
-  attr_reader :data_array, :pieces, :squares
+  attr_reader :pieces, :squares
   attr_accessor :moves_since_capture, :copy
 
   def initialize
-    @data_array = Array.new(8) { Array.new(8, nil) }
     @squares = []
     create_squares
     @pieces = []
@@ -90,7 +89,7 @@ class Board
   end
 
   def log_position
-    @log << squares
+    @log << YAML.dump(self)
   end
 
   def inspect

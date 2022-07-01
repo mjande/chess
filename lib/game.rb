@@ -6,7 +6,7 @@ require 'yaml'
 # The Game class handles the basic game loop, including: initializing the game,
 # allowing each player to take their turn, and ending the game.
 class Game
-  attr_reader :board, :white_player, :black_player
+  attr_accessor :board, :white_player, :black_player, :next_player
 
   def start
     puts "Let's play chess! \n Type one of the options below to begin."
@@ -15,7 +15,7 @@ class Game
     when 'new'
       start_game
     when 'load'
-      load_game
+      SaveGame.load(self)
     else
       'Please choose from one of the options below.'
     end
@@ -52,7 +52,7 @@ class Game
     elsif black_player.draw
       white_player.draw_acceptance_message
     elsif white_player.save || black_player.save
-      save_game
+      SaveGame.new(self)
     end
   end
 
@@ -79,36 +79,7 @@ class Game
 
   def play_again
     response = white_player.play_again_input
-    Game.new.play_game if response
-  end
-
-  def save_game
-    Dir.open('saved_games')
-    save_data = serialize
-    file_name = 'saved_games/save.yml'
-    save_file = File.open(file_name, 'w')
-    save_file.puts save_data
-    save_file.close
-    exit
-  end
-
-  def serialize
-    game_data = { board: @board, white_player: @white_player,
-                  black_player: @black_player, next_player: @next_player }
-    YAML.dump(game_data)
-  end
-
-  def deserialize(yaml_string)
-    YAML.load(yaml_string)
-  end
-
-  def load_game
-    Dir.open('saved_games')
-    file_name = 'saved_games/save.yml'
-    file = File.open(file_name, 'r')
-    data = deserialize(file)
-    assign_loaded_variables(data)
-    play_game
+    Game.new.start if response
   end
 
   private
@@ -127,14 +98,5 @@ class Game
     board.log_position
     check_responses
     @next_player = white_player
-  end
-
-  def assign_loaded_variables(data)
-    @board = data[:board]
-    @white_player = data[:white_player]
-    white_player.save = false
-    @black_player = data[:black_player]
-    black_player.save = false
-    @next_player = data[:next_player]
   end
 end
