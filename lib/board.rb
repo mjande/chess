@@ -18,6 +18,9 @@ class Board
     @copy = false
   end
 
+  # This method will populate the board with square objects that respond to
+  # common evaluations like being open or being occupied by a
+  # different-colored piece.
   def create_squares
     8.times do |row|
       8.times do |column|
@@ -27,6 +30,7 @@ class Board
     end
   end
 
+  # This method lets other pieces access individual squares.
   def square(row, column)
     wanted_square = squares.find do |square|
       square.row == row && square.column == column
@@ -49,11 +53,17 @@ class Board
     end.each(&:update_possible_moves)
   end
 
+  # The next three methods are used to evaluate whether the game has ended in a
+  # draw.
   def no_possible_moves?(player)
     player_pieces = pieces.select { |piece| piece.color == player.color }
     player_pieces.all? { |piece| piece.possible_moves.empty? }
   end
 
+  # This method evaluates three conditions for a dead position: only two bishops
+  # occupying the same-colored squares (along with both kings), only a bishop
+  # and a rook (along with both kings), or only a knight or bishop (along with
+  # both kings) on the board.
   def dead_position?
     case pieces.length
     when 4
@@ -71,12 +81,15 @@ class Board
     repetitions > 2
   end
 
+  # Deep clone method for evaluting check.
   def clone
     board_clone = YAML.load(YAML.dump(self))
     board_clone.copy = true
     board_clone
   end
 
+  # This method transformt the current board position into a string that is
+  # ready to be printed by iterating over each row.
   def display
     display_string = "\n"
     0.upto(7) do |row_num|
@@ -93,6 +106,7 @@ class Board
     @log << display
   end
 
+  # Utility method to make error messages more readable.
   def inspect
     'Board'
   end

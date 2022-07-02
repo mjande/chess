@@ -1,1 +1,4 @@
 require: rubocop-rspec
+
+Security/YAMLLoad:
+  Enabled: false
