@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/library'
 
 describe Piece do
   describe '#Piece.add_white_pieces_to_board' do
     let(:board) { Board.new }
 
-    it 'assigns pieces to starting square' do
+    it 'assigns pieces to starting squares' do
       Rook.add_white_pieces_to_board(board)
       expect(board.square(7, 0).piece).to be_a(Rook)
-      expect(board.square(7, 0).piece_color).to eq('white')
     end
 
     it 'adds created pieces to board.pieces' do
@@ -22,11 +23,10 @@ describe Piece do
     it 'assigns pieces to starting squares' do
       Knight.add_black_pieces_to_board(board)
       expect(board.square(0, 1).piece).to be_a(Knight)
-      expect(board.square(0, 6).piece).to be_a(Knight)
     end
 
     it 'adds created pieces to board.pieces' do
-      Queen.add_black_pieces_to_board(board) 
+      Queen.add_black_pieces_to_board(board)
       expect(board.pieces).to include(a_kind_of(Queen)).once
     end
   end
@@ -42,7 +42,7 @@ describe Piece do
       end
 
       it 'removes self from previous square' do
-        expect(board.square(7, 0).open?).to be_truthy
+        expect(board.square(7, 0)).to be_open
       end
 
       it 'adds self to new square' do
@@ -54,12 +54,13 @@ describe Piece do
       end
 
       it 'adds to moves_since_capture counter' do
-        expect { piece.move(board.square(4, 0)) }.to change { board.moves_since_capture }.by(1)
+        expect { piece.move(board.square(4, 0)) }.to change(board, :moves_since_capture).by(1)
       end
     end
 
     context 'when capturing another piece' do
       subject(:piece) { described_class.new(7, 0, 'white', board) }
+
       let(:other_piece) { described_class.new(5, 0, 'black', board) }
 
       before do

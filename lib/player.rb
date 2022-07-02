@@ -17,7 +17,7 @@ class Player
   end
 
   def play_turn
-    board.display
+    puts board.display
     input = input_move
     input.move_piece
     check_for_special_input(input.type)

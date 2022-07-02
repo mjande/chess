@@ -1,24 +1,33 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/library'
 
 describe Knight do
+  let(:board) { Board.new }
+
   describe '#update_possible_moves' do
-    let(:board) { Board.new }
+    before do
+      white_king = King.new(7, 4, 'white', board)
+      black_king = King.new(0, 4, 'black', board)
+      board.instance_variable_set(:@pieces, [white_king, black_king])
+    end
 
     context 'when the board is blank' do
-      it 'returns an array of all possible moves from the middle of the board' do
-        knight = described_class.new(4, 3, 'white', board)
-        king = King.new(7, 4, 'white', board)
-        board.instance_variable_set(:@pieces, [knight, king])
-        knight.update_possible_moves
-        expect(knight.possible_moves).to contain_exactly([6, 4], [6, 2], [5, 5], [3, 5], [2, 4], [2, 2], [5, 1], [3, 1])
+      let(:center_knight) { described_class.new(4, 3, 'white', board) }
+      let(:edge_knight) { described_class.new(1, 0, 'black', board) }
+
+      it 'updates possible moves from middle of the board' do
+        center_knight.update_possible_moves
+        expect(center_knight.possible_moves).to contain_exactly(
+          [6, 4], [6, 2], [5, 5], [3, 5], [2, 4], [2, 2], [5, 1], [3, 1]
+        )
       end
 
-      it 'returns an array of all possible moves from the edge of the board' do
-        knight = described_class.new(1, 0, 'black', board)
-        king = King.new(7, 4, 'black', board)
-        board.instance_variable_set(:@pieces, [knight, king])
-        knight.update_possible_moves
-        expect(knight.possible_moves).to contain_exactly([0, 2], [2, 2], [3, 1])
+      it 'updates possible moves from the edge of the board' do
+        edge_knight.update_possible_moves
+        expect(edge_knight.possible_moves).to contain_exactly(
+          [0, 2], [2, 2], [3, 1]
+        )
       end
     end
 

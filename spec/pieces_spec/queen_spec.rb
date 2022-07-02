@@ -3,28 +3,31 @@
 require_relative '../../lib/library'
 
 describe Queen do
-  describe '#update_possible_moves' do
-    let(:board) { Board.new }
+  let(:board) { Board.new }
 
+  describe '#update_possible_moves' do
     context 'when the board is blank' do
-      it 'returns an array of all possible moves from the middle of the board' do
-        queen = described_class.new(4, 4, 'white', board)
-        king = King.new(7, 3, 'white', board)
-        board.instance_variable_set(:@pieces, [queen, king])
-        queen.update_possible_moves
-        expect(queen.possible_moves).to contain_exactly(
+      let(:center_queen) { described_class.new(4, 4, 'white', board) }
+      let(:edge_queen) { described_class.new(7, 3, 'black', board) }
+
+      before do
+        white_king = King.new(0, 2, 'white', board)
+        black_king = King.new(0, 5, 'black', board)
+        board.instance_variable_set(:@pieces, [white_king, black_king])
+        center_queen.update_possible_moves
+        edge_queen.update_possible_moves
+      end
+
+      it 'updates possible moves from middle of the board' do
+        expect(center_queen.possible_moves).to contain_exactly(
           [4, 3], [4, 2], [4, 1], [4, 0], [3, 3], [2, 2], [1, 1], [0, 0], [3, 4],
           [2, 4], [1, 4], [0, 4], [3, 5], [2, 6], [1, 7], [4, 5], [4, 6], [4, 7],
           [5, 5], [6, 6], [7, 7], [5, 4], [6, 4], [7, 4], [5, 3], [6, 2], [7, 1]
         )
       end
 
-      it 'returns an array of all possible moves from the edge of the board' do
-        queen = described_class.new(7, 3, 'white', board)
-        king = King.new(0, 4, 'white', board)
-        board.instance_variable_set(:@pieces, [king, queen])
-        queen.update_possible_moves
-        expect(queen.possible_moves).to contain_exactly(
+      it 'updates possible moves from the edge of the board' do
+        expect(edge_queen.possible_moves).to contain_exactly(
           [7, 2], [7, 1], [7, 0], [6, 2], [5, 1], [4, 0], [6, 3], [5, 3],
           [4, 3], [3, 3], [2, 3], [1, 3], [0, 3], [6, 4], [5, 5], [4, 6],
           [3, 7], [7, 4], [7, 5], [7, 6], [7, 7]

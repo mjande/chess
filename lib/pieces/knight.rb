@@ -9,6 +9,9 @@ class Knight < Piece
     color == 'white' ? ' ♞ '.colorize(:light_white) : ' ♞ '.colorize(:black)
   end
 
+  # This method uses #knight_coordinates to find all possible squares relevant
+  # to knight movement, then checks to see if they are unoccupied or open to
+  # capture.
   def update_possible_moves
     current_square = board.square(row, column)
     valid_coordinates =

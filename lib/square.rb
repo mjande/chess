@@ -12,19 +12,6 @@ class Square
     @row = row
     @column = column
     @piece = nil
-    add_to_registery
-  end
-
-  def self.registery
-    @registery ||= []
-  end
-
-  def self.at(row, column)
-    @registery.find { |square| square.row == row && square.column == column }
-  end
-
-  def add_to_registery
-    self.class.registery << self
   end
 
   def open?

@@ -21,6 +21,10 @@ class Pawn < Piece
     color == 'white' ? ' ♟ '.colorize(:light_white) : ' ♟ '.colorize(:black)
   end
 
+  # Instead of pulling possible coordinates like other possible_moves methods,
+  # this method checks in each direction. If it can move one row up, it also
+  # checks if it can move two at the beginning of the game. Left and right side
+  # checks also examine the possibility of en_passant.
   def update_possible_moves
     @possible_moves = []
     check_ahead
@@ -85,6 +89,10 @@ class Pawn < Piece
     board.pieces.delete(self)
   end
 
+  # In addition to implementing normal move procedures, instances of this class
+  # also will keep track of whether they are able to be captured via en_passant.
+  # This attribute is examined after processing another pawn's en_passant move
+  # request.
   def move(square)
     @open_to_en_passant = ((square.row - row).abs == 2)
     super

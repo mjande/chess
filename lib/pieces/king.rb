@@ -28,15 +28,13 @@ class King < Piece
     valid_coordinates.each { |coordinates| possible_moves << coordinates }
   end
 
-  def check?(square = board.square(row, column))
-    CheckDetector.for?(square, board, color)
-  end
-
   def checkmate?
     current_square = board.square(row, column)
     possible_moves.empty? && CheckDetector.for?(current_square, board, color)
   end
 
+  # These special move methods are used instead of the normal piece.move method
+  # whenever castling occurs.
   def kingside_castle_move
     king_destination = board.square(row, 6)
     move(king_destination)
@@ -83,8 +81,12 @@ class King < Piece
     !(side_rook.nil? ||
       CheckDetector.for?(board.square(row, column), board, color)) &&
       pieces_have_not_moved?(side_rook) &&
-      side_squares.all?(&:open?) &&
-      side_squares.none? { |square| CheckDetector.for?(square, board, color) }
+      side_squares_available(side_squares)
+  end
+
+  def side_squares_available(squares)
+    squares.all?(&:open?) &&
+      squares.none? { |square| CheckDetector.for?(square, board, color) }
   end
 
   def pieces_have_not_moved?(rook)

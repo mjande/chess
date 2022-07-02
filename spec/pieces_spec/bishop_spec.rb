@@ -3,9 +3,9 @@
 require_relative '../../lib/library'
 
 describe Bishop do
-  describe '#update_possible_moves' do
-    let(:board) { Board.new }
+  let(:board) { Board.new }
 
+  describe '#update_possible_moves' do
     before do
       white_king = King.new(7, 4, 'white', board)
       black_king = King.new(0, 4, 'black', board)
@@ -13,19 +13,20 @@ describe Bishop do
     end
 
     context 'when the board is blank' do
-      it 'updates @possible_moves to include all possible moves from the middle of the board' do
-        bishop = described_class.new(4, 4, 'white', board)
-        bishop.update_possible_moves
-        expect(bishop.possible_moves).to contain_exactly(
+      let(:center_bishop) { described_class.new(4, 4, 'white', board) }
+      let(:edge_bishop) { described_class.new(0, 2, 'black', board) }
+
+      it 'updates possible moves from middle of the board' do
+        center_bishop.update_possible_moves
+        expect(center_bishop.possible_moves).to contain_exactly(
           [3, 3], [2, 2], [1, 1], [0, 0], [3, 5], [2, 6], [1, 7], [5, 3],
           [6, 2], [7, 1], [5, 5], [6, 6], [7, 7]
         )
       end
 
-      it 'updates @possible_moves to include all possible moves from the edge of the board' do
-        bishop = described_class.new(0, 2, 'black', board)
-        bishop.update_possible_moves
-        expect(bishop.possible_moves).to contain_exactly(
+      it 'updates possible moves from the edge of the board' do
+        edge_bishop.update_possible_moves
+        expect(edge_bishop.possible_moves).to contain_exactly(
           [1, 1], [2, 0], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7]
         )
       end
@@ -60,7 +61,8 @@ describe Bishop do
         white_king = King.new(7, 4, 'white', board)
         black_king = King.new(0, 4, 'black', board)
         rook = Rook.new(7, 0, 'black', board)
-        board.instance_variable_set(:@pieces, [bishop, white_king, black_king, rook])
+        board.instance_variable_set(:@pieces, [bishop, white_king, black_king,
+                                               rook])
         board.update_all_possible_moves
       end
 

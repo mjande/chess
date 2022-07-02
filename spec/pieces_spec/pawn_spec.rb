@@ -3,9 +3,9 @@
 require_relative '../../lib/library'
 
 describe Pawn do
-  describe '#update_possible_moves' do
-    let(:board) { Board.new }
+  let(:board) { Board.new }
 
+  describe '#update_possible_moves' do
     subject(:pawn) { described_class.new(6, 0, 'white', board) }
 
     before do
@@ -26,20 +26,18 @@ describe Pawn do
     end
 
     it 'does not return any possible moves with a blocking piece in front' do
-      Pawn.new(5, 0, 'black', board)
+      described_class.new(5, 0, 'black', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).not_to include([5, 0])
     end
 
     it 'returns diagonal moves to take opposing pieces' do
-      Pawn.new(5, 1, 'black', board)
+      described_class.new(5, 1, 'black', board)
       pawn.update_possible_moves
       expect(pawn.possible_moves).to include([5, 1])
     end
 
     context 'when there is an opportunity for en-passant capture' do
-      let(:board) { Board.new }
-
       subject(:pawn) { described_class.new(3, 0, 'white', board) }
 
       it 'returns diagonal moves for en_passant capture' do
@@ -64,8 +62,8 @@ describe Pawn do
   end
 
   describe '#en_passant_move' do
-    let(:board) { Board.new }
     subject(:pawn) { described_class.new(3, 0, 'white', board) }
+
     let(:other_pawn) { described_class.new(3, 1, 'black', board) }
 
     before do

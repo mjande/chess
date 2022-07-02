@@ -3,9 +3,9 @@
 require_relative '../../lib/library'
 
 describe King do
-  describe '#update_possible_moves' do
-    let(:board) { Board.new }
+  let(:board) { Board.new }
 
+  describe '#update_possible_moves' do
     context 'when on a blank board' do
       let(:center_king) { described_class.new(4, 3, 'white', board) }
       let(:edge_king) { described_class.new(7, 4, 'white', board) }
@@ -14,14 +14,14 @@ describe King do
         board.instance_variable_set(:@pieces, [center_king, edge_king])
       end
 
-      it 'returns all possible moves from middle of board' do
+      it 'updates possible moves from middle of the board' do
         center_king.update_possible_moves
         expect(center_king.possible_moves).to contain_exactly(
           [3, 2], [3, 3], [3, 4], [4, 2], [4, 4], [5, 2], [5, 3], [5, 4]
         )
       end
 
-      it 'returns all possible moves from the edge of the board' do
+      it 'updates possible moves from the edge of the board' do
         edge_king.update_possible_moves
         expect(edge_king.possible_moves).to contain_exactly(
           [7, 3], [6, 3], [6, 4], [6, 5], [7, 5]
@@ -72,63 +72,8 @@ describe King do
     end
   end
 
-  describe '#check?' do
-    let(:board) { Board.new }
-
-    context 'when white is in check' do
-      subject(:white_king) { described_class.new(7, 4, 'white', board) }
-
-      before do
-        rook = Rook.new(1, 4, 'black', board)
-        black_king = described_class.new(0, 4, 'black', board)
-        board.instance_variable_set(:@pieces, [white_king, black_king, rook])
-        rook.update_possible_moves
-        black_king.update_possible_moves
-      end
-
-      it 'returns true' do
-        expect(white_king).to be_check
-      end
-    end
-
-    context 'when black is in check' do
-      subject(:black_king) { described_class.new(0, 4, 'black', board) }
-
-      before do
-        white_king = described_class.new(7, 4, 'white', board)
-        bishop = Bishop.new(3, 1, 'white', board)
-        board.instance_variable_set(:@pieces, [black_king, white_king, bishop])
-        bishop.update_possible_moves
-        white_king.update_possible_moves
-      end
-
-      it 'returns true' do
-        expect(black_king).to be_check
-      end
-    end
-
-    context 'when there is no check' do
-      let(:white_king) { described_class.new(7, 4, 'white', board) }
-      let(:black_king) { described_class.new(0, 4, 'black', board) }
-
-      before do
-        board.instance_variable_set(:@pieces, [white_king, black_king])
-      end
-
-      it 'returns false for black king' do
-        expect(black_king).not_to be_check
-      end
-
-      it 'returns false for white king' do
-        expect(white_king).not_to be_check
-      end
-    end
-  end
-
   describe '#checkmate?' do
     subject(:white_king) { described_class.new(7, 4, 'white', board) }
-
-    let(:board) { Board.new }
 
     context 'when there is checkmate' do
       before do
@@ -163,8 +108,6 @@ describe King do
   end
 
   describe '#kingside_castle_move' do
-    let(:board) { Board.new }
-
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
     it 'moves king to new square' do
@@ -181,8 +124,6 @@ describe King do
   end
 
   describe '#queenside_castle_move' do
-    let(:board) { Board.new }
-
     subject(:king) { described_class.new(7, 4, 'white', board) }
 
     it 'moves king to new square' do

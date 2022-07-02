@@ -11,6 +11,9 @@ class Rook < Piece
     color == 'white' ? ' ♜ '.colorize(:light_white) : ' ♜ '.colorize(:black)
   end
 
+  # This method pulls coordinates of all squares vertically and horizontally
+  # from the currentsquare, and then checks each direction until it finds an
+  # occupied square.
   def update_possible_moves
     current_square = board.square(row, column)
     axial_coordinates = current_square.axial_coordinates

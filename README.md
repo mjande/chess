@@ -49,3 +49,19 @@ To Do List
 -Remove board dependencies from pieces (connect to specific square using class method Square.at() instead)
 -Reflect on test coverage
 -Refactor tests to reflect new linting
+
+Board positions checklist
+Capture
+En_passant
+Castling
+Promotion
+Check
+Checkmate
+Draw Conditions
+  -No possible moves
+  -Dead position
+  -Mutual Agreement
+  -threefold repetition
+  -50 moves since capture
+Save/Load
+

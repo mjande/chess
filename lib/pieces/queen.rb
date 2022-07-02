@@ -9,6 +9,7 @@ class Queen < Piece
     color == 'white' ? ' ♛ '.colorize(:light_white) : ' ♛ '.colorize(:black)
   end
 
+  # This method mimics closely the methods used by the Rook and Bishop classes.
   def update_possible_moves
     current_square = board.square(row, column)
     diagonal_coordinates = current_square.diagonal_coordinates

@@ -161,13 +161,20 @@ describe Board do
   end
 
   describe '#threefold_repetition?' do
-    subject(:board) { Board.new }
+    subject(:board) { described_class.new }
+
+    it 'is able to compare different positions successfully' do
+      board.add_starting_pieces
+      # board.update_all_possible_moves
+      3.times { board.log_position }
+      expect(board.log[0]).to eq(board.log[1])
+    end
 
     it 'returns true when there is threefold repetition' do
       board.add_starting_pieces
       board.update_all_possible_moves
       3.times { board.log_position }
-      expect(board.threefold_repetition?).to be_truthy
+      expect(board).to be_threefold_repetition
     end
 
     it 'returns flase if there is not threefold_repetition' do

@@ -6,7 +6,7 @@ require 'colorize'
 # The Board class handles storage of the squares and pieces of the chess board,
 # and includes several methods which make changes to all the pieces in the game.
 class Board
-  attr_reader :pieces, :squares
+  attr_reader :pieces, :squares, :log
   attr_accessor :moves_since_capture, :copy
 
   def initialize
@@ -78,18 +78,19 @@ class Board
   end
 
   def display
+    display_string = "\n"
     0.upto(7) do |row_num|
-      print "#{8 - row_num} "
+      display_string = "#{display_string}#{8 - row_num} "
       row_squares = squares.select { |candidate| candidate.row == row_num }
       row_squares.sort_by!(&:column)
-      row_squares.each { |row_square| print row_square }
-      print "\n"
+      row_squares.each { |row_square| display_string = "#{display_string}#{row_square}" }
+      display_string = "#{display_string}\n"
     end
-    puts '   a  b  c  d  e  f  g  h   '
+    "#{display_string}   a  b  c  d  e  f  g  h   "
   end
 
   def log_position
-    @log << YAML.dump(self)
+    @log << display
   end
 
   def inspect
