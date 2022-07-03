@@ -1,4 +1,22 @@
-# chess
+# Chess
+
+This program is a version of the popular game chess and is meant to be played by two human players
+on the command line. It was created as part of the curriculum at [The Odin Project](https://www.theodinproject.com/).
+
+## Table of Contents
+
+## Installation/Getting Started
+
+Prerequisites: Ruby 3.
+
+The easiest way to begin playing is to use the live Replit. Click Run, and the game will begin.
+
+You can also fork the repo and begin playing in the command line. Make sure you have the prerequisites listed above. Use the commands below.
+
+`
+clone 
+ruby lib/main.rb
+`
 
 ## Development Log
 
@@ -50,14 +68,3 @@ Check in real-play all of the positions listed below
 Play some short games from the Internet to catch any remaining bugs
 Write README
 
-Board positions checklist
-Promotion
-Check
-Checkmate
-Draw Conditions
-  -No possible moves
-  -Dead position
-  -Mutual Agreement
-  -threefold repetition
-  -50 moves since capture
-Save/Load

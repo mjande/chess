@@ -104,7 +104,7 @@ class Player
     response = gets.chomp
     return unless response == 'Y'
 
-    @draw == true
+    @draw = true
   end
 
   def tie_message

@@ -12,75 +12,61 @@
   - !ruby/object:Square
     row: 0
     column: 2
-    piece: &12 !ruby/object:Bishop
+    piece: &2 !ruby/object:Rook
       row: 0
       column: 2
-      color: black
-      board: *1
-      possible_moves:
-      - - 1
-        - 1
-      has_not_moved: true
-  - !ruby/object:Square
-    row: 0
-    column: 3
-    piece: &15 !ruby/object:Queen
-      row: 0
-      column: 3
-      color: black
+      color: white
       board: *1
       possible_moves:
       - - 1
         - 2
       - - 2
-        - 1
+        - 2
       - - 3
+        - 2
+      - - 4
+        - 2
+      - - 5
+        - 2
+      - - 6
+        - 2
+      - - 7
+        - 2
+      - - 0
+        - 1
+      - - 0
         - 0
-      has_not_moved: true
+      - - 0
+        - 3
+      - - 0
+        - 4
+      - - 0
+        - 5
+      - - 0
+        - 6
+      - - 0
+        - 7
+      has_not_moved: false
+  - !ruby/object:Square
+    row: 0
+    column: 3
+    piece:
   - !ruby/object:Square
     row: 0
     column: 4
-    piece: &17 !ruby/object:King
-      row: 0
-      column: 4
-      color: black
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 0
     column: 5
-    piece: &13 !ruby/object:Bishop
-      row: 0
-      column: 5
-      color: black
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 0
     column: 6
-    piece: &9 !ruby/object:Knight
-      row: 0
-      column: 6
-      color: black
-      board: *1
-      possible_moves:
-      - - 2
-        - 7
-      - - 2
-        - 5
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 0
     column: 7
-    piece: &5 !ruby/object:Rook
-      row: 0
-      column: 7
-      color: black
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 1
     column: 0
@@ -88,230 +74,249 @@
   - !ruby/object:Square
     row: 1
     column: 1
-    piece: &18 !ruby/object:Pawn
+    piece:
+  - !ruby/object:Square
+    row: 1
+    column: 2
+    piece:
+  - !ruby/object:Square
+    row: 1
+    column: 3
+    piece:
+  - !ruby/object:Square
+    row: 1
+    column: 4
+    piece: &5 !ruby/object:Bishop
       row: 1
-      column: 1
-      color: white
+      column: 4
+      color: black
       board: *1
       possible_moves:
       - - 0
-        - 1
+        - 5
       - - 0
+        - 3
+      - - 2
+        - 5
+      - - 3
+        - 6
+      - - 4
+        - 7
+      has_not_moved: false
+  - !ruby/object:Square
+    row: 1
+    column: 5
+    piece: &16 !ruby/object:Pawn
+      row: 1
+      column: 5
+      color: black
+      board: *1
+      possible_moves:
+      - - 2
+        - 5
+      has_not_moved: true
+      direction: 1
+  - !ruby/object:Square
+    row: 1
+    column: 6
+    piece: &17 !ruby/object:Pawn
+      row: 1
+      column: 6
+      color: black
+      board: *1
+      possible_moves:
+      - - 2
+        - 6
+      - - 3
+        - 6
+      has_not_moved: true
+      direction: 1
+  - !ruby/object:Square
+    row: 1
+    column: 7
+    piece: &9 !ruby/object:King
+      row: 1
+      column: 7
+      color: black
+      board: *1
+      possible_moves: []
+      has_not_moved: false
+  - !ruby/object:Square
+    row: 2
+    column: 0
+    piece:
+  - !ruby/object:Square
+    row: 2
+    column: 1
+    piece: &14 !ruby/object:Pawn
+      row: 2
+      column: 1
+      color: black
+      board: *1
+      possible_moves:
+      - - 3
+        - 1
+      has_not_moved: false
+      direction: 1
+      open_to_en_passant: false
+  - !ruby/object:Square
+    row: 2
+    column: 2
+    piece:
+  - !ruby/object:Square
+    row: 2
+    column: 3
+    piece: &15 !ruby/object:Pawn
+      row: 2
+      column: 3
+      color: black
+      board: *1
+      possible_moves:
+      - - 3
+        - 3
+      has_not_moved: false
+      direction: 1
+      open_to_en_passant: false
+  - !ruby/object:Square
+    row: 2
+    column: 4
+    piece:
+  - !ruby/object:Square
+    row: 2
+    column: 5
+    piece:
+  - !ruby/object:Square
+    row: 2
+    column: 6
+    piece:
+  - !ruby/object:Square
+    row: 2
+    column: 7
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 0
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 1
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 2
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 3
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 4
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 5
+    piece: &3 !ruby/object:Rook
+      row: 3
+      column: 5
+      color: white
+      board: *1
+      possible_moves:
+      - - 2
+        - 5
+      - - 1
+        - 5
+      - - 3
+        - 4
+      - - 3
+        - 3
+      - - 3
         - 2
+      - - 3
+        - 1
+      - - 3
+        - 0
+      - - 3
+        - 6
+      has_not_moved: false
+  - !ruby/object:Square
+    row: 3
+    column: 6
+    piece:
+  - !ruby/object:Square
+    row: 3
+    column: 7
+    piece: &12 !ruby/object:Pawn
+      row: 3
+      column: 7
+      color: white
+      board: *1
+      possible_moves:
+      - - 2
+        - 7
       has_not_moved: false
       direction: -1
       open_to_en_passant: false
   - !ruby/object:Square
-    row: 1
+    row: 4
+    column: 0
+    piece:
+  - !ruby/object:Square
+    row: 4
+    column: 1
+    piece:
+  - !ruby/object:Square
+    row: 4
     column: 2
     piece:
   - !ruby/object:Square
-    row: 1
+    row: 4
     column: 3
-    piece: &26 !ruby/object:Pawn
-      row: 1
-      column: 3
-      color: black
-      board: *1
-      possible_moves:
-      - - 2
-        - 3
-      - - 3
-        - 3
-      has_not_moved: true
-      direction: 1
+    piece:
   - !ruby/object:Square
-    row: 1
+    row: 4
     column: 4
-    piece: &27 !ruby/object:Pawn
-      row: 1
+    piece: &10 !ruby/object:Pawn
+      row: 4
       column: 4
-      color: black
+      color: white
       board: *1
       possible_moves:
-      - - 2
-        - 4
       - - 3
         - 4
-      has_not_moved: true
-      direction: 1
+      has_not_moved: false
+      direction: -1
+      open_to_en_passant: true
   - !ruby/object:Square
-    row: 1
+    row: 4
     column: 5
-    piece: &28 !ruby/object:Pawn
-      row: 1
+    piece: &6 !ruby/object:Queen
+      row: 4
       column: 5
-      color: black
+      color: white
       board: *1
       possible_moves:
-      - - 2
-        - 5
-      - - 3
-        - 5
-      has_not_moved: true
-      direction: 1
-  - !ruby/object:Square
-    row: 1
-    column: 6
-    piece: &29 !ruby/object:Pawn
-      row: 1
-      column: 6
-      color: black
-      board: *1
-      possible_moves:
-      - - 2
-        - 6
       - - 3
         - 6
-      has_not_moved: true
-      direction: 1
-  - !ruby/object:Square
-    row: 1
-    column: 7
-    piece: &30 !ruby/object:Pawn
-      row: 1
-      column: 7
-      color: black
-      board: *1
-      possible_moves:
       - - 2
         - 7
-      has_not_moved: true
-      direction: 1
-  - !ruby/object:Square
-    row: 2
-    column: 0
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 1
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 2
-    piece: &8 !ruby/object:Knight
-      row: 2
-      column: 2
-      color: black
-      board: *1
-      possible_moves:
       - - 3
         - 4
-      - - 3
-        - 0
-      - - 4
-        - 3
-      - - 4
-        - 1
-      - - 1
-        - 0
-      - - 0
-        - 1
-      has_not_moved: false
-  - !ruby/object:Square
-    row: 2
-    column: 3
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 4
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 5
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 6
-    piece:
-  - !ruby/object:Square
-    row: 2
-    column: 7
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 0
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 1
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 2
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 3
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 4
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 5
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 6
-    piece:
-  - !ruby/object:Square
-    row: 3
-    column: 7
-    piece: &4 !ruby/object:Rook
-      row: 3
-      column: 7
-      color: black
-      board: *1
-      possible_moves:
       - - 2
-        - 7
-      - - 4
-        - 7
+        - 3
       - - 5
-        - 7
-      - - 6
-        - 7
-      - - 3
-        - 6
-      - - 3
-        - 5
-      - - 3
         - 4
-      - - 3
+      - - 6
         - 3
-      - - 3
+      - - 7
         - 2
-      - - 3
-        - 1
-      - - 3
-        - 0
+      - - 5
+        - 6
+      - - 4
+        - 6
+      - - 4
+        - 7
       has_not_moved: false
-  - !ruby/object:Square
-    row: 4
-    column: 0
-    piece:
-  - !ruby/object:Square
-    row: 4
-    column: 1
-    piece:
-  - !ruby/object:Square
-    row: 4
-    column: 2
-    piece:
-  - !ruby/object:Square
-    row: 4
-    column: 3
-    piece:
-  - !ruby/object:Square
-    row: 4
-    column: 4
-    piece:
-  - !ruby/object:Square
-    row: 4
-    column: 5
-    piece:
   - !ruby/object:Square
     row: 4
     column: 6
@@ -343,7 +348,15 @@
   - !ruby/object:Square
     row: 5
     column: 5
-    piece:
+    piece: &11 !ruby/object:Pawn
+      row: 5
+      column: 5
+      color: white
+      board: *1
+      possible_moves: []
+      has_not_moved: false
+      direction: -1
+      open_to_en_passant: false
   - !ruby/object:Square
     row: 5
     column: 6
@@ -355,118 +368,99 @@
   - !ruby/object:Square
     row: 6
     column: 0
-    piece: &25 !ruby/object:Pawn
+    piece: &4 !ruby/object:Rook
       row: 6
       column: 0
       color: black
       board: *1
       possible_moves:
-      - - 7
+      - - 5
+        - 0
+      - - 4
+        - 0
+      - - 3
+        - 0
+      - - 2
+        - 0
+      - - 1
+        - 0
+      - - 0
         - 0
       - - 7
+        - 0
+      - - 6
         - 1
+      - - 6
+        - 2
+      - - 6
+        - 3
+      - - 6
+        - 4
       has_not_moved: false
-      direction: 1
-      open_to_en_passant: false
   - !ruby/object:Square
     row: 6
     column: 1
-    piece: &2 !ruby/object:Rook
-      row: 6
-      column: 1
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 1
-      - - 4
-        - 1
-      - - 3
-        - 1
-      - - 2
-        - 1
-      - - 6
-        - 0
-      has_not_moved: false
+    piece:
   - !ruby/object:Square
     row: 6
     column: 2
-    piece: &19 !ruby/object:Pawn
-      row: 6
-      column: 2
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 2
-      - - 4
-        - 2
-      has_not_moved: true
-      direction: -1
+    piece:
   - !ruby/object:Square
     row: 6
     column: 3
-    piece: &20 !ruby/object:Pawn
-      row: 6
-      column: 3
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 3
-      - - 4
-        - 3
-      has_not_moved: true
-      direction: -1
+    piece:
   - !ruby/object:Square
     row: 6
     column: 4
-    piece: &21 !ruby/object:Pawn
-      row: 6
-      column: 4
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 4
-      - - 4
-        - 4
-      has_not_moved: true
-      direction: -1
+    piece:
   - !ruby/object:Square
     row: 6
     column: 5
-    piece: &22 !ruby/object:Pawn
+    piece: &7 !ruby/object:Queen
       row: 6
       column: 5
-      color: white
+      color: black
       board: *1
       possible_moves:
       - - 5
-        - 5
+        - 6
       - - 4
+        - 7
+      - - 5
+        - 4
+      - - 4
+        - 3
+      - - 3
+        - 2
+      - - 7
+        - 4
+      - - 7
+        - 6
+      - - 5
         - 5
-      has_not_moved: true
-      direction: -1
+      - - 7
+        - 5
+      - - 6
+        - 4
+      - - 6
+        - 3
+      - - 6
+        - 2
+      - - 6
+        - 1
+      - - 6
+        - 6
+      - - 6
+        - 7
+      has_not_moved: false
   - !ruby/object:Square
     row: 6
     column: 6
-    piece: &23 !ruby/object:Pawn
-      row: 6
-      column: 6
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 6
-      - - 4
-        - 6
-      has_not_moved: true
-      direction: -1
+    piece:
   - !ruby/object:Square
     row: 6
     column: 7
-    piece: &24 !ruby/object:Pawn
+    piece: &13 !ruby/object:Pawn
       row: 6
       column: 7
       color: white
@@ -485,81 +479,37 @@
   - !ruby/object:Square
     row: 7
     column: 1
-    piece: &6 !ruby/object:Knight
-      row: 7
-      column: 1
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 2
-      - - 5
-        - 0
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 2
-    piece: &10 !ruby/object:Bishop
-      row: 7
-      column: 2
-      color: white
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 3
-    piece: &14 !ruby/object:Queen
-      row: 7
-      column: 3
-      color: white
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 4
-    piece: &16 !ruby/object:King
-      row: 7
-      column: 4
-      color: white
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 5
-    piece: &11 !ruby/object:Bishop
-      row: 7
-      column: 5
-      color: white
-      board: *1
-      possible_moves: []
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 6
-    piece: &7 !ruby/object:Knight
-      row: 7
-      column: 6
-      color: white
-      board: *1
-      possible_moves:
-      - - 5
-        - 7
-      - - 5
-        - 5
-      has_not_moved: true
+    piece:
   - !ruby/object:Square
     row: 7
     column: 7
-    piece: &3 !ruby/object:Rook
+    piece: &8 !ruby/object:King
       row: 7
       column: 7
       color: white
       board: *1
       possible_moves: []
-      has_not_moved: true
+      has_not_moved: false
   pieces:
   - *2
   - *3
@@ -577,19 +527,6 @@
   - *15
   - *16
   - *17
-  - *18
-  - *19
-  - *20
-  - *21
-  - *22
-  - *23
-  - *24
-  - *25
-  - *26
-  - *27
-  - *28
-  - *29
-  - *30
   log:
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
@@ -599,324 +536,1684 @@
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
     ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
     ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
     ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
     ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
     ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
     ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
     \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
     ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
   - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜
+    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
     \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    \  \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\n2 \e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
+    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
     ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♛ \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♛ \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♛ \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;30;100m ♞ \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♚ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;97;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♜ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;30;47m
+    ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m
+    ♝ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♜ \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;97;100m ♜ \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;30;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛
+    \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7
+    \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m
+    ♝ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♝ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♝ \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\e[0;97;47m ♝ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;97;47m ♞ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♛ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♛ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♛ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♛ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;97;47m ♞ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♚ \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;30;47m ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;30;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
+    ♛ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;30;100m
+    ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;39;47m
     \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;30;47m ♟ \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♝ \e[0m\e[0;30;100m ♛
-    \e[0m\e[0;30;47m ♚ \e[0m\e[0;30;100m ♝ \e[0m\e[0;30;47m ♞ \e[0m\e[0;30;100m ♜
-    \e[0m\n7 \e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m
-    ♟ \e[0m\n6 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♞ \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n5 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;30;47m
-    ♜ \e[0m\n4 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
     \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
-    \  \e[0m\n3 \e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
-    \  \e[0m\n2 \e[0;30;47m ♟ \e[0m\e[0;97;100m ♜ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m ♟ \e[0m\e[0;97;47m ♟ \e[0m\e[0;97;100m
-    ♟ \e[0m\n1 \e[0;39;100m   \e[0m\e[0;97;47m ♞ \e[0m\e[0;97;100m ♝ \e[0m\e[0;97;47m
-    ♛ \e[0m\e[0;97;100m ♚ \e[0m\e[0;97;47m ♝ \e[0m\e[0;97;100m ♞ \e[0m\e[0;97;47m
-    ♜ \e[0m\n   a  b  c  d  e  f  g  h   "
-  moves_since_capture: 8
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♛ \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♜ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;30;47m ♚ \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♚ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  - "\n8 \e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n7 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;30;100m
+    ♝ \e[0m\e[0;30;47m ♟ \e[0m\e[0;30;100m ♟ \e[0m\e[0;30;47m ♚ \e[0m\n6 \e[0;39;47m
+    \  \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m   \e[0m\e[0;30;100m ♟ \e[0m\e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n5 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♜ \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♟ \e[0m\n4 \e[0;39;47m
+    \  \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m
+    ♟ \e[0m\e[0;97;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\n3 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;97;47m ♟ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\n2 \e[0;30;47m
+    ♜ \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m
+    \  \e[0m\e[0;30;100m ♛ \e[0m\e[0;39;47m   \e[0m\e[0;97;100m ♟ \e[0m\n1 \e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;39;47m   \e[0m\e[0;39;100m
+    \  \e[0m\e[0;39;47m   \e[0m\e[0;39;100m   \e[0m\e[0;97;47m ♚ \e[0m\n   a  b  c
+    \ d  e  f  g  h   "
+  moves_since_capture: 5
   copy: false
-:white_player: &31 !ruby/object:Player
+:white_player: &18 !ruby/object:Player
   color: white
   board: *1
   draw: false
@@ -926,4 +2223,4 @@
   board: *1
   draw: false
   save: false
-:next_player: *31
+:next_player: *18

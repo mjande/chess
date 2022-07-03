@@ -83,7 +83,7 @@ class Board
 
   # Deep clone method for evaluting check.
   def clone
-    board_clone = YAML.load(YAML.dump(self))
+    board_clone = YAML.unsafe_load(YAML.dump(self))
     board_clone.copy = true
     board_clone
   end
