@@ -76,15 +76,14 @@ class Pawn < Piece
   end
 
   def en_passant_capture(destination)
-    move(destination)
-    capture_square = board.square(row - direction, destination.column)
+    capture_square = board.square(row, destination.column)
     capture(capture_square)
   end
 
   def promote(input)
-    destination = board.square(input.row, input.column)
+    destination = input.square
     move(destination)
-    new_piece = input.promotion_piece.new(destination, color, board)
+    new_piece = input.promotion_piece.new(destination.row, destination.column, color, board)
     board.pieces.push(new_piece)
     board.pieces.delete(self)
   end
@@ -95,6 +94,7 @@ class Pawn < Piece
   # request.
   def move(square)
     @open_to_en_passant = ((square.row - row).abs == 2)
+    # en_passant_capture(square) if en_passant?(square)
     super
   end
 end

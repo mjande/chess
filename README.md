@@ -51,8 +51,6 @@ Play some short games from the Internet to catch any remaining bugs
 Write README
 
 Board positions checklist
-Castling
-En_passant
 Promotion
 Check
 Checkmate

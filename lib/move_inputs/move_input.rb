@@ -21,8 +21,8 @@ class MoveInput
   end
 
   def self.for(string, color, board)
-    [MoveInput, PawnMoveInput, MultiPieceMoveInput, PawnCaptureMoveInput,
-     PawnPromotionMoveInput, CheckMoveInput, CastlingMoveInput, OtherMoveInput,
+    [PawnPromotionMoveInput, MoveInput, PawnMoveInput, MultiPieceMoveInput,
+     PawnCaptureMoveInput, CheckMoveInput, CastlingMoveInput, OtherMoveInput,
      InvalidMoveInput]
       .find { |candidate| candidate.handles?(string) }.new(string, color, board)
   end

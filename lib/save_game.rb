@@ -31,7 +31,7 @@ class SaveGame
     file = File.open(file_name, 'r')
     data = deserialize(file)
     assign_loaded_variables(game, data)
-    game.play_game
+    game.play
   end
 
   def self.assign_loaded_variables(game, data)

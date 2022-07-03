@@ -53,7 +53,7 @@ class Piece
     move_piece_copy(board_copy, candidate)
     king_square = board.square(king_copy(board_copy).row,
                                king_copy(board_copy).column)
-    board_copy.update_all_possible_moves
+    # board_copy.update_all_possible_moves
     CheckDetector.for?(king_square, board_copy, king_copy(board_copy).color)
   end
 
@@ -94,6 +94,7 @@ class Piece
 
   def capture(square)
     piece_to_be_removed = square.piece
+    square.piece = nil
     board.pieces.delete(piece_to_be_removed)
     board.moves_since_capture = 0
   end

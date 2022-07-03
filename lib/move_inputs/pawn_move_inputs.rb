@@ -31,7 +31,7 @@ class PawnPromotionMoveInput < MoveInput
   end
 
   def self.handles?(string)
-    valid_column?(string[0]) && valid_row?(string[1]) && valid_piece?(string[2])
+    valid_column?(string[0]) && (string[1] == '8' || string[1] == '1')
   end
 
   def move_piece
@@ -54,10 +54,7 @@ class PawnCaptureMoveInput < MultiPieceMoveInput
   end
 
   def move_piece
-    if piece.en_passant?(square)
-      piece.en_passant_capture(square)
-    else
-      super(square)
-    end
+    piece.en_passant_capture(square) if piece.en_passant?(square)
+    super
   end
 end
