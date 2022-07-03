@@ -20,10 +20,11 @@ end
 class CastlingMoveInput < MoveInput
   def initialize(string, color, board)
     @board = board
-    row = (color == 'white' ? 7 : 0)
-    @square = board.square(row, 4)
     @type = 'kingside_castling' if string == 'O-O'
     @type = 'queenside_castling' if string == 'O-O-O'
+    row = (color == 'white' ? 7 : 0)
+    column = (type == 'kingside_castling' ? 6 : 2)
+    @square = board.square(row, column)
     @piece = find_piece(King, color)
   end
 

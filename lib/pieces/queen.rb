@@ -11,6 +11,7 @@ class Queen < Piece
 
   # This method mimics closely the methods used by the Rook and Bishop classes.
   def update_possible_moves
+    @possible_moves = []
     current_square = board.square(row, column)
     diagonal_coordinates = current_square.diagonal_coordinates
     add_coordinates_from_directions(diagonal_coordinates)

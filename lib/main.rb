@@ -2,6 +2,4 @@
 
 require_relative 'library'
 
-board = Board.new
-board.add_starting_pieces
-puts board.display
+Game.new.start

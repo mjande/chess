@@ -15,6 +15,7 @@ class Rook < Piece
   # from the currentsquare, and then checks each direction until it finds an
   # occupied square.
   def update_possible_moves
+    @possible_moves = []
     current_square = board.square(row, column)
     axial_coordinates = current_square.axial_coordinates
     add_coordinates_from_directions(axial_coordinates)

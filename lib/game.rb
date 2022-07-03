@@ -9,22 +9,22 @@ class Game
   attr_accessor :board, :white_player, :black_player, :next_player
 
   def start
-    case white_player.start_options
+    case Player.start_options
     when 'new'
-      set_up_game
+      set_up_board
     when 'load'
       SaveGame.load(self)
     end
-  end
-
-  def set_up_game
-    @board = Board.new
     @white_player = Player.new('white', board)
     @black_player = Player.new('black', board)
     @next_player = white_player
+    play
+  end
+
+  def set_up_board
+    @board = Board.new
     board.add_starting_pieces
     board.update_all_possible_moves
-    play
   end
 
   def play

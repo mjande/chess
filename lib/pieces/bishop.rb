@@ -14,6 +14,7 @@ class Bishop < Piece
   # This method pulls coordinates of all diagonal squares from the current
   # square, and then checks each direction until it finds an occupied square.
   def update_possible_moves
+    @possible_moves = []
     coordinates = board.square(row, column).diagonal_coordinates
     add_coordinates_from_directions(coordinates)
   end

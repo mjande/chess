@@ -13,6 +13,7 @@ class Knight < Piece
   # to knight movement, then checks to see if they are unoccupied or open to
   # capture.
   def update_possible_moves
+    @possible_moves = []
     current_square = board.square(row, column)
     valid_coordinates =
       current_square.knight_coordinates.select do |square_coordinates|

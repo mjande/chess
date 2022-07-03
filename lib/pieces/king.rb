@@ -13,6 +13,7 @@ class King < Piece
   end
 
   def update_possible_moves
+    @possible_moves = []
     check_adjacent_squares
     possible_moves << [row, 6] if castling?('kingside')
     possible_moves << [row, 2] if castling?('queenside')

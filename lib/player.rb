@@ -16,7 +16,7 @@ class Player
     @save = false
   end
 
-  def start_options
+  def self.start_options
     valid_responses = %w[new load]
     puts "Let's play chess! \n Type one of the options below to begin."
     loop do
