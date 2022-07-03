@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
+# The SaveGame class handles methods for saving and loading the game.
 class SaveGame
+  # When created, an instance of SaveGame will serialize all game data into a
+  # YAML file, and store the file in the 'saved_games' directory. After saving
+  # it will end the program.
   def initialize(game)
     Dir.open('saved_games')
     save_data = serialize(game)
@@ -27,7 +33,7 @@ class SaveGame
     assign_loaded_variables(game, data)
     game.play_game
   end
-  
+
   def self.assign_loaded_variables(game, data)
     game.board = data[:board]
     game.white_player = data[:white_player]

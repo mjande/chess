@@ -16,6 +16,18 @@ class Player
     @save = false
   end
 
+  def start_options
+    valid_responses = %w[new load]
+    puts "Let's play chess! \n Type one of the options below to begin."
+    loop do
+      puts "Options: 'new' or 'load'"
+      response = gets.chomp.downcase
+      return response if valid_responses.include?(response)
+
+      'Please choose from one of the options below.'
+    end
+  end
+
   def play_turn
     puts board.display
     input = input_move

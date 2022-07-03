@@ -9,29 +9,25 @@ class Game
   attr_accessor :board, :white_player, :black_player, :next_player
 
   def start
-    puts "Let's play chess! \n Type one of the options below to begin."
-    puts "Options: 'new' or 'load'"
-    case gets.chomp.downcase
+    case white_player.start_options
     when 'new'
-      start_game
+      set_up_game
     when 'load'
       SaveGame.load(self)
-    else
-      'Please choose from one of the options below.'
     end
   end
 
-  def start_game
+  def set_up_game
     @board = Board.new
     @white_player = Player.new('white', board)
     @black_player = Player.new('black', board)
     @next_player = white_player
     board.add_starting_pieces
     board.update_all_possible_moves
-    play_game
+    play
   end
 
-  def play_game
+  def play
     loop do
       break if @next_player.checkmate? || draw?(@next_player)
 
