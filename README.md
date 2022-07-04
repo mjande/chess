@@ -1,70 +1,139 @@
 # Chess
 
+<img src='img/chess_img.png' alt='a screenshot of the chess program running on the command line' width='500'>
+
 This program is a version of the popular game chess and is meant to be played by two human players
 on the command line. It was created as part of the curriculum at [The Odin Project](https://www.theodinproject.com/).
 
 ## Table of Contents
 
+[I. Motivation](#motivation)  
+[II. Installation/Getting Started](#installationgetting-started)  
+[III. Usage](#usage)  
+[IV. Features](#features)  
+[V. Known Issues/Future Development](#known-issuesfuture-development)
+
+## Motivation
+
+My goal in creating this program was to gain experience building a large and complex program with many different classes and complicated rules and functionality. This project was also an opportunity to exercise my knowledge in Ruby and reinforced the concepts I have been learning about the language.I was also focused on creating thorough tests and maintaining somewhat clean code throughout the program.
+
 ## Installation/Getting Started
 
-Prerequisites: Ruby 3.
+Prerequisites:  
+Ruby 3.1.2
+
+Gems:  
+colorize
 
 The easiest way to begin playing is to use the live Replit. Click Run, and the game will begin.
 
-You can also fork the repo and begin playing in the command line. Make sure you have the prerequisites listed above. Use the commands below.
+You can also fork the repo and begin playing in the command line. Make sure you have the prerequisites listed above. Use the commands below:
 
-`
-clone 
+```console
+clone https://github.com/mjande/chess
+gem install colorize
+cd chess
 ruby lib/main.rb
-`
+```
 
-## Development Log
+When opening the game for the first time, you will be asked whether you want to start a new a game or load a previous one. Type new to begin a new game.
 
-### Dev Log #1
+## Usage
 
-Board Class
+The rules of chess are complex, and for the most part are outside the scope of these instructions. A helpful and thorough explaination of these rules can be found [here](http://www.chessvariants.org/d.chess/chess.html).
 
--method to create array that stores all board positions
--method to populate the board with the starting pieces for both players
--method to display the current state of the board (as stored in array)
+After starting a new game, the player playing white will be prompted to enter their first move.
 
-### Dev Log #2
+Inputs will need to follow conventions of algrebraic chess notation. Most moves will start with a letter signifying one of the pieces, followed by a column (file) and row(rank). An example would be 'Ra3', which would indicate moving the player's Rook to third row of the first column. In the case of pawns, only the row and column is needed (example: 'b4').
 
-Player Class
+See [Algebraic Notation](https://en.wikipedia.org/wiki/Algebraic_notation_(chess)) on Wikipedia for more details on this system, and consult the Move Inputs section of Features below for more information on how this system works in this program.
 
--Ask player for next move
+Players will take turns inputting desired moves, and after each turn an updated board will be displayed. Players will proceed in this fashion until one player is forced into checkmate or one of the draw conditions is met (see Features for more information).
 
-### Dev Log #3
+### Tests
 
-Hit a major road block after finishing the move validation method for Player. Issue was I couldn't figure how to send messages for moving pieces. Theoretically, player would have to send message to piece to see if it could move to the given coordinates, and then piece would tell board to update itself with its new position. This was impossible, because pieces had no way to access the board to send messages. So I moved around the structure, so now game is the super class that creates board, and then Game feeds the board to the players, who then feed it to the relevant pieces. So now the pieces can send an update all the way up the chain to the board. Then, I moved around the set_up methods to match, and now have a working starting board. My next move is to update the tests to match, and then begin working on giving each piece their potential moves (and possibly some refactoring of spaghetti code in there as well). 
+To run all tests for this program, use the command below in the root directory: 
 
-Current problem: I'm really close to getting a working solution (despite my stupid choice to not TDD very often), but the current issue is that I am trying not let my pieces know too much, but the kings need to know what is going with the opposing pieces so they can check for check. And letting basically any class know the other player's pieces is too much information for literally every class except King. So I need to figure out how to either 1) selectively feed that info to King or 2) decide where the check? and checkmate? methods should go that should be allowed to know the other players pieces (maybe the Game class)???
+`rspec`
 
-First Working Version
-To Do List
--Revisit tests
--Refactor like crazy
+To run an individual test, use the command below, inserting the test you would like to run:
+
+`rspec spec/****.rb`
+
+or
+
+`rspec spec/****/****.rb`
+
+## Features
+
+### Move Inputs
+
+As mentioned above, this program uses algebraic chess notation to figure out what move the player desires. In this notation, all pieces except pawns are represented by a capitalized letter (K: King, Q: Queen, B: Bishop, N: Knight, R: rook) The program can handle several variations used in algebraic notation:
+
+- Standard
+  - Piece followed by column followed by row ('Ra3')
+- Pawn
+  - Column followed by row ('b4')
+- Pawn Promotion
+  - Column followed by row followed by piece you are promoting your pawn to ('c8Q')
+- Disambiguating Moves
+  - Originating column and/or originating row followed by piece followed by column and row ('Rah6' or 'R3h6')
+- Disambiguating Moves(Pawn)
+  - Originating column followed by row and column ('cd6')
+- Capture
+  - Piece followed by the letter x, followed by column and row ('Nxc6')
+- Capture (Pawn)
+  - Originating column followed by the letter x, followed by column and row ('gxh6')
+- Castling
+  - 'O-O' for kingside castling or 'O-O-O' for queenside castling
+- Check
+  - Standard notation followed by a cross ('Nf3+')
+- Checkmate
+  - Standard notation followed by two crosses ('Nf3++')
+- Other Inputs
+  - '=' to ask for a draw or 'save' to save the game
+
+With a few exceptions (castling or disambiguating moves), players can always use the standard notation to indicate a move, even if another variant of notation could be used.
+
+### Check
+
+When any opposing piece is able to take the king with its next move. When the king is threatened with check, the next player will be informed that they must move their king to safety. Only moves which prevent check will be allowed.
+
+### Checkmate
+
+If a player's king is placed in check and has no available moves to leave check, they are in check and the game is over. A message will be displayed indicating the winner.
+
+### Draw
+
+The program handles several but not all draw conditions. The implemented draw conditions include:
+
+-Mutual Agreement
+  If one player requests a draw, the other player can either accept or reject the offer. Acceptance will end the game; otherwise, play will continue.
 -Stalemate
--Create ability to save
--Create detailed README
+  If a player has no possible moves but is not in check, the game ends in a stalemate with no winner.
+-Dead Position
+  Several different combinations of remaining pieces can result in situation where neither player will be able to force checkmate without serious misplay. If any of these situations occur, the game ends in a draw.
+-Threefold Repetition
+  If both players engage in repeated moves which lead to a similar board layout on at least three occasions, the game ends in a draw.
+-50 moves since capture
+  -If there are 50 or more moves without capturing any pieces, the game ends in a draw.
 
-Note: Refactoring to include Square class is basically finished, but I need to
-test drive the basic game function and the tests to make sure it is working as
-intended. After that, I need to add better test coverage, then refactor the
-tests (before doing this, I'll need to figure out how to add RSpec linting to
-Rubocop). Once all of that is done, I will look up some famous games and run them
-through the program to catch any bugs, then I should be done.
+### Save/Load
 
-Idea: remove board dependency from pieces. Use Square class method to deliver
-squares to pieces, board remains dependent on pieces (less likely to change),
-but pieces are no long depenedent on the board (also simplifies data structures alot,
-removes need to board to contain pieces to contain board...).
+The program also features the ability to save a game and load a previous one at startup. Players can save their game at any time by typing 'save' instead of their next move. 
 
-Issue: In #leads_to_check?, I create a board clone to process whether a move would lead to check. Issue is that check is calculated based on pieces possible moves, so those possible moves need to be updated to calculate correctly. However, this results in an infinite loop where board calls
-update_all_possible_moves, which sends #leads_to_check? to all pieces, which then sends update all possible moves to the board clone. Idea for a fix is to make update_all_possible_moves more selective so it ignores certain pieces?
+To load a saved game, players should type 'load' up starting the program. At this time, players can only save one game at a time.
 
-To-Do List
-Check in real-play all of the positions listed below
-Play some short games from the Internet to catch any remaining bugs
-Write README
+## Known Issues/Future Development
 
+Known Issues
+
+-Only one save is allowed at a time, and there is currently no way to erase a save without overwriting it.
+-The board cloning involved in checking for a potential check when evaluating possible moves is quite slow, and this method should be optimized if any improvements are made.
+-Most classes rely on the board as a dependency, making large-scale changes to the underlying code diffciult.
+
+If more time is spent developing this particular program, a few additional features may include:
+
+-Multiple save files
+-More complex game set-up with customization of pieces
+-A log of previous moves that can be accessed during or after the game
