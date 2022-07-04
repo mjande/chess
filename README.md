@@ -125,12 +125,12 @@ To load a saved game, players should type 'load' up starting the program. At thi
 
 Known Issues
 
--Only one save is allowed at a time, and there is currently no way to erase a save without overwriting it.
--The board cloning involved in checking for a potential check when evaluating possible moves is quite slow, and this method should be optimized if any improvements are made.
--Most classes rely on the board as a dependency, making large-scale changes to the underlying code diffciult.
+- Only one save is allowed at a time, and there is currently no way to erase a save without overwriting it.
+- The board cloning involved in checking for a potential check when evaluating possible moves is quite slow, and this method should be optimized if any improvements are made.
+- Most classes rely on the board as a dependency, making large-scale changes to the underlying code diffciult.
 
 If more time is spent developing this particular program, a few additional features may include:
 
--Multiple save files
--More complex game set-up with customization of pieces
--A log of previous moves that can be accessed during or after the game
+- Multiple save files
+- More complex game set-up with customization of pieces
+- A log of previous moves that can be accessed during or after the game
