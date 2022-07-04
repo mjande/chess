@@ -22,17 +22,14 @@ My goal in creating this program was to gain experience building a large and com
 Prerequisites:  
 Ruby 3.1.2
 
-Gems:  
-colorize
-
 The easiest way to begin playing is to use the live Replit. Click Run, and the game will begin.
 
 You can also fork the repo and begin playing in the command line. Make sure you have the prerequisites listed above. Use the commands below:
 
 ```console
 clone https://github.com/mjande/chess
-gem install colorize
 cd chess
+bundle install
 ruby lib/main.rb
 ```
 
@@ -52,7 +49,7 @@ Players will take turns inputting desired moves, and after each turn an updated 
 
 ### Tests
 
-To run all tests for this program, use the command below in the root directory: 
+To run all tests for this program, use the command below in the root directory:
 
 `rspec`
 
