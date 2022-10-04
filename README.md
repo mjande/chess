@@ -19,7 +19,7 @@ My goal in creating this program was to gain experience building a large and com
 
 ## Installation/Getting Started
 
-A live version of this app is available at [https://replit.com/@mjande/chess#.replit](https://replit.com/@mjande/chess#.replit)
+A live version of this app is available at [https://replit.com/@mjande/chess](https://replit.com/@mjande/chess)
 
 Prerequisites:  
 Ruby 3.1.2
