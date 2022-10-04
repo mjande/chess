@@ -19,12 +19,14 @@ My goal in creating this program was to gain experience building a large and com
 
 ## Installation/Getting Started
 
+A live version of this app is available at [https://replit.com/@mjande/chess#.replit](https://replit.com/@mjande/chess#.replit)
+
 Prerequisites:  
 Ruby 3.1.2
 
-To play this program, you will fork the repo and play in the command line. Make sure you have the prerequisites listed above. Use the commands below:
+To play this program locally, you will have to fork the repo and play in the command line. Make sure you have the prerequisites listed above. Use the commands below:
 
-```console
+```sh
 clone https://github.com/mjande/chess
 cd chess
 bundle install
