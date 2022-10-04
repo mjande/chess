@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'library'
-require 'colorize'
 
 # The Board class handles storage of the squares and pieces of the chess board,
 # and includes several methods which make changes to all the pieces in the game.
@@ -88,7 +87,7 @@ class Board
     board_clone
   end
 
-  # This method transformt the current board position into a string that is
+  # This method transforms the current board position into a string that is
   # ready to be printed by iterating over each row.
   def display
     display_string = "\n"

@@ -17,7 +17,7 @@ describe MoveInput do
     end
 
     it 'returns PawnPromotionMoveInput object for pawn promotion input' do
-      expect(MoveInput.for('b7Q', 'white', board)).to be_a(PawnPromotionMoveInput)
+      expect(MoveInput.for('b8Q', 'white', board)).to be_a(PawnPromotionMoveInput)
     end
 
     it 'returns PawnCaptureMoveInput object for pawn capture input' do

@@ -2,6 +2,6 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
-# gem "colorize"
-# gem "rspec"
+gem "colorize"
+gem "rspec"
+gem 'simplecov', require: false, group: :test

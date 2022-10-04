@@ -78,6 +78,7 @@ class Pawn < Piece
   def en_passant_capture(destination)
     capture_square = board.square(row, destination.column)
     capture(capture_square)
+    move(destination)
   end
 
   def promote(input)
